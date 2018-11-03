@@ -48,15 +48,6 @@ return array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker',
     ),
   ),
-  '2amigos/yii2-tinymce-widget' => 
-  array (
-    'name' => '2amigos/yii2-tinymce-widget',
-    'version' => '1.1.2.0',
-    'alias' => 
-    array (
-      '@dosamigos/tinymce' => $vendorDir . '/2amigos/yii2-tinymce-widget/src',
-    ),
-  ),
   'codemix/yii2-localeurls' => 
   array (
     'name' => 'codemix/yii2-localeurls',
@@ -64,6 +55,24 @@ return array (
     'alias' => 
     array (
       '@codemix/localeurls' => $vendorDir . '/codemix/yii2-localeurls',
+    ),
+  ),
+  '2amigos/yii2-tinymce-widget' => 
+  array (
+    'name' => '2amigos/yii2-tinymce-widget',
+    'version' => '1.1.3.0',
+    'alias' => 
+    array (
+      '@dosamigos/tinymce' => $vendorDir . '/2amigos/yii2-tinymce-widget/src',
+    ),
+  ),
+  '2amigos/yii2-gallery-widget' => 
+  array (
+    'name' => '2amigos/yii2-gallery-widget',
+    'version' => '1.1.0.0',
+    'alias' => 
+    array (
+      '@dosamigos/gallery' => $vendorDir . '/2amigos/yii2-gallery-widget/src',
     ),
   ),
 );

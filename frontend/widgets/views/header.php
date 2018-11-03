@@ -5,8 +5,8 @@ use yii\helpers\Url;
 ?>
 
   <header role="banner" class="probootstrap-header">
-    <div class="container">
-        <a href="index.html"><img style="width: 150px;" src="<?= Yii::$app->homeUrl;?>images/l.png"></a>
+    <div style="padding: 0 10px; margin: 0 10px;" class="container-fluid">
+        <a href="<?= Yii::$app->homeUrl;?>"><img style="width: 150px;" src="<?= Yii::$app->homeUrl;?>images/l.png"></a>
         
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
@@ -14,8 +14,9 @@ use yii\helpers\Url;
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul style="margin-top: 50px;" class="probootstrap-main-nav">
             <li><a href="<?= Yii::$app->homeUrl;?>"><?= Yii::t('app', 'Bosh sahifa');?></a></li>
+            <li><a href="<?= Url::to(['about/index']);?>"><?= Yii::t('app', 'Boshqarma haqida');?></a></li>
+            <li><a href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Qonunchilik');?></a></li>
             <li><a href="<?= Url::to(['news/index']);?>"><?= Yii::t('app', 'Yangiliklar');?></a></li>
-            <li><a href="<?= Url::to(['about/index']);?>"><?= Yii::t('app', 'Boshqamar haqida');?></a></li>
             <li><a href="<?= Url::to(['contacts/index']);?>"><?= Yii::t('app', 'Kontaktlar');?></a></li>
             <li><a href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Sayyohlarga');?></a></li>
           </ul>

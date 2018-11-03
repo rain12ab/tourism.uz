@@ -1,21 +1,87 @@
 <?php
 
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\helpers\StringHelper;
 
 ?>
 
-  <div class="probootstrap-section">
-    <div class="container text-center">
-      <!-- <div class="row">
-        <div class="col-md-6 col-md-offset-3 mb40">
-          <h2>I'm a photographer</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>    
-        </div>
-      </div> -->
+<style type="text/css">
+.img-bg{
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+.probootstrap-photo-details{
+  background-color: #00000080;
+    padding: 10px;
+}
+.vdivide [class*='col-sm']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 3px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+}
+</style>
 
+  <div class="probootstrap-section">
+    <div class="container">
+      <div style="margin-bottom: 50px;" class="row vdivide probootstrap-gutter16">
+        <div class="col-md-12">
+          <div id="news" class="col-sm-7">
+            <h2 style="margin-bottom: 40px; text-align: center;"><?= Yii::t('app', 'So\'nggi yangiliklar');?></h2>
+            <?php foreach ($news as $new):?>
+            <?php
+              if(Yii::$app->language == 'uz')
+                {
+                  $title = $new->title_uz;
+                  $content = $new->content_uz;
+                }
+              else if(Yii::$app->language == 'ru')
+                {
+                  $title = $new->title_ru;
+                  $content = $new->content_ru;
+                }
+              else if(Yii::$app->language == 'en')
+                {
+                  $title = $new->title_en;
+                  $content = $new->content_en;
+                }
+              else
+                {
+                  $title = null;
+                  $content = null;
+                }
+            ?>
+            <div class="row">
+              <div class="col-md-4">
+                <img style="width: 100%; margin-bottom: 20px;" src="<?= Yii::$app->request->baseUrl;?>/<?= $new->pic;?>">
+              </div>
+              <div class="col-md-8">
+                <h4 style="margin-top: -0.5em"><?= $title;?></h4>
+                <p><?= StringHelper::truncate($content, 200);?></p>
+              </div>
+            </div>
+            <?php endforeach;?>
+            <?= Html::a(Yii::t('app', 'Barcha yangiliklar'), ['/news/index'], ['class'=>'btn btn-primary btn-sm col-md-5 col-md-offset-3']) ?>
+          </div>
+          <div id="law" class="col-sm-4 col-md-offset-1">
+            <h2 style="text-align: center; margin-bottom: 40px;"><?= Yii::t('app', 'Yangi normativ-huquqiy hujjatlar');?></h2>
+            <div style="margin-bottom: 15px;" class="row">
+              <?= Html::a('“«O‘zbekturizm» Milliy Kompaniyasi faoliyatini tashkil etish masalalari to‘g‘risida” 1992 yil 20 oktyabr, 484-son', 'http://lex.uz/docs/514856', ['class'=>'']) ?>
+            </div>
+            <?= Html::a(Yii::t('app', 'Barcha normativ-huquqiy hujjatlar'), ['/news/index'], ['class'=>'btn btn-primary btn-sm col-md-10 col-md-offset-1']) ?>
+          </div>
+        </div>
+      </div>
       <div class="row probootstrap-gutter16">
         <div class="col-md-4 probootstrap-animate" data-animate-effect="fadeIn">
-          <a href="<?= Url::to(['objects/index']);?>" class="img-bg" style="background-image: url(images/bg/6.jpg);">
+          <a href="<?= Url::to(['objects/index']);?>" class="img-bg" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/images/bg/6.jpg);">
             <div class="probootstrap-photo-details">
               <h2><?= Yii::t('app', 'Turistik obyektlar');?></h2>
               <p><?= Yii::t('app', 'Arxitekturik, arxeologik va tabiat joylar');?></p>
@@ -23,7 +89,7 @@ use yii\helpers\Url;
           </a>
         </div>
         <div class="col-md-8 probootstrap-animate" data-animate-effect="fadeIn">
-          <a href="<?= Url::to(['hotels/index']);?>" class="img-bg" style="background-image: url(images/bg/2.jpg);">
+          <a href="<?= Url::to(['hotels/index']);?>" class="img-bg" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/images/bg/2.jpg);">
             <div class="probootstrap-photo-details">
               <h2><?= Yii::t('app', 'Mehmonxonalar');?></h2>
               <p><?= Yii::t('app', 'Motellar, uymehmonxonalari v.h.k.');?></p>
@@ -34,7 +100,7 @@ use yii\helpers\Url;
 
       <div class="row probootstrap-gutter16">
         <div class="col-md-5 probootstrap-animate" data-animate-effect="fadeIn">
-          <a href="<?= Url::to(['restaurants/index']);?>" class="img-bg" style="background-image: url(images/bg/3.jpg);">
+          <a href="<?= Url::to(['restaurants/index']);?>" class="img-bg" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/images/bg/3.jpg);">
             <div class="probootstrap-photo-details">
               <h2><?= Yii::t('app', 'Ovqatlanish maskanlari');?></h2>
               <p><?= Yii::t('app', 'Choyxonlar, restoranlar, kafe v.h.k.');?></p>
@@ -42,7 +108,7 @@ use yii\helpers\Url;
           </a>
         </div>
         <div class="col-md-7 probootstrap-animate" data-animate-effect="fadeIn">
-          <a href="<?= Url::to(['gallery/index']);?>" class="img-bg" style="background-image: url(images/bg/5.jpg);">
+          <a href="<?= Url::to(['gallery/index']);?>" class="img-bg" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/images/bg/5.jpg);">
             <div class="probootstrap-photo-details">
               <h2><?= Yii::t('app', 'Gallereya');?></h2>
               <p><?= Yii::t('app', 'Navoiy viloyatidan fotolovhalar');?></p>

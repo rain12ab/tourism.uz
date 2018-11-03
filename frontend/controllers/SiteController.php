@@ -75,6 +75,12 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionSelect()
+    {
+        $this->layout = 'content';
+        return $this->render('select');
+    }
+
     /**
      * Logs in a user.
      *

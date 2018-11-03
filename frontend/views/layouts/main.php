@@ -30,6 +30,15 @@ AwesomeAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <?php $this->head() ?>
+    <style type="text/css">
+      .probootstrap-section{
+          background: url(<?= Yii::$app->request->baseUrl;?>/images/bg/bg.png) no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+      }
+    </style>
 </head>
 <body class="is-preload">
 <?php $this->beginBody() ?>

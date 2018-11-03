@@ -22,7 +22,8 @@
         "bower-asset/font-awesome": "^5.0",
         "2amigos/yii2-tinymce-widget" : "~1.1",
         "codemix/yii2-localeurls": "^1.7",
-        "2amigos/yii2-google-maps-library": "^1.1"
+        "2amigos/yii2-google-maps-library": "^1.1",
+        "2amigos/yii2-gallery-widget": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
