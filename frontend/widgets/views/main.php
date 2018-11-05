@@ -63,7 +63,7 @@ use yii\helpers\StringHelper;
                 <img style="width: 100%; margin-bottom: 20px;" src="<?= Yii::$app->request->baseUrl;?>/<?= $new->pic;?>">
               </div>
               <div class="col-md-8">
-                <h4 style="margin-top: -0.5em"><?= $title;?></h4>
+                <h4 style="margin-top: -0.5em"><a href="<?= Url::to(['news/view', 'id' => $new->id]);?>"><?= $title;?></a></h4>
                 <p><?= StringHelper::truncate($content, 200);?></p>
               </div>
             </div>

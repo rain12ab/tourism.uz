@@ -37,7 +37,7 @@ AwesomeAsset::register($this);
           -o-background-size: cover;
           background-size: cover;
       }
-      .breadcrumbs{
+      .breadcrumb{
         margin-bottom: -18px;
       }
     </style>

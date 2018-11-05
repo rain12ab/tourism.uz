@@ -14,13 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <section class="probootstrap-section">
     <div class="container">
         <div class="col-md-12">
-        <?php Pjax::begin(); ?>
         <?= ListView::widget([
             'dataProvider' => $dataProvider,
             'itemView' => '_view',
             'summary' => '',
         ]) ?>
-        <?php Pjax::end(); ?>
         </div>
     </div>
 </section>
