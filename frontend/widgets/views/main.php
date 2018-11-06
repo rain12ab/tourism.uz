@@ -79,7 +79,7 @@ use yii\helpers\StringHelper;
           </div>
         </div>
       </div>
-      <div class="row probootstrap-gutter16">
+      <div id="selector" class="row probootstrap-gutter16">
         <div class="col-md-4 probootstrap-animate" data-animate-effect="fadeIn">
           <a href="<?= Url::to(['objects/index']);?>" class="img-bg" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/images/bg/6.jpg);">
             <div class="probootstrap-photo-details">
