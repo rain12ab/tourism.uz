@@ -5,6 +5,7 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use yii\web\Cookie;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -12,6 +13,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Language;
 
 /**
  * Site controller
@@ -217,5 +219,28 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionLanguage($ln)
+    {
+        $language = Language::find()->joinWith('langname')->where(['language.status'=>'1','country.language_code'=> $ln])->one();
+        if($language != null){
+            $lan_code = $language->langname->language_code;
+            
+            
+            $cookie = new Cookie([
+              'name'=> 'language',
+              'value'=> $lan_code
+            ]);
+
+            \Yii::$app->getResponse()->getCookies()->add($cookie);
+            
+            
+            $session = \Yii::$app->session;
+            $session->set('_lang', $lan_code);
+            return $this->redirect('/');
+        }else{
+            return $this->redirect('/');
+        }
     }
 }

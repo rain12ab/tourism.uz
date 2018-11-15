@@ -72,10 +72,29 @@ use yii\helpers\StringHelper;
           </div>
           <div id="law" class="col-sm-4 col-md-offset-1">
             <h2 style="text-align: center; margin-bottom: 40px;"><?= Yii::t('app', 'Yangi normativ-huquqiy hujjatlar');?></h2>
+            <?php foreach ($laws as $law):?>
+            <?php
+              if(Yii::$app->language == 'uz')
+                {
+                  $name = $law->name_uz;
+                  $url = $law->url_uz;
+                }
+              else if(Yii::$app->language == 'ru')
+                {
+                  $name = $law->name_ru;
+                  $url = $law->url_ru;
+                }
+              else
+                {
+                  $name = null;
+                  $url = null;
+                }
+            ?>
             <div style="margin-bottom: 15px;" class="row">
-              <?= Html::a('“«O‘zbekturizm» Milliy Kompaniyasi faoliyatini tashkil etish masalalari to‘g‘risida” 1992 yil 20 oktyabr, 484-son', 'http://lex.uz/docs/514856', ['class'=>'']) ?>
+              <?= Html::a($name, $url) ?>
             </div>
-            <?= Html::a(Yii::t('app', 'Barcha normativ-huquqiy hujjatlar'), ['/news/index'], ['class'=>'btn btn-primary btn-sm col-md-10 col-md-offset-1']) ?>
+            <?php endforeach;?>
+            <?= Html::a(Yii::t('app', 'Barcha normativ-huquqiy hujjatlar'), ['/news/index'], ['class'=>'btn btn-primary btn-sm col-md-12']) ?>
           </div>
         </div>
       </div>

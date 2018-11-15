@@ -11,14 +11,27 @@ function init() {
     
     var mapOptions = {
         // How zoomed in you want the map to start at (always required)
-        zoom: 5,
+        zoom: 7,
 
         // The latitude and longitude to center the map (always required)
         center: myLatlng,
 
         // How you would like to style the map. 
         scrollwheel: false,
-        styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#5068A9"},{"lightness":100}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#5068A9"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#5068A9"},{"lightness":90}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#5068A9"},{"lightness":50},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#5068A9"},{"lightness":25}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#5068A9"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#5068A9"},{"lightness":7}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#5068A9"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#5068A9"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#5068A9"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#5068A9"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#5068A9"},{"lightness":17}]}]
+        styles: [
+            {
+                "featureType": "administrative.country",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "visibility": "simplified"
+                    },
+                    {
+                        "hue": "#ff0000"
+                    }
+                ]
+            }
+        ]
     };
 
     
@@ -30,7 +43,7 @@ function init() {
     // Create the Google Map using out element and options defined above
     var map = new google.maps.Map(mapElement, mapOptions);
     
-    var addresses = ['Brooklyn'];
+    var addresses = ['New York'];
 
     for (var x = 0; x < addresses.length; x++) {
         $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
@@ -39,7 +52,7 @@ function init() {
             new google.maps.Marker({
                 position: latlng,
                 map: map,
-                icon: 'img/loc.png'
+                icon: 'images/loc.png'
             });
 
         });

@@ -16,9 +16,9 @@ return [
     'components' => [
         'i18n' => [
             'translations' => [
-                'app*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@app/messages',
+                'app' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'uz',
                 ],
             ],
         ],
@@ -63,8 +63,17 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
+                'language/<ln>'=>'site/language',
             ],
         ],
     ],
+    
     'params' => $params,
+
+    'modules' => [
+       'gridview' =>  [
+            'class' => '\kartik\grid\Module',
+        ],
+    ],
 ];
