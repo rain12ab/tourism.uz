@@ -24,16 +24,18 @@ else
 		$content = null;
 	}
 ?>
-
-<div style="margin: 15px 15px" class="row">
-	<div class="col-md-3">
-		<img class="img-border" style="width: 100%;" src="<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>">
-	</div>
-	<div class="col-md-8">
-		<a href="<?= Url::to(['news/view', 'id' => $model->id]);?>"><h2 class="mt0"><?= $title;?></h2></a>
-		<ul style="margin-bottom: -12px;" class="with-icon colored"><li><i class="fas fa-clock"></i><span style="font-size: 14px;"><?= $model->date;?></span></li></ul>
-		<p>
-			<?= StringHelper::truncate($content, 200);?>
-		</p>
+<div class="col-md-6 col-lg-3 ftco-animate">
+	<div class="blog-entry">
+		<a href="<?= Url::to(['news/view', 'id' => $model->id]);?>" class="block-20" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>');">
+		</a>
+		<div class="text p-4">
+			<div class="meta">
+				<div><?= $model->date;?></div>
+			</div>
+			<h4 class="heading"><a href="<?= Url::to(['news/view', 'id' => $model->id]);?>"><?= $title;?></a></h4>
+			<p class="clearfix">
+			<a href="<?= Url::to(['news/view', 'id' => $model->id]);?>" class="float-left"><?= Yii::t('app', 'Batafsil');?></a>
+			</p>
+		</div>
 	</div>
 </div>

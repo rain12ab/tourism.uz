@@ -35,9 +35,11 @@
 	    animateOut: 'fadeOut',
 	    animateIn: 'fadeIn',
 	    nav:true,
+	    mouseDrag:false,
 	    autoplayHoverPause: false,
 	    items: 1,
-	    navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+	    dots:false,
+	    navText: ['<i style="font-size: 30px;" class="fas fa-angle-double-left">', '<i style="font-size: 30px;" class="fas fa-angle-double-right">'],
 	    responsive:{
 	      0:{
 	        items:1,
@@ -61,7 +63,7 @@
 			margin: 30,
 			stagePadding: 0,
 			nav: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			navText: ['<i style="font-size: 30px;" class="fas fa-angle-double-left">', '<i style="font-size: 30px;" class="fas fa-angle-double-right">'],
 			responsive:{
 				0:{
 					items: 1
@@ -81,7 +83,7 @@
 			margin: 30,
 			stagePadding: 10,
 			nav: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			navText: ['<i style="font-size: 30px;" class="fas fa-angle-double-left">', '<i style="font-size: 30px;" class="fas fa-angle-double-right">'],
 			responsive:{
 				0:{
 					items: 1

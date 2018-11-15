@@ -3,13 +3,15 @@
 // style="margin-top: 40px; margin-left: 40%;"
 /*<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->language_code_id;?>*/
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 
 $current_lang = common\models\Language::find()->where(['language_code_id' => common\models\Country::find()->where(['language_code' => Yii::$app->language])->select('id')->one()])->select('name')->one();
 $current_lang_code = common\models\Country::find()->where(['language_code' => Yii::$app->language])->select('language_code')->one();
 ?>
 <style type="text/css">
 .dropdown-menu {
-  background-color: #000;
+  background-color: #fff;
 }
   @media screen and (max-width: 991px) {
       .site-logo {
@@ -46,10 +48,10 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Sayyohlarga');?></a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><img style="width: 35px;height: auto;padding: 5px; float: left;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $current_lang_code->language_code;?>.gif"><?= $current_lang->name;?>
-          <span class="caret"></span></a>
+          </a>
           <ul class="dropdown-menu">
             <?php foreach($all as $one):?>
-            <li><img style="width: 35px;height: auto;padding: 5px; float: left;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->langname->language_code;?>.gif"><a href="<?= Url::to(['/site/language', 'ln' => $one->langname->language_code]); ?>"><?= $one->name;?></a></li>
+            <li><img style="width: 35px;height: auto;padding: 5px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->langname->language_code;?>.gif"><a href="<?= Url::to(['/site/language', 'ln' => $one->langname->language_code]); ?>"><?= $one->name;?></a></li>
             <?php endforeach?>
           </ul>
         </li>

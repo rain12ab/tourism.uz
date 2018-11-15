@@ -46,43 +46,43 @@ else
     <link href="https://fonts.googleapis.com/css?family=Caveat&amp;subset=cyrillic,latin-ext" rel="stylesheet">
     <?php $this->head() ?>
 </head>
-<body class="is-preload">
+<body>
 <?php $this->beginBody() ?>
   
 
     
   <?= HeaderWidget::widget();?>
 
-  <section class="home-slider owl-carousel">
-      <div class="slider-item" style="min-height: 575px;background-image: url('<?= Yii::$app->request->baseUrl;?>/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text align-items-center">
-            <div class="col-md-7 col-sm-12 ftco-animate">
-              <?= BreadcrumbsMicrodata::widget([
-                  'options' => [
-                      'class' => 'breadcrumbs',
-                  ],
-                  'homeLink' => [
-                      'label' => Yii::t('yii', 'Home'),
-                      'url' => ['/site/index'],
-                      'class' => 'home',
-                      'template' => '<span class="mr-2">{link}</span>',
-                  ],
-                  'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                  'itemTemplate' => '<span>{link}</span>',
-                  'activeItemTemplate' => '<span class="active">{link}</span>',
-                  'tag' => 'p',
-                  'encodeLabels' => false
-              ]);
-              ?>
-              <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span><a href="blog.html">Blog</a></span> <span>Single Blog</span></p> -->
-              <h1 class="mb-3"><?= $this->title;?></h1>
-            </div>
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="min-height: 575px;background-image: url('<?= Yii::$app->request->baseUrl;?>/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center">
+          <div class="col-md-12 ftco-animate">
+            <?= BreadcrumbsMicrodata::widget([
+                'options' => [
+                    'class' => 'breadcrumbs',
+                ],
+                'homeLink' => [
+                    'label' => Yii::t('yii', 'Home'),
+                    'url' => ['/site/index'],
+                    'class' => 'home',
+                    'template' => '<span class="mr-2">{link}</span>',
+                ],
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'itemTemplate' => '<span>/ {link}</span>',
+                'activeItemTemplate' => '<span style="margin-left: 5px;" class="active">/ {link}</span>',
+                'tag' => 'p',
+                'encodeLabels' => false
+            ]);
+            ?>
+            <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span><a href="blog.html">Blog</a></span> <span>Single Blog</span></p> -->
+            <h1 style="font-size: 30px; padding-top: 30px;" class="mb-3"><?= $this->title;?></h1>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+</section>
 
   <?= $content;?>
 

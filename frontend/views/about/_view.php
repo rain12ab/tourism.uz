@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Url;
-
+use frontend\widgets\MessageWidget;
 
 if(Yii::$app->language == 'uz')
   {
@@ -22,11 +22,11 @@ else
 
 ?>
 
-<div class="row">
-	<h1 style="text-align: center;"><?= Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');?></h1>
+<div class="row ftco-animate">
+	<h1 class="mb-3" style="text-align: center;"><?= Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');?></h1>
 </div>
-<div class="row">
-	<div class="col-md-6">
+<div class="row ftco-animate">
+	<div class="col-md-6 ftco-animate">
 		<p style="color: #000;"><?= $content;?></p>
 	</div>
 	<div class="col-md-6">
@@ -62,4 +62,8 @@ else
 		]);
 		?> 
 	</div>
+</div>
+<div class="ftco-animate">
+	<h3 class="mb-3" style="text-align: center; margin-top: 30px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h3>
+	<?= MessageWidget::widget();?>
 </div>

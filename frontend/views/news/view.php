@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\widgets\DetailView;
 use frontend\widgets\MessageWidget;
 
@@ -27,23 +28,27 @@ else
         $content = null;
     }
 
-$this->title = $title;
+$this->title = StringHelper::truncate($title, 500);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Yangiliklar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="probootstrap-section">
-    <div class="container">
-        <div class="col-md-12">
-            <h1 class="mt0"><?= $title;?></h1>
-            <ul style="margin-bottom: -12px;" class="with-icon colored"><li><i class="fas fa-clock"></i><span style="font-size: 14px;"><?= $model->date;?></span></li></ul>
-            <img class="img-border" style="width: 100%; margin-bottom: 10px" src="<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>">
-            <div class="row">
+<section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
+            <h1 class="mb-3"><?= $title;?></h1>
+            <div style="margin-bottom: 20px;">
+                <i style="padding: 0 10px;" class="fas fa-clock"></i><span style="font-size: 14px; margin-right: 10px;"><?= Yii::t('app', 'Vaqti');?>: <?= $model->date;?></span>
+                <i style="padding: 0 10px;" class="fas fa-user"></i><span style="font-size: 14px; margin-right: 10px;"><?= Yii::t('app', 'Muallif');?>: <?= $model->author;?></span>
+            </div>
+            <img class="img-fluid" style="width: 100%; margin-bottom: 10px" src="<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>">
                 <p>
                     <?= $content;?>
                 </p>
+                <h3 class="mb-3" style="text-align: center; margin-top: 30px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h3>
                 <?= MessageWidget::widget();?>
-            </div>
+        </div>
         </div>
     </div>
 </div>

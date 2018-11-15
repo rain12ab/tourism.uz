@@ -11,8 +11,8 @@ $this->title = Yii::t('app', 'Boshqarma haqida');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<section class="probootstrap-section">
-    <div class="container">
+<section class="ftco-section">
+  <div class="container">
         <div class="col-md-12">
         <?= ListView::widget([
             'dataProvider' => $dataProvider,

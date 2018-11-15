@@ -45,7 +45,7 @@ else
     <link href="https://fonts.googleapis.com/css?family=Caveat&amp;subset=cyrillic,latin-ext" rel="stylesheet">
     <?php $this->head() ?>
 </head>
-<body class="is-preload">
+<body>
 <?php $this->beginBody() ?>
   
 
