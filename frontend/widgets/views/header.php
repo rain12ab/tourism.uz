@@ -42,7 +42,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="<?= Yii::$app->homeUrl;?>"><?= Yii::t('app', 'Bosh sahifa');?></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['about/index']);?>"><?= Yii::t('app', 'Boshqarma haqida');?></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Qonunchilik');?></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['laws/index']);?>"><?= Yii::t('app', 'Qonunchilik');?></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['news/index']);?>"><?= Yii::t('app', 'Yangiliklar');?></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['contacts/index']);?>"><?= Yii::t('app', 'Kontaktlar');?></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Sayyohlarga');?></a></li>
@@ -51,7 +51,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
           </a>
           <ul class="dropdown-menu">
             <?php foreach($all as $one):?>
-            <li><img style="width: 35px;height: auto;padding: 5px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->langname->language_code;?>.gif"><a href="<?= Url::to(['/site/language', 'ln' => $one->langname->language_code]); ?>"><?= $one->name;?></a></li>
+            <li><a href="<?= Url::to(['/site/language', 'ln' => $one->langname->language_code]); ?>"><img style="width: 35px;height: auto;padding: 3px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->langname->language_code;?>.gif"><?= $one->name;?></a></li>
             <?php endforeach?>
           </ul>
         </li>

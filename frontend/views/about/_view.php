@@ -23,7 +23,9 @@ else
 ?>
 
 <div class="row ftco-animate">
-	<h1 class="mb-3" style="text-align: center;"><?= Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');?></h1>
+	<div class="col-md-12 text-center heading-section ftco-animate fadeInUp ftco-animated">
+		<h1 class="mb-3" style="text-align: center;"><?= Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');?></h1>
+	</div>
 </div>
 <div class="row ftco-animate">
 	<div class="col-md-6 ftco-animate">
