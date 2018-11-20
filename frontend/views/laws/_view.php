@@ -18,18 +18,16 @@ else
 
 ?>
 
-<div class="col-md-12 col-lg-6 ftco-animate">
-	<div class="blog-entry">
-		<a href="<?= Url::to(['news/view', 'id' => $model->id]);?>" class="block-20" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>');">
-		</a>
-		<div class="text p-4">
-			<div class="meta">
-				<div><?= $model->date;?></div>
-			</div>
-			<h4 class="heading"><a href="<?= Url::to(['news/view', 'id' => $model->id]);?>"><?= $title;?></a></h4>
-			<p class="clearfix">
-			<a href="<?= Url::to(['news/view', 'id' => $model->id]);?>" class="float-left"><?= Yii::t('app', 'Batafsil');?></a>
-			</p>
-		</div>
+<style type="text/css">
+	#p-4{
+		background-color: #fff;
+		border: 1px solid #000;
+		border-radius: 10px;
+	}
+</style>
+
+<div class="col-md-12 ftco-animate">
+	<div style="padding: 10px; margin: 5px;" id="p-4">
+			<h4 class="heading"><a target="_blank" href="<?= Url::to($url);?>"><?= $name;?></a></h4>
 	</div>
 </div>

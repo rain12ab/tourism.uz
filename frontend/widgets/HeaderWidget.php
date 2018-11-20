@@ -19,5 +19,4 @@ class HeaderWidget extends Widget
         ]);
 
     }
-
 }

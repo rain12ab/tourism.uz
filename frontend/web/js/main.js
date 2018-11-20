@@ -61,6 +61,7 @@
 			loop: true,
 			items:1,
 			margin: 30,
+			dots:false,
 			stagePadding: 0,
 			nav: true,
 			navText: ['<i style="font-size: 30px;" class="fas fa-angle-double-left">', '<i style="font-size: 30px;" class="fas fa-angle-double-right">'],
@@ -78,11 +79,13 @@
 		});
 
 		$('.carousel1').owlCarousel({
-			loop: false,
+			loop:true,
+	    autoplay: true,
 			items:1,
 			margin: 30,
+			dots:false,
 			stagePadding: 10,
-			nav: true,
+			nav: false,
 			navText: ['<i style="font-size: 30px;" class="fas fa-angle-double-left">', '<i style="font-size: 30px;" class="fas fa-angle-double-right">'],
 			responsive:{
 				0:{
@@ -103,6 +106,7 @@
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
+			dots:false,
 			navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
 			responsive:{
 				0:{

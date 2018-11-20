@@ -47,7 +47,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['contacts/index']);?>"><?= Yii::t('app', 'Kontaktlar');?></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Sayyohlarga');?></a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><img style="width: 35px;height: auto;padding: 5px; float: left;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $current_lang_code->language_code;?>.gif"><?= $current_lang->name;?>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><img style="width: 35px;height: auto;margin-right: 5px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $current_lang_code->language_code;?>.gif"><?= $current_lang->name;?>
           </a>
           <ul class="dropdown-menu">
             <?php foreach($all as $one):?>

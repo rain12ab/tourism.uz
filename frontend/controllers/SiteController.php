@@ -224,23 +224,22 @@ class SiteController extends Controller
     public function actionLanguage($ln)
     {
         $language = Language::find()->joinWith('langname')->where(['language.status'=>'1','country.language_code'=> $ln])->one();
-        if($language != null){
-            $lan_code = $language->langname->language_code;
-            
-            
-            $cookie = new Cookie([
-              'name'=> 'language',
-              'value'=> $lan_code
-            ]);
-
-            \Yii::$app->getResponse()->getCookies()->add($cookie);
-            
-            
-            $session = \Yii::$app->session;
-            $session->set('_lang', $lan_code);
-            return $this->redirect('/');
-        }else{
-            return $this->redirect('/');
-        }
+            if($language != null){
+              $lan_code = $language->langname->language_code;
+              
+              Yii::$app->language = $lan_code;
+              $cookie = new Yii\web\cookie([
+                'name'=>'language',
+                'value'=>$lan_code
+              ]);
+              Yii::$app->getResponse()->getCookies()->add($cookie);
+              
+              
+              $session = Yii::$app->session;
+              $session->set('language', $lan_code);
+              return $this->redirect('/');
+            }else{
+              return $this->redirect('/');
+            }
     }
 }
