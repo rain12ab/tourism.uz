@@ -17,20 +17,15 @@ use frontend\widgets\AboutWidget;
 use frontend\widgets\HotelWidget;
 use frontend\widgets\ObjectWidget;
 use frontend\widgets\NewsWidget;
+use common\models\Language;
+use common\models\Country;
 
 // Yii::$app->name = Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');
 // $this->title = Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');
 
 AppAsset::register($this);
 AwesomeAsset::register($this);
-// if(Yii::$app->session->get('_lang') != null)
-// {
-//   \Yii::$app->language = \Yii::$app->session->get('_lang');
-// }
-// else
-// {
-//   \Yii::$app->language = 'en';
-// }
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

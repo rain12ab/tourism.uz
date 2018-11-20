@@ -51,7 +51,8 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
           </a>
           <ul class="dropdown-menu">
             <?php foreach($all as $one):?>
-            <li><a href="<?= Url::to(['/site/language', 'ln' => $one->langname->language_code]); ?>"><img style="width: 35px;height: auto;padding: 3px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->langname->language_code;?>.gif"><?= $one->name;?></a></li>
+            <!-- <li><a href="<?= Url::to(['/site/language', 'ln' => $one->langname->language_code]); ?>"><img style="width: 35px;height: auto;padding: 3px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $one->langname->language_code;?>.gif"><?= $one->name;?></a></li> -->
+            <?= Html::tag('li', Html::a(Html::img(Yii::$app->request->baseUrl.'/images/flags/'.$one->langname->language_code.'.gif', ['style' => 'width: 35px;height: auto;padding: 3px;']).$one->name, array_merge(\Yii::$app->request->get(),[\Yii::$app->controller->route, 'language' => $one->langname->language_code])));?>
             <?php endforeach?>
           </ul>
         </li>

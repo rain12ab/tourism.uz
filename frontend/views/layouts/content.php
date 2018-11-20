@@ -24,14 +24,7 @@ use frontend\models\BreadcrumbsMicrodata;
 
 AppAsset::register($this);
 AwesomeAsset::register($this);
-// if(Yii::$app->session->get('language') != null)
-// {
-//   \Yii::$app->language = \Yii::$app->session->get('language');
-// }
-// else
-// {
-//   \Yii::$app->language = 'en';
-// }
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
