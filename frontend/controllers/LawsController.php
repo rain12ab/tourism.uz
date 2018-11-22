@@ -4,6 +4,8 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Laws;
+use common\models\Symbols;
+use common\models\Lawtype;
 use frontend\models\LawsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -34,6 +36,23 @@ class LawsController extends Controller
      * Lists all Laws models.
      * @return mixed
      */
+
+    public function actionSelect()
+    {
+        $types = Lawtype::find()->all();
+        return $this->render('select', [
+            'types' => $types,
+        ]);
+    }
+
+    public function actionSymbols()
+    {
+        $symbols = Symbols::find()->all();
+        return $this->render('symbols', [
+            'symbols' => $symbols,
+        ]);
+    }
+
     public function actionIndex()
     {
         $searchModel = new LawsSearch();

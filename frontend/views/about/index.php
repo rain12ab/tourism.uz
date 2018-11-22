@@ -16,7 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-12">
         <?= ListView::widget([
             'dataProvider' => $dataProvider,
-            'itemView' => '_view',
+            'itemView' => '_about',
+            'summary' => '',
+        ]) ?>
+        <?= ListView::widget([
+            'dataProvider' => $dataProvider2,
+            'itemView' => '_contact',
             'summary' => '',
         ]) ?>
         </div>

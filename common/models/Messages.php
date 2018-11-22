@@ -44,10 +44,10 @@ class Messages extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'phone' => Yii::t('app', 'Phone'),
-            'email' => Yii::t('app', 'Email'),
-            'content' => Yii::t('app', 'Content'),
+            'name' => Yii::t('app', 'F.I.Sh.'),
+            'phone' => Yii::t('app', 'Telefon raqam'),
+            'email' => Yii::t('app', 'E-mail'),
+            'content' => Yii::t('app', 'Xabar'),
             'date' => Yii::t('app', 'Date'),
         ];
     }

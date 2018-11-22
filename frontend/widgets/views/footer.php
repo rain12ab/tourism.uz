@@ -29,7 +29,7 @@ use yii\helpers\Url;
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2"><?= Yii::t('app', 'Foydali manzillar');?></h2>
+              <h2 class="ftco-heading-2"><?= Yii::t('app', 'Davlat manbalari');?></h2>
               <ul class="list-unstyled">
                 <?php foreach ($links as $link):?>
                 <?php if(Yii::$app->language == 'uz')

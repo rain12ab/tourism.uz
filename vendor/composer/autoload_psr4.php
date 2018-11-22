@@ -55,6 +55,7 @@ return array(
     'kartik\\alert\\' => array($vendorDir . '/kartik-v/yii2-widget-alert'),
     'kartik\\affix\\' => array($vendorDir . '/kartik-v/yii2-widget-affix'),
     'imanilchaudhari\\socialshare\\' => array($vendorDir . '/imanilchaudhari/yii2-social-share'),
+    'hosanna\\audiojs\\' => array($vendorDir . '/hosannahighertech/yii2-audiojs'),
     'edofre\\sliderpro\\' => array($vendorDir . '/edofre/yii2-slider-pro/src'),
     'dosamigos\\tinymce\\' => array($vendorDir . '/2amigos/yii2-tinymce-widget/src'),
     'dosamigos\\selectize\\' => array($vendorDir . '/2amigos/yii2-selectize-widget/src'),

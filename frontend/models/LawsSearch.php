@@ -12,13 +12,14 @@ use common\models\Laws;
  */
 class LawsSearch extends Laws
 {
+    public $type;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'lawtype_id'], 'integer'],
+            [['id', 'lawtype_id', 'type'], 'integer'],
             [['name_uz', 'name_ru', 'url_uz', 'url_ru'], 'safe'],
         ];
     }
@@ -49,7 +50,7 @@ class LawsSearch extends Laws
             'query' => $query,
         ]);
 
-        $this->load($params);
+        if (!$this->load($params)) {}
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -60,7 +61,7 @@ class LawsSearch extends Laws
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'lawtype_id' => $this->lawtype_id,
+            'lawtype_id' => $this->type,
         ]);
 
         $query->andFilterWhere(['like', 'name_uz', $this->name_uz])
@@ -69,5 +70,9 @@ class LawsSearch extends Laws
             ->andFilterWhere(['like', 'url_ru', $this->url_ru]);
 
         return $dataProvider;
+    }
+    
+    public function formName() {
+         return '';
     }
 }

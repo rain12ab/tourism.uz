@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use common\models\About;
 use frontend\models\AboutSearch;
+use frontend\models\ContactsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -40,9 +41,13 @@ class AboutController extends Controller
         $searchModel = new AboutSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $searchModel2 = new ContactsSearch();
+        $dataProvider2 = $searchModel2->search(Yii::$app->request->queryParams);
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dataProvider2' => $dataProvider2,
         ]);
     }
 

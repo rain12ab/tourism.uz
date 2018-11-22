@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ebb0c30cb0476a48aa364ac97e03dbf",
+    "content-hash": "a011ec1a6f1441d4bcc95f8dfd059f5b",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -1022,6 +1022,50 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "hosannahighertech/yii2-audiojs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hosannahighertech/yii2-audiojs.git",
+                "reference": "24d2ed487989bed7dd2dd6fce9f9481d734a74e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hosannahighertech/yii2-audiojs/zipball/24d2ed487989bed7dd2dd6fce9f9481d734a74e3",
+                "reference": "24d2ed487989bed7dd2dd6fce9f9481d734a74e3",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-widget",
+            "autoload": {
+                "psr-4": {
+                    "hosanna\\audiojs\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stefano Mtangoo",
+                    "email": "support@hosannahighertech.co.tz"
+                }
+            ],
+            "description": "Yii2 Audio Player Widget",
+            "keywords": [
+                "audio",
+                "js-player",
+                "player",
+                "yii",
+                "yii2"
+            ],
+            "abandoned": true,
+            "time": "2015-03-22T10:18:32+00:00"
+        },
+        {
             "name": "imagine/imagine",
             "version": "v0.7.1",
             "source": {
@@ -1520,12 +1564,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-detail-view.git",
-                "reference": "1c05764c6d78edef8e0d7f09d7a111da6cbcc9e7"
+                "reference": "13dab1c4470445de10e5dfd3268028b6b303e171"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-detail-view/zipball/1c05764c6d78edef8e0d7f09d7a111da6cbcc9e7",
-                "reference": "1c05764c6d78edef8e0d7f09d7a111da6cbcc9e7",
+                "url": "https://api.github.com/repos/kartik-v/yii2-detail-view/zipball/13dab1c4470445de10e5dfd3268028b6b303e171",
+                "reference": "13dab1c4470445de10e5dfd3268028b6b303e171",
                 "shasum": ""
             },
             "require": {
@@ -1565,7 +1609,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-11-05T10:58:38+00:00"
+            "time": "2018-11-21T17:30:58+00:00"
         },
         {
             "name": "kartik-v/yii2-dialog",
@@ -1677,12 +1721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "31ccd84cdd3dcb793bde509bcade8b75bfd94c35"
+                "reference": "5fdfcfc2c7cd285411d97e4ab4baae508d6d896a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/31ccd84cdd3dcb793bde509bcade8b75bfd94c35",
-                "reference": "31ccd84cdd3dcb793bde509bcade8b75bfd94c35",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/5fdfcfc2c7cd285411d97e4ab4baae508d6d896a",
+                "reference": "5fdfcfc2c7cd285411d97e4ab4baae508d6d896a",
                 "shasum": ""
             },
             "require": {
@@ -1721,7 +1765,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-11-09T15:48:59+00:00"
+            "time": "2018-11-20T04:15:55+00:00"
         },
         {
             "name": "kartik-v/yii2-helpers",
@@ -6157,7 +6201,8 @@
         "kartik-v/yii2-tabs-x": 20,
         "kartik-v/yii2-editable": 20,
         "kartik-v/yii2-grid": 20,
-        "imanilchaudhari/yii2-social-share": 20
+        "imanilchaudhari/yii2-social-share": 20,
+        "hosannahighertech/yii2-audiojs": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

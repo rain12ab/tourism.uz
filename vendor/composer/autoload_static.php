@@ -83,6 +83,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         array (
             'imanilchaudhari\\socialshare\\' => 28,
         ),
+        'h' => 
+        array (
+            'hosanna\\audiojs\\' => 16,
+        ),
         'e' => 
         array (
             'edofre\\sliderpro\\' => 17,
@@ -349,6 +353,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'imanilchaudhari\\socialshare\\' => 
         array (
             0 => __DIR__ . '/..' . '/imanilchaudhari/yii2-social-share',
+        ),
+        'hosanna\\audiojs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hosannahighertech/yii2-audiojs',
         ),
         'edofre\\sliderpro\\' => 
         array (

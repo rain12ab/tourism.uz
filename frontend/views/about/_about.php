@@ -65,7 +65,4 @@ else
 		?> 
 	</div>
 </div>
-<div class="ftco-animate">
-	<h3 class="mb-3" style="text-align: center; margin-top: 30px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h3>
-	<?= MessageWidget::widget();?>
-</div>
+<h1 class="mb-3" style="text-align: center; margin-top: 50px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h1>

@@ -2,7 +2,7 @@
 
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
-var_dump(Yii::$app->language);
+
 if(Yii::$app->language == 'uz')
 	{
 		$title = $model->title_uz;

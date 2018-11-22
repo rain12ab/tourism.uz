@@ -39,7 +39,8 @@
         "yiisoft/yii2-authclient": "^2.0",
         "2amigos/yii2-selectize-widget": "~1.0",
         "imanilchaudhari/yii2-social-share": "@dev",
-        "edofre/yii2-slider-pro": "V1.1.6"
+        "edofre/yii2-slider-pro": "V1.1.6",
+        "hosannahighertech/yii2-audiojs": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

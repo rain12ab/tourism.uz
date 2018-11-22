@@ -1,11 +1,25 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+
+$list = ArrayHelper::map(common\models\Laws::getType(),'id','name');
+$list[''] = Yii::t('app', 'Barcha normativ-hujjatlar');
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\LawsSearch */
 /* @var $form yii\widgets\ActiveForm */
+
+$this->registerJs("
+
+$(document).on('change', '#lawtype_id', function(){
+
+    $(this).closest('form').submit();
+
+})
+
+", yii\web\View::POS_READY);
 ?>
 <?php $form = ActiveForm::begin([
     'action' => ['index'],
@@ -14,6 +28,7 @@ use yii\widgets\ActiveForm;
         'data-pjax' => 1
     ],
 ]); ?>
+
 <div class="row">
     <div class="col-md-6">
         <?php if(Yii::$app->language == 'uz'){
@@ -28,10 +43,7 @@ use yii\widgets\ActiveForm;
         }?>
     </div>
     <div class="col-md-6">
-        <?= $form->field($model, 'lawtype_id') ?>
+        <?= $form->field($model, 'lawtype_id', ['inputOptions' => ['name' => 'type', 'class' => 'form-control']])->dropDownList($list, ['prompt'=> '']) ?>
     </div>
-</div>
- <div class="form-group">
-    <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
 </div>
 <?php ActiveForm::end(); ?>
