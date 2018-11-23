@@ -41,12 +41,12 @@ class Hotels extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic1', 'pic2', 'pic3', 'pic4'], 'required'],
-            [['content_uz', 'content_ru', 'content_en'], 'string'],
+            [['name', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'required'],
+            [['content_uz', 'content_ru', 'content_en', 'pictures'], 'string'],
             [['stars', 'phone'], 'integer'],
             [['lat', 'lng'], 'number'],
             [['name'], 'string', 'max' => 500],
-            [['email', 'adress_uz', 'adress_ru', 'adress_en', 'pic1', 'pic2', 'pic3', 'pic4'], 'string', 'max' => 300],
+            [['email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'string', 'max' => 300],
         ];
     }
 
@@ -69,10 +69,9 @@ class Hotels extends \yii\db\ActiveRecord
             'adress_uz' => Yii::t('app', 'Adress Uz'),
             'adress_ru' => Yii::t('app', 'Adress Ru'),
             'adress_en' => Yii::t('app', 'Adress En'),
-            'pic1' => Yii::t('app', 'Pic1'),
-            'pic2' => Yii::t('app', 'Pic2'),
-            'pic3' => Yii::t('app', 'Pic3'),
-            'pic4' => Yii::t('app', 'Pic4'),
+            'pic_main' => Yii::t('app', 'pic_main'),
+            'hotel_name' => Yii::t('app', 'Mehmonxona nomi bo\'yicha qidirish'),
+            'hotel_type' => Yii::t('app', 'Mehmonxona turi'),
         ];
     }
 
@@ -81,6 +80,30 @@ class Hotels extends \yii\db\ActiveRecord
     }
 
     public function getType() {
-        return $this->hasOne(Districts::className(), ['id' => 'hotel_type']);
+        return $this->hasOne(Hoteltype::className(), ['id' => 'hotel_type']);
+    }
+
+    public function getList()
+    {
+        if(Yii::$app->language == 'uz')
+          {
+            $name = 'name_uz';
+          }
+        else if(Yii::$app->language == 'ru')
+          {
+            $name = 'name_ru';
+          }
+        else
+        {
+            $name = null;
+        }
+        
+        $hotels = Hoteltype::find()->select(['id', $name])->asArray()->all();
+        $count = Hoteltype::find()->select(['id', $name])->count();
+        for ($i=0; $i < $count; $i++) { 
+            $hotels[$i]['name'] = $hotels[$i][$name];
+            unset($hotels[$i][$name]);
+        }
+        return $hotels;
     }
 }

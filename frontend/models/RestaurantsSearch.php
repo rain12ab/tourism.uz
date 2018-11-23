@@ -5,12 +5,12 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Objects;
+use common\models\Restaurants;
 
 /**
- * ObjectsSearch represents the model behind the search form of `common\models\Objects`.
+ * RestaurantsSearch represents the model behind the search form of `common\models\Restaurants`.
  */
-class ObjectsSearch extends Objects
+class RestaurantsSearch extends Restaurants
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class ObjectsSearch extends Objects
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'phone', 'type', 'district_id'], 'integer'],
             [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'pic_main', 'pictures'], 'safe'],
             [['lat', 'lng'], 'number'],
         ];
@@ -42,7 +42,7 @@ class ObjectsSearch extends Objects
      */
     public function search($params)
     {
-        $query = Objects::find();
+        $query = Restaurants::find();
 
         // add conditions that should always apply here
 
@@ -61,13 +61,16 @@ class ObjectsSearch extends Objects
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'phone' => $this->phone,
+            'type' => $this->type,
             'lat' => $this->lat,
             'lng' => $this->lng,
+            'district_id' => $this->district_id,
         ]);
 
-        $query->orFilterWhere(['like', 'name_uz', $this->name_uz])
-            ->orFilterWhere(['like', 'name_ru', $this->name_ru])
-            ->orFilterWhere(['like', 'name_en', $this->name_en])
+        $query->andFilterWhere(['like', 'name_uz', $this->name_uz])
+            ->andFilterWhere(['like', 'name_ru', $this->name_ru])
+            ->andFilterWhere(['like', 'name_en', $this->name_en])
             ->andFilterWhere(['like', 'content_uz', $this->content_uz])
             ->andFilterWhere(['like', 'content_ru', $this->content_ru])
             ->andFilterWhere(['like', 'content_en', $this->content_en])

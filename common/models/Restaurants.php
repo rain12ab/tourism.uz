@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%objects}}".
+ * This is the model class for table "{{%restaurants}}".
  *
  * @property int $id
  * @property string $name_uz
@@ -14,21 +14,22 @@ use Yii;
  * @property string $content_uz
  * @property string $content_ru
  * @property string $content_en
- * @property string $pic1
- * @property string $pic2
- * @property string $pic3
- * @property string $pic4
+ * @property string $phone
+ * @property int $type
  * @property double $lat
  * @property double $lng
+ * @property string $pic_main
+ * @property array $pictures
+ * @property int $district_id
  */
-class Objects extends \yii\db\ActiveRecord
+class Restaurants extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%objects}}';
+        return '{{%restaurants}}';
     }
 
     /**
@@ -37,9 +38,11 @@ class Objects extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'pic1', 'pic2', 'pic3', 'pic4', 'lat', 'lng'], 'required'],
-            [['content_uz', 'content_ru', 'content_en', 'pictures'], 'string'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'phone', 'type', 'lat', 'lng', 'pic_main', 'pictures', 'district_id'], 'required'],
+            [['content_uz', 'content_ru', 'content_en'], 'string'],
+            [['phone', 'type', 'district_id'], 'integer'],
             [['lat', 'lng'], 'number'],
+            [['pictures'], 'safe'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
             [['pic_main'], 'string', 'max' => 300],
         ];
@@ -52,18 +55,19 @@ class Objects extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name_uz' => Yii::t('app', 'Joy nomi bo\'yicha qidirish'),
-            'name_ru' => Yii::t('app', 'Поиск по названию места'),
-            'name_en' => Yii::t('app', 'Search by name of place'),
+            'name_uz' => Yii::t('app', 'Name Uz'),
+            'name_ru' => Yii::t('app', 'Name Ru'),
+            'name_en' => Yii::t('app', 'Name En'),
             'content_uz' => Yii::t('app', 'Content Uz'),
             'content_ru' => Yii::t('app', 'Content Ru'),
             'content_en' => Yii::t('app', 'Content En'),
-            'pic1' => Yii::t('app', 'Pic1'),
-            'pic2' => Yii::t('app', 'Pic2'),
-            'pic3' => Yii::t('app', 'Pic3'),
-            'pic4' => Yii::t('app', 'Pic4'),
+            'phone' => Yii::t('app', 'Phone'),
+            'type' => Yii::t('app', 'Type'),
             'lat' => Yii::t('app', 'Lat'),
             'lng' => Yii::t('app', 'Lng'),
+            'pic_main' => Yii::t('app', 'Pic Main'),
+            'pictures' => Yii::t('app', 'Pictures'),
+            'district_id' => Yii::t('app', 'District ID'),
         ];
     }
 

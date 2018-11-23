@@ -49,7 +49,7 @@ else
 
 $url = Yii::$app->homeUrl;
 $this->title = $name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Mehmonxonalar'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Ovqatlanish maskanlari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -130,8 +130,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="col-md-4">
                 <h3><b><?= Yii::t('app', 'Kontaklar');?></b></h3>
-                <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fas fa-map-marker-alt"></i><a style="margin-left: 10px;" href="https://goo.gl/maps/shpvxuvHpPm"><?= $adress;?></a></div>
-                <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fas fa-envelope"></i><a style="margin-left: 10px;" href="mailto:<?= $model->email;?>"><?= $model->email;?></a></div>
+                <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fas fa-map-marker-alt"></i><a style="margin-left: 10px;" href=""><?= $adress;?></a></div>
                 <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fas fa-phone"></i><a style="margin-left: 10px;" href="tel:<?= $model->phone;?>"><?= $model->phone;?></a></div>
             </div>
         </div>

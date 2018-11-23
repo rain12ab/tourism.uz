@@ -2,10 +2,13 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use yii\web\JsExpression;
 use kartik\typeahead\Typeahead;
 
+
+$list = ArrayHelper::map(common\models\Hotels::getList(),'id','name');
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ObjectsSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -18,26 +21,19 @@ use kartik\typeahead\Typeahead;
     ],
 ]);
 
-if(Yii::$app->language == 'uz')
-    {
-        $name = 'name_uz';
-    }
-else if(Yii::$app->language == 'ru')
-    {
-        $name = 'name_ru';
-    }
-else if(Yii::$app->language == 'en')
-    {
-        $name = 'name_en';
-    }
-else
-    {
-        $name = null;
-    }
+$this->registerJs("
+
+$(document).on('change', '#hotel_name', function(){
+
+    $(this).closest('form').submit();
+
+})
+
+", yii\web\View::POS_END);
 
 $this->registerJs("
 
-$(document).on('change', '#hotelssearch-".$name."', function(){
+$(document).on('change', '#hotel_type', function(){
 
     $(this).closest('form').submit();
 
@@ -48,8 +44,8 @@ $(document).on('change', '#hotelssearch-".$name."', function(){
 ?>
 
 <div style="margin-bottom: 30px;" class="row">
-    <div class="col-md-12">
-        <?= $form->field($model, $name)->widget(Typeahead::classname(), [
+    <div class="col-md-6">
+        <?= $form->field($model, 'hotel_name', ['inputOptions' => ['name' => 'hotel_name', 'class' => 'form-control']])->widget(Typeahead::classname(), [
             'options' => ['placeholder' => Yii::t('app', 'Qidirish').'...'],
             'pluginOptions' => ['highlight'=>true],
             'dataset' => [
@@ -63,6 +59,9 @@ $(document).on('change', '#hotelssearch-".$name."', function(){
                 ]
             ]
         ]); ?>
+    </div>
+    <div class="col-md-6">
+        <?= $form->field($model, 'hotel_type', ['inputOptions' => ['name' => 'type', 'class' => 'form-control']])->dropDownList($list, ['prompt'=> Yii::t('app', 'Tanlash').'...']) ?>
     </div>
 </div>
 <?php ActiveForm::end(); ?>

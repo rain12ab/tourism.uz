@@ -55,27 +55,23 @@ class Laws extends \yii\db\ActiveRecord
     {
         if(Yii::$app->language == 'uz')
           {
-            $laws = Lawtype::find()->select(['id', 'name_uz'])->asArray()->all();
-            $count = Lawtype::find()->select(['id', 'name_uz'])->count();
-            for ($i=0; $i < $count; $i++) { 
-                $laws[$i]['name'] = $laws[$i]['name_uz'];
-                unset($laws[$i]['name_uz']);
-            }
-            return $laws;
+            $name = 'name_uz';
           }
         else if(Yii::$app->language == 'ru')
           {
-            $laws = Lawtype::find()->select(['id', 'name_ru'])->asArray()->all();
-            $count = Lawtype::find()->select(['id', 'name_ru'])->count();
-            for ($i=0; $i < $count; $i++) { 
-                $laws[$i]['name'] = $laws[$i]['name_ru'];
-                unset($laws[$i]['name_ru']);
-            }
-            return $laws;
+            $name = 'name_ru';
           }
         else
         {
-            return null;
+            $name = null;
         }
+        
+        $laws = Lawtype::find()->select(['id', $name])->asArray()->all();
+        $count = Lawtype::find()->select(['id', $name])->count();
+        for ($i=0; $i < $count; $i++) { 
+            $laws[$i]['name'] = $laws[$i][$name];
+            unset($laws[$i][$name]);
+        }
+        return $laws;
     }
 }

@@ -41,6 +41,8 @@ else
         $content = null;
         $district = null;
     }
+
+// $json = json_decode($model->pictures);
 $url = Yii::$app->homeUrl;
 $this->title = $name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Turistik joylar'), 'url' => ['index']];
@@ -79,10 +81,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ]
         ]);
 
-        echo Html::a('', $url.$model->pic1, ['rel' => 'fancybox', 'class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic1.')']);
-        echo Html::a('', $url.$model->pic2, ['rel' => 'fancybox', 'class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic2.')']);
-        echo Html::a('', $url.$model->pic3, ['rel' => 'fancybox', 'class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic3.')']);
-        echo Html::a('', $url.$model->pic4, ['rel' => 'fancybox', 'class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic4.')']);
+        echo Html::a('', $url.$model->pic_main, ['rel' => 'fancybox', 'class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic_main.')']);
+        for ($i=0; $i < count($model->pictures); $i++) { 
+            echo Html::a('', $url.$model->pictures[$i], ['rel' => 'fancybox', 'class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pictures[$i].')']);
+        }
+        
         ?>
     </div>
     <div class="container">

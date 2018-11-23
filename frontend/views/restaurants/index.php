@@ -9,7 +9,7 @@ use frontend\widgets\RightSidebarWidget;
 /* @var $searchModel frontend\models\ObjectsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Mehmonxonalar');
+$this->title = Yii::t('app', 'Ovqatlanish maskanlari');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -18,8 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <span style="color: green; font-size: 24px;" class="mb-3"><?= Yii::t('app', 'Dollar kursi').': 1$ - '.$currency->dollar.' '.Yii::t('app', 'so\'m').' | ';?></span>
-                <span style="color: green; font-size: 24px;" class="mb-3"><?= Yii::t('app', 'Yevro kursi').': 1€ - '.$currency->euro.' '.Yii::t('app', 'so\'m');?></span>
                 <?php Pjax::begin(['enablePushState' => true]); ?>
                 <?= $this->render('_search', ['model' => $searchModel]); ?>
                 <?= ListView::widget([

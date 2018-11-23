@@ -84,38 +84,52 @@ class HotelsController extends Controller
 
     public function actionCalculate($sum)
     {
-        $url = 'https://www.uba.uz/ru/services/open_data/rates/json/?year='.date('Y');
-        $curl = new curl\Curl();
-        $response = $curl->get($url);
-        
-        switch ($curl->responseCode) {
-
-            case 'timeout':
-                $currency = Currency::find()->orderBy('id DESC')->one();
-                break;
+        if(date('l') == 'Tuesday')
+            {
+                $url = 'https://www.uba.uz/ru/services/open_data/rates/json/?year='.date('Y');
+                $curl = new curl\Curl();
+                $response = $curl->get($url);
                 
-            case 200:
-                $json = json_decode($response, true);
-                $json = end($json);
-                if(Currency::find()->where(['date' => $json['G1']])->exists() != true)
-                {
-                    $model = new Currency;
-                    $model->value = $json['G2'];
-                    $model->date = $json['G1'];
-                    $model->save(false);
+                switch ($curl->responseCode) {
+
+                    case 'timeout':
+                        $currency = Currency::find()->orderBy('id DESC')->one();
+                        break;
+                        
+                    case 200:
+                        $json = json_decode($response, true);
+                        $json = end($json);
+                        if(Currency::find()->where(['date' => $json['G1']])->exists() != true)
+                        {
+                            $model = new Currency;
+                            $model->dollar = $json['G2'];
+                            $model->euro = $json['G3'];
+                            $model->date = $json['G1'];
+                            $model->save(false);
+                        }
+                        $currency = Currency::find()->orderBy('id DESC')->one();
+                        break;
+
+                    case 404:
+                        $currency = Currency::find()->orderBy('id DESC')->one();
+                        break;
                 }
+
+                $price_dollar = ($sum / $currency->dollar);
+                $price_euro = ($sum / $currency->euro);
+                $result = [$price_dollar, $price_euro];
+                return $result;
+            }
+        else
+            {
                 $currency = Currency::find()->orderBy('id DESC')->one();
-                break;
-
-            case 404:
-                $currency = Currency::find()->orderBy('id DESC')->one();
-                break;
-        }
-
-        $price_dollar = ($sum / $currency->value);
-
-        return $price_dollar;
+                $price_dollar = ($sum / $currency->dollar);
+                $price_euro = ($sum / $currency->euro);
+                $result = [$price_dollar, $price_euro];
+                return $result;
+            }
     }
+
     /**
      * Displays a single Hotels model.
      * @param integer $id

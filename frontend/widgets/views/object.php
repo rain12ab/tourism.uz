@@ -37,7 +37,7 @@ use yii\helpers\Url;
         }
       ?>
       <div class="col-md-6 col-lg-3 ftco-animate">
-        <a href="<?= Url::to(['objects/view', 'id' => $object->id]);?>" class="block-5" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $object->pic1;?>');">
+        <a href="<?= Url::to(['objects/view', 'id' => $object->id]);?>" class="block-5" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $object->pic_main;?>');">
           <div class="text">
             <h3 class="heading"><?= $name;?></h3>
             <div class="post-meta">

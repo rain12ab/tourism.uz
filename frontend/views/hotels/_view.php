@@ -29,15 +29,15 @@ else
 		$district = null;
 	}
 
-
+$result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
 ?>
 
-
 <div class="col-md-6 col-lg-6">
-	<a href="<?= Url::to(['hotels/view', 'id' => $model->id]);?>" class="block-5" style="background-image: url(<?= Yii::$app->homeUrl.$model->pic1;?>);">
+	<a href="<?= Url::to(['hotels/view', 'id' => $model->id]);?>" class="block-5" style="background-image: url(<?= Yii::$app->homeUrl.$model->pic_main;?>);">
 		<div class="text">
 			<h3 class="heading"><?= $name;?></h3>
-			<span class="price"><?= round(Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]), 2).'$/'.Yii::t('app', 'bir kecha');?></span><br>
+			<span class="price"><?= round($result[0], 2).'$/'.Yii::t('app', 'bir kecha');?></span><br>
+			<span class="price"><?= round($result[1], 2).'€/'.Yii::t('app', 'bir kecha');?></span><br>
 			<span class="price"><?= $model->price.' '.Yii::t('app', 'so\'m').'/'.Yii::t('app', 'bir kecha');?></span>
 			<div class="post-meta">
 				<span><?= $district?></span>

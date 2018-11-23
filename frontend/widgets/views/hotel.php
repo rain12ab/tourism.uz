@@ -35,7 +35,7 @@ use yii\helpers\Url;
         }
       ?>
       <div class="col-lg-3 promo ftco-animate">
-        <a href="<?= Url::to(['hotels/view', 'id' => $hotel->id]);?>" class="promo-img mb-4" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/<?= $hotel->pic1;?>);"></a>
+        <a href="<?= Url::to(['hotels/view', 'id' => $hotel->id]);?>" class="promo-img mb-4" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/<?= $hotel->pic_main;?>);"></a>
         <div class="text text-center">
           <h2><?= $name;?></h2>
           <span style="font-size: 14px;" class="price"><?= round(Yii::$app->runAction('hotels/calculate', ['sum' => $hotel->price]), 2).'$/'.Yii::t('app', 'bir kecha');?></span><br>
