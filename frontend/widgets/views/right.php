@@ -9,7 +9,7 @@ use yii\helpers\Url;
     }
   }
 </style>
-<div class="col-md-4 sidebar">
+<div class="col-lg-4 sidebar">
   <div class="sidebar-box ftco-animate">
     <h2><?= Yii::t('app', 'So\'nggi fotolavha');?></h2>
     <a href="<?= Url::to(['gallery/view', 'id' => $photo->id]);?>"><img style="width: 100%;" src="<?= Yii::$app->request->baseUrl;?>/<?= $photo->url;?>">
@@ -34,7 +34,7 @@ use yii\helpers\Url;
   </div>
   <div class="sidebar-box ftco-animate">
     <div class="categories">
-      <h2><?= Yii::t('app', 'Boshqa yangiliklar');?></h2>
+      <h2><?= Yii::t('app', 'So\'nggi yangiliklar');?></h2>
       <?php foreach($news as $new):?>
         <?php if(Yii::$app->language == 'uz')
             {
@@ -57,6 +57,7 @@ use yii\helpers\Url;
       <?php endforeach?>
     </div>
   </div>
+  <?php if(Yii::$app->language != 'en'):?>
   <div class="sidebar-box ftco-animate">
     <div class="categories">
       <h2><?= Yii::t('app', 'So\'nggi normativ-hujjatlar');?></h2>
@@ -69,10 +70,6 @@ use yii\helpers\Url;
                   {
                       $name = $law->name_ru;
                   }
-              else if(Yii::$app->language == 'en')
-                  {
-                      $name = $law->name_en;
-                  }
               else
                   {
                       $name = null;
@@ -82,6 +79,7 @@ use yii\helpers\Url;
       <?php endforeach?>
     </div>
   </div>
+  <?php endif?>
   <div class="sidebar-box ftco-animate">
     <div class="categories">
       <h2><?= Yii::t('app', 'Davlat manbalari');?></h2>

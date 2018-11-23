@@ -13,13 +13,36 @@ use yii\helpers\Url;
   <div class="container">
     <div class="row">
       <?php foreach($hotels as $hotel):?>
+      <?php if(Yii::$app->language == 'uz')
+        {
+          $name = $hotel->name_uz;
+          $district = $model->district->name_uz;
+        }
+      else if(Yii::$app->language == 'ru')
+        {
+          $name = $hotel->name_ru;
+          $district = $model->district->name_ru;
+        }
+      else if(Yii::$app->language == 'en')
+        {
+          $name = $hotel->name_en;
+          $district = $model->district->name_en;
+        }
+      else
+        {
+          $name = null;
+          $district = null;
+        }
+      ?>
       <div class="col-lg-3 promo ftco-animate">
         <a href="<?= Url::to(['hotels/view', 'id' => $hotel->id]);?>" class="promo-img mb-4" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/<?= $hotel->pic1;?>);"></a>
         <div class="text text-center">
-          <h2><?= $hotel->name;?></h2>
-          <?php for ($i=0; $i < $hotel->stars; $i++) { ?>
+          <h2><?= $name;?></h2>
+          <span style="font-size: 14px;" class="price"><?= round(Yii::$app->runAction('hotels/calculate', ['sum' => $hotel->price]), 2).'$/'.Yii::t('app', 'bir kecha');?></span><br>
+          <span style="font-size: 14px;" class="price"><?= $hotel->price.' '.Yii::t('app', 'so\'m').'/'.Yii::t('app', 'bir kecha');?></span><br>
+          <?php for ($i=0; $i < $hotel->stars; $i++): ?>
             <span><i style="color: yellow;" class="fas fa-star"></i></span>
-          <?php }?><br>
+          <?php endfor?><br>
           <a href="<?= Url::to(['hotels/view', 'id' => $hotel->id]);?>" class="read"><?= Yii::t('app', 'Batafsil');?></a>
         </div>
       </div>

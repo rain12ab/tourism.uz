@@ -417,4 +417,31 @@ return array (
       '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid/src',
     ),
   ),
+  'perminder-klair/yii2-videojs' => 
+  array (
+    'name' => 'perminder-klair/yii2-videojs',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kato' => $vendorDir . '/perminder-klair/yii2-videojs',
+    ),
+  ),
+  'newerton/yii2-fancybox' => 
+  array (
+    'name' => 'newerton/yii2-fancybox',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@newerton/fancybox' => $vendorDir . '/newerton/yii2-fancybox',
+    ),
+  ),
+  'linslin/yii2-curl' => 
+  array (
+    'name' => 'linslin/yii2-curl',
+    'version' => '1.2.1.0',
+    'alias' => 
+    array (
+      '@linslin/yii2/curl' => $vendorDir . '/linslin/yii2-curl',
+    ),
+  ),
 );

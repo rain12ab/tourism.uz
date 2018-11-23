@@ -36,11 +36,13 @@ else
 
 ?>
 
+<h1 class="mb-3" style="text-align: center; margin-top: 50px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h1>
+
 <div class="row block-9 mb-4" style="margin-top: 50px;">
-  <div class="col-md-7 probootstrap-animate">
+  <div class="col-md-7 ftco-animate">
     <?= MessageWidget::widget();?>
   </div>
-  <div class="col-md-5 col-md-push-1 probootstrap-animate">
+  <div class="col-md-5 col-md-push-1 ftco-animate">
     <h3><b><?= Yii::t('app', 'Kontaklar');?></b></h3>
       <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fas fa-map-marker-alt"></i><a style="margin-left: 10px;" href="https://goo.gl/maps/shpvxuvHpPm"><?= $model->adress_uz;?></a></div>
       <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fas fa-envelope"></i><a style="margin-left: 10px;" href="mailto:<?= $model->email;?>"><?= $model->email;?></a></div>
@@ -50,7 +52,7 @@ else
       <div style="padding: 10px 0;"><i style="color: #405bb3; font-size: 20px;" class="fab fa-telegram"></i><a style="margin-left: 10px;" href="<?= $model->telegram;?>"><?= substr($model->telegram, 8);?></a></div>
   </div>
 </div>
-<div class="row mt-5">
+<div class="row mb-5">
   <div class="col-md-12">
     <?php
       $coord = new LatLng(['lat' => $model->lat, 'lng' => $model->lng]);

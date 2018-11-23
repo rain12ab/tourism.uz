@@ -4,10 +4,14 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Hotels;
+use common\models\Currency;
 use frontend\models\HotelsSearch;
 use yii\web\Controller;
+use linslin\yii2\curl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Query;
+use yii\helpers\Json;
 
 /**
  * HotelsController implements the CRUD actions for Hotels model.
@@ -36,15 +40,82 @@ class HotelsController extends Controller
      */
     public function actionIndex()
     {
+        $currency = Currency::find()->orderBy('id DESC')->one();
         $searchModel = new HotelsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'currency' => $currency,
         ]);
     }
 
+    public function actionList($q = null) {
+        $query = new Query;
+        if(Yii::$app->language == 'uz')
+            {
+                $name = 'name_uz';
+            }
+        else if(Yii::$app->language == 'ru')
+            {
+                $name = 'name_ru';
+            }
+        else if(Yii::$app->language == 'en')
+            {
+                $name = 'name_en';
+            }
+        else
+            {
+                $name = null;
+            }
+        $query->select($name)
+            ->from('hotels')
+            ->where($name.' LIKE "%' . $q .'%"')
+            ->orderBy($name);
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+        $out = [];
+        foreach ($data as $d) {
+            $out[] = ['value' => $d[$name]];
+        }
+        return Json::encode($out);
+    }
+
+    public function actionCalculate($sum)
+    {
+        $url = 'https://www.uba.uz/ru/services/open_data/rates/json/?year='.date('Y');
+        $curl = new curl\Curl();
+        $response = $curl->get($url);
+        
+        switch ($curl->responseCode) {
+
+            case 'timeout':
+                $currency = Currency::find()->orderBy('id DESC')->one();
+                break;
+                
+            case 200:
+                $json = json_decode($response, true);
+                $json = end($json);
+                if(Currency::find()->where(['date' => $json['G1']])->exists() != true)
+                {
+                    $model = new Currency;
+                    $model->value = $json['G2'];
+                    $model->date = $json['G1'];
+                    $model->save(false);
+                }
+                $currency = Currency::find()->orderBy('id DESC')->one();
+                break;
+
+            case 404:
+                $currency = Currency::find()->orderBy('id DESC')->one();
+                break;
+        }
+
+        $price_dollar = ($sum / $currency->value);
+
+        return $price_dollar;
+    }
     /**
      * Displays a single Hotels model.
      * @param integer $id

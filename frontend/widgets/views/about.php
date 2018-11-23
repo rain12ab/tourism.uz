@@ -1,5 +1,9 @@
+<?php
 
-
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
+?>
 <?php foreach($about as $a):?>
 <?php if(Yii::$app->language == 'uz')
   {
@@ -30,7 +34,7 @@
   <div class="container-fluid d-flex">
     <div class="section-2-blocks-wrapper row no-gutters">
       <div class="img col-sm-12 col-lg-6" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $a->pic2;?>');">
-        <a href="<?= Yii::$app->request->baseUrl;?>/<?= $a->video;?>" type="video/mp4" class="button popup-vimeo"><span class="ion-ios-play"></span></a>
+        <?= Html::a('<span class="ion-ios-play"></span>', Yii::$app->homeUrl.$a->video, ['class' => 'button popup-vimeo popup-player', 'type' => 'video/mp4'])?>
       </div>
       <div class="text col-lg-6 ftco-animate">
         <div class="text-inner align-self-start">

@@ -40,7 +40,10 @@
         "2amigos/yii2-selectize-widget": "~1.0",
         "imanilchaudhari/yii2-social-share": "@dev",
         "edofre/yii2-slider-pro": "V1.1.6",
-        "hosannahighertech/yii2-audiojs": "dev-master"
+        "hosannahighertech/yii2-audiojs": "dev-master",
+        "perminder-klair/yii2-videojs": "dev-master",
+        "newerton/yii2-fancybox": "dev-master",
+        "linslin/yii2-curl": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

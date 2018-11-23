@@ -65,9 +65,9 @@ class ObjectsSearch extends Objects
             'lng' => $this->lng,
         ]);
 
-        $query->andFilterWhere(['like', 'name_uz', $this->name_uz])
-            ->andFilterWhere(['like', 'name_ru', $this->name_ru])
-            ->andFilterWhere(['like', 'name_en', $this->name_en])
+        $query->orFilterWhere(['like', 'name_uz', $this->name_uz])
+            ->orFilterWhere(['like', 'name_ru', $this->name_ru])
+            ->orFilterWhere(['like', 'name_en', $this->name_en])
             ->andFilterWhere(['like', 'content_uz', $this->content_uz])
             ->andFilterWhere(['like', 'content_ru', $this->content_ru])
             ->andFilterWhere(['like', 'content_en', $this->content_en])

@@ -65,4 +65,3 @@ else
 		?> 
 	</div>
 </div>
-<h1 class="mb-3" style="text-align: center; margin-top: 50px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h1>

@@ -75,4 +75,12 @@ class Hotels extends \yii\db\ActiveRecord
             'pic4' => Yii::t('app', 'Pic4'),
         ];
     }
+
+    public function getDistrict() {
+        return $this->hasOne(Districts::className(), ['id' => 'district_id']);
+    }
+
+    public function getType() {
+        return $this->hasOne(Districts::className(), ['id' => 'hotel_type']);
+    }
 }

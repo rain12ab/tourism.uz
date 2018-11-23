@@ -1,51 +1,36 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+// use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\widgets\ListView;
+use frontend\widgets\RightSidebarWidget;
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\HotelsSearch */
+/* @var $searchModel frontend\models\ObjectsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Hotels');
+$this->title = Yii::t('app', 'Mehmonxonalar');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<div class="hotels-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Hotels'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'name',
-            'content_uz:ntext',
-            'content_ru:ntext',
-            'content_en:ntext',
-            //'stars',
-            //'lat',
-            //'lng',
-            //'phone',
-            //'email:email',
-            //'adress_uz',
-            //'adress_ru',
-            //'adress_en',
-            //'pic1',
-            //'pic2',
-            //'pic3',
-            //'pic4',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
-</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 style="color: green" class="mb-3"><?= Yii::t('app', 'Dollar kursi').': 1$ - '.$currency->value.' '.Yii::t('app', 'so\'m');?></h1>
+                <?php Pjax::begin(['enablePushState' => false]); ?>
+                <?= $this->render('_search', ['model' => $searchModel]); ?>
+                <?= ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'itemView' => '_view',
+                    'itemOptions' => ['tag' => false],
+                    'options' => ['class' => 'row', 'id' => false],
+                    'summary'=>'',
+                ]) ?>
+                <?php Pjax::end(); ?>
+            </div>
+            <?= RightSidebarWidget::widget();?>
+        </div>
+    </div>
+</section>

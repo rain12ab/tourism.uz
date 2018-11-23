@@ -1,54 +1,67 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\web\JsExpression;
+use kartik\typeahead\Typeahead;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\ObjectsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<?php $form = ActiveForm::begin([
+    'action' => ['index'],
+    'method' => 'get',
+    'options' => [
+        'data-pjax' => 1
+    ],
+]); 
+if(Yii::$app->language == 'uz')
+    {
+        $name = 'name_uz';
+    }
+else if(Yii::$app->language == 'ru')
+    {
+        $name = 'name_ru';
+    }
+else if(Yii::$app->language == 'en')
+    {
+        $name = 'name_en';
+    }
+else
+    {
+        $name = null;
+    }
 
-<div class="objects-search">
+$this->registerJs("
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-        'options' => [
-            'data-pjax' => 1
-        ],
-    ]); ?>
+$(document).on('change', '#objectssearch-".$name."', function(){
 
-    <?= $form->field($model, 'id') ?>
+    $(this).closest('form').submit();
 
-    <?= $form->field($model, 'name_uz') ?>
+})
 
-    <?= $form->field($model, 'name_ru') ?>
+", yii\web\View::POS_READY);
 
-    <?= $form->field($model, 'name_en') ?>
+?>
 
-    <?= $form->field($model, 'content_uz') ?>
-
-    <?php // echo $form->field($model, 'content_ru') ?>
-
-    <?php // echo $form->field($model, 'content_en') ?>
-
-    <?php // echo $form->field($model, 'pic1') ?>
-
-    <?php // echo $form->field($model, 'pic2') ?>
-
-    <?php // echo $form->field($model, 'pic3') ?>
-
-    <?php // echo $form->field($model, 'pic4') ?>
-
-    <?php // echo $form->field($model, 'lat') ?>
-
-    <?php // echo $form->field($model, 'lng') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+<div style="margin-bottom: 30px;" class="row">
+    <div class="col-md-12">
+        <?= $form->field($model, $name)->widget(Typeahead::classname(), [
+            'options' => ['placeholder' => Yii::t('app', 'Qidirish').'...'],
+            'pluginOptions' => ['highlight'=>true],
+            'dataset' => [
+                [
+                    'display' => 'value',
+                    'remote' => [
+                        'url' => Url::to(['objects/list']) . '?q=%QUERY',
+                        'wildcard' => '%QUERY'
+                    ],
+                    'limit' => 10
+                ]
+            ]
+        ]); ?>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>
+<?php ActiveForm::end(); ?>

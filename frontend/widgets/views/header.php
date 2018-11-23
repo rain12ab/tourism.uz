@@ -61,10 +61,11 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><?= Yii::t('app', 'Sayyohlarga');?>
           </a>
           <ul class="dropdown-menu">
-            <?= Html::tag('li', Html::a(Yii::t('app', 'Turistik obyektlar'), Url::to(['objects/index'])));?>
+            <?= Html::tag('li', Html::a(Yii::t('app', 'Turistik joylar'), Url::to(['objects/index'])));?>
             <?= Html::tag('li', Html::a(Yii::t('app', 'Mehmonxonalar'), Url::to(['hotels/index'])));?>
             <?= Html::tag('li', Html::a(Yii::t('app', 'Ovqatlanish maskanlari'), Url::to(['restaurants/index'])));?>
             <?= Html::tag('li', Html::a(Yii::t('app', 'Gidlar'), Url::to(['guides/index'])));?>
+            <?= Html::tag('li', Html::a(Yii::t('app', 'Galereya'), Url::to(['gallery/index'])));?>
           </ul>
         </li>
         <li class="nav-item dropdown">

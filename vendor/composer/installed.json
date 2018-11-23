@@ -400,6 +400,31 @@
         ]
     },
     {
+        "name": "bower-asset/fancybox",
+        "version": "V2.1.7",
+        "version_normalized": "2.1.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fancyapps/fancybox.git",
+            "reference": "b708e8060cefd45c97981143f85d4094e3d6e18c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fancyapps/fancybox/zipball/b708e8060cefd45c97981143f85d4094e3d6e18c",
+            "reference": "b708e8060cefd45c97981143f85d4094e3d6e18c",
+            "shasum": null
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.10",
+            "bower-asset/jquery-mousewheel": "~3.1.3"
+        },
+        "type": "bower-asset",
+        "installation-source": "dist",
+        "license": [
+            "GPLv3"
+        ]
+    },
+    {
         "name": "bower-asset/font-awesome",
         "version": "5.5.0",
         "version_normalized": "5.5.0.0",
@@ -461,6 +486,27 @@
         "license": [
             "MIT"
         ]
+    },
+    {
+        "name": "bower-asset/jquery-mousewheel",
+        "version": "3.1.13",
+        "version_normalized": "3.1.13.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jquery/jquery-mousewheel.git",
+            "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jquery/jquery-mousewheel/zipball/67289b6b2aa0066d7d78a5807f520387135ffb22",
+            "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22",
+            "shasum": null
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.2.2"
+        },
+        "type": "bower-asset",
+        "installation-source": "dist"
     },
     {
         "name": "bower-asset/jquery-ui",
@@ -3614,6 +3660,59 @@
         ]
     },
     {
+        "name": "linslin/yii2-curl",
+        "version": "1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/linslin/Yii2-Curl.git",
+            "reference": "492ffc03e78458357210d692f36a0cd74a888825"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/linslin/Yii2-Curl/zipball/492ffc03e78458357210d692f36a0cd74a888825",
+            "reference": "492ffc03e78458357210d692f36a0cd74a888825",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "yiisoft/yii2": "*"
+        },
+        "require-dev": {
+            "codeception/base": "^2.2.3",
+            "codeception/specify": "~0.4.3",
+            "codeception/verify": "~0.3.1",
+            "codeclimate/php-test-reporter": "dev-master",
+            "guzzlehttp/guzzle": ">=4.1.4 <7.0",
+            "mcustiel/phiremock-codeception-extension": "1.2.4"
+        },
+        "time": "2017-10-23T07:43:10+00:00",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "linslin\\yii2\\curl\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nils Gajsek",
+                "email": "info@linslin.org"
+            }
+        ],
+        "description": "Easy and nice cURL extension with RESTful support for Yii2",
+        "keywords": [
+            " curl",
+            "extension",
+            "restful",
+            "yii2"
+        ]
+    },
+    {
         "name": "lucidtaz/yii2-scssphp",
         "version": "0.2.1",
         "version_normalized": "0.2.1.0",
@@ -3705,6 +3804,96 @@
             "duplicate",
             "object",
             "object graph"
+        ]
+    },
+    {
+        "name": "newerton/yii2-fancybox",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/newerton/yii2-fancybox.git",
+            "reference": "46893e3c2d3ae5917c80cfd556e29bc9528c4497"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/newerton/yii2-fancybox/zipball/46893e3c2d3ae5917c80cfd556e29bc9528c4497",
+            "reference": "46893e3c2d3ae5917c80cfd556e29bc9528c4497",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/fancybox": "~2.1.5",
+            "bower-asset/jquery-mousewheel": ">=3.1.13",
+            "php": ">=5.4.0",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2017-03-29T03:56:27+00:00",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "newerton\\fancybox\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Newerton Vargas de Araujo",
+                "email": "newerton.araujo@gmail.com"
+            }
+        ],
+        "description": "fancyBox is a tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages.",
+        "keywords": [
+            "extension",
+            "fancyapps",
+            "fancybox",
+            "yii2"
+        ]
+    },
+    {
+        "name": "perminder-klair/yii2-videojs",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/perminder-klair/yii2-videojs.git",
+            "reference": "9da26d7ba054e2b9a618d8f22f795a9541501449"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/perminder-klair/yii2-videojs/zipball/9da26d7ba054e2b9a618d8f22f795a9541501449",
+            "reference": "9da26d7ba054e2b9a618d8f22f795a9541501449",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2015-05-26T09:45:34+00:00",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kato\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Parminder Klair",
+                "email": "perminder.klair@gmail.com"
+            }
+        ],
+        "description": "VideoJs Player for Yii2",
+        "keywords": [
+            " videojs",
+            "extension",
+            "yii2"
         ]
     },
     {

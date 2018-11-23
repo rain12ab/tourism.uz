@@ -52,9 +52,9 @@ class Objects extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name_uz' => Yii::t('app', 'Name Uz'),
-            'name_ru' => Yii::t('app', 'Name Ru'),
-            'name_en' => Yii::t('app', 'Name En'),
+            'name_uz' => Yii::t('app', 'Joy nomi bo\'yicha qidirish'),
+            'name_ru' => Yii::t('app', 'Поиск по названию места'),
+            'name_en' => Yii::t('app', 'Search by name of place'),
             'content_uz' => Yii::t('app', 'Content Uz'),
             'content_ru' => Yii::t('app', 'Content Ru'),
             'content_en' => Yii::t('app', 'Content En'),
@@ -65,5 +65,9 @@ class Objects extends \yii\db\ActiveRecord
             'lat' => Yii::t('app', 'Lat'),
             'lng' => Yii::t('app', 'Lng'),
         ];
+    }
+
+    public function getDistrict() {
+        return $this->hasOne(Districts::className(), ['id' => 'district_id']);
     }
 }

@@ -1,20 +1,41 @@
-<section>
-	<div class="col-md-3">
-	<a href="generic.html" class="image">
-		<img style="width: 100%" src="<?= Yii::$app->request->baseUrl;?>/images/bg/1.jpg" alt="" data-position="center center" />
-	</a>
-	</div>
-	<div class="col-md-9">
-	<div class="content">
-		<div class="inner">
-			<header class="major">
-				<h3>Orci maecenas</h3>
-			</header>
-			<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-			<ul class="actions">
-				<li><a href="generic.html" class="button">Learn more</a></li>
-			</ul>
+<?php
+
+use yii\helpers\Url;
+
+
+
+if(Yii::$app->language == 'uz')
+	{
+		$name = $model->name_uz;
+		$district = $model->district->name_uz;
+	}
+else if(Yii::$app->language == 'ru')
+	{
+		$name = $model->name_ru;
+		$district = $model->district->name_ru;
+	}
+else if(Yii::$app->language == 'en')
+	{
+		$name = $model->name_en;
+		$district = $model->district->name_en;
+	}
+else
+	{
+		$name = null;
+		$district = null;
+	}
+?>
+
+
+
+
+<div class="col-md-6 col-lg-6">
+	<a href="<?= Url::to(['objects/view', 'id' => $model->id]);?>" class="block-5" style="background-image: url(<?= Yii::$app->homeUrl.$model->pic1;?>);">
+		<div class="text">
+			<h3 class="heading"><?= $name;?></h3>
+			<div class="post-meta">
+				<span><?= $district?></span>
+			</div>
 		</div>
-	</div>
-	</div>
-</section>
+	</a>
+</div>

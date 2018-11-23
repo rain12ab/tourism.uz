@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\About;
+use common\models\Team;
 use frontend\models\AboutSearch;
 use frontend\models\ContactsSearch;
 use yii\web\Controller;
@@ -41,6 +42,8 @@ class AboutController extends Controller
         $searchModel = new AboutSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $teams = Team::find()->all();
+
         $searchModel2 = new ContactsSearch();
         $dataProvider2 = $searchModel2->search(Yii::$app->request->queryParams);
 
@@ -48,6 +51,7 @@ class AboutController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'dataProvider2' => $dataProvider2,
+            'teams' => $teams,
         ]);
     }
 

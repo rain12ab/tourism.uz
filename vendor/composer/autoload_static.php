@@ -13,9 +13,9 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -37,12 +37,18 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'n' => 
+        array (
+            'newerton\\fancybox\\' => 18,
+        ),
         'l' => 
         array (
             'lucidtaz\\yii2scssphp\\' => 21,
+            'linslin\\yii2\\curl\\' => 18,
         ),
         'k' => 
         array (
+            'kato\\' => 5,
             'kartik\\widgets\\' => 15,
             'kartik\\typeahead\\' => 17,
             'kartik\\touchspin\\' => 17,
@@ -206,9 +212,21 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
+        'newerton\\fancybox\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/newerton/yii2-fancybox',
+        ),
         'lucidtaz\\yii2scssphp\\' => 
         array (
             0 => __DIR__ . '/..' . '/lucidtaz/yii2-scssphp/src',
+        ),
+        'linslin\\yii2\\curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/linslin/yii2-curl',
+        ),
+        'kato\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/perminder-klair/yii2-videojs',
         ),
         'kartik\\widgets\\' => 
         array (

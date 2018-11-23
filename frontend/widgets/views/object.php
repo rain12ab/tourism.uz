@@ -18,18 +18,22 @@ use yii\helpers\Url;
       <?php if(Yii::$app->language == 'uz')
         {
           $name = $object->name_uz;
+          $district = $object->district->name_uz;
         }
-        else if(Yii::$app->language == 'ru')
+      else if(Yii::$app->language == 'ru')
         {
           $name = $object->name_ru;
+          $district = $object->district->name_ru;
         }
-        else if(Yii::$app->language == 'en')
+      else if(Yii::$app->language == 'en')
         {
           $name = $object->name_en;
+          $district = $object->district->name_en;
         }
-        else
+      else
         {
           $name = null;
+          $district = null;
         }
       ?>
       <div class="col-md-6 col-lg-3 ftco-animate">
@@ -37,7 +41,7 @@ use yii\helpers\Url;
           <div class="text">
             <h3 class="heading"><?= $name;?></h3>
             <div class="post-meta">
-              <span><?= Yii::t('app', 'Joylashgan joyi:');?><?= $object->district_id;?></span>
+              <span><?= Yii::t('app', 'Joylashgan joyi').': '.$district;?></span>
             </div>
           </div>
         </a>

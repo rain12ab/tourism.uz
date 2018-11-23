@@ -19,7 +19,7 @@ class HotelsSearch extends Hotels
     {
         return [
             [['id', 'stars', 'phone'], 'integer'],
-            [['name', 'content_uz', 'content_ru', 'content_en', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic1', 'pic2', 'pic3', 'pic4'], 'safe'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic1', 'pic2', 'pic3', 'pic4'], 'safe'],
             [['lat', 'lng'], 'number'],
         ];
     }
@@ -50,7 +50,7 @@ class HotelsSearch extends Hotels
             'query' => $query,
         ]);
 
-        $this->load($params);
+        if (!$this->load($params)) {}
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -67,7 +67,9 @@ class HotelsSearch extends Hotels
             'phone' => $this->phone,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'name_uz', $this->name_uz])
+            ->andFilterWhere(['like', 'name_ru', $this->name_ru])
+            ->andFilterWhere(['like', 'name_en', $this->name_en])
             ->andFilterWhere(['like', 'content_uz', $this->content_uz])
             ->andFilterWhere(['like', 'content_ru', $this->content_ru])
             ->andFilterWhere(['like', 'content_en', $this->content_en])

@@ -9,14 +9,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\assets\AwesomeAsset;
 use frontend\widgets\HeaderWidget;
-use frontend\widgets\MainWidget;
-use frontend\widgets\MainSliderWidget;
-use frontend\widgets\ContactsWidget;
 use frontend\widgets\FooterWidget;
-use frontend\widgets\AboutWidget;
-use frontend\widgets\HotelWidget;
-use frontend\widgets\ObjectWidget;
-use frontend\widgets\NewsWidget;
 use frontend\models\BreadcrumbsMicrodata;
 
 // Yii::$app->name = Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');

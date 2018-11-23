@@ -8,6 +8,7 @@ use yii\base\Exception;
 use yii\base\Widget;
 use yii\helpers\Html;
 use common\models\About;
+use kato\VideojsWidget;
 
 class AboutWidget extends Widget
 {
@@ -18,5 +19,4 @@ class AboutWidget extends Widget
             'about' => $about,
         ]);
     }
-
 }
