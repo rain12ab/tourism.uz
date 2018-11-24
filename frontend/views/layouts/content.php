@@ -30,6 +30,7 @@ AwesomeAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
     <?php $this->head() ?>
 </head>
 <body>

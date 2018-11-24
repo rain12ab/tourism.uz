@@ -32,7 +32,7 @@ else
 ?>
 
 <div class="col-md-6 col-lg-6">
-	<a href="<?= Url::to(['hotels/view', 'id' => $model->id]);?>" class="block-5" style="background-image: url(<?= Yii::$app->homeUrl.$model->pic_main;?>);">
+	<a href="<?= Url::to(['restaurants/view', 'id' => $model->id]);?>" class="block-5" style="background-image: url(<?= Yii::$app->homeUrl.$model->pic_main;?>);">
 		<div class="text">
 			<h3 class="heading"><?= $name;?></h3>
 			<div class="post-meta">
