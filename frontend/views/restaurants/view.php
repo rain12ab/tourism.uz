@@ -23,6 +23,7 @@ if(Yii::$app->language == 'uz')
         $adress = $model->adress_uz;
         $content = $model->content_uz;
         $district = $model->district->name_uz;
+        $type = $model->type->name_uz;
     }
 else if(Yii::$app->language == 'ru')
     {
@@ -30,6 +31,7 @@ else if(Yii::$app->language == 'ru')
         $adress = $model->adress_ru;
         $content = $model->content_ru;
         $district = $model->district->name_ru;
+        $type = $model->type->name_ru;
     }
 else if(Yii::$app->language == 'en')
     {
@@ -37,6 +39,7 @@ else if(Yii::$app->language == 'en')
         $adress = $model->adress_en;
         $content = $model->content_en;
         $district = $model->district->name_en;
+        $type = $model->type->name_en;
     }
 else
     {
@@ -44,6 +47,7 @@ else
         $adress = null;
         $content = null;
         $district = null;
+        $type = null;
     }
 
 
@@ -87,18 +91,18 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="section-2-blocks-wrapper row no-gutters">
             <div class="text col-md-6 ftco-animate">
                 <div style="margin-bottom: 20px;" class="text-inner align-self-start special-font">
-                    <h1 class="special-font res-name"><?= 'The One - Lounge Bar and Restaurant asdfasdf';?></h1>
+                    <h1 class="special-font res-name"><?= $name;?></h1>
                     <?= $content;?>
                 </div>
                 <h4 style="font-size: 20px;" class="special-font"><b><?= Yii::t('app', 'Ma\'lumotlar');?></b></h4>
-                <div class="row">
+                <div style="padding-bottom: 15px;" class="row">
                     <div class="col-md-6">
-                        <div style="padding: 10px 0;"><i style="color: #fff; font-size: 20px;" class="fas fa-map-marker-alt"></i><a style="margin-left: 10px; color: #fff;" href="#"><?= $adress;?></a></div>
-                        <div style="padding: 10px 0;"><i style="color: #fff; font-size: 20px;" class="fas fa-phone"></i><a style="margin-left: 10px; color: #fff;" href="tel:<?= $model->phone;?>"><?= '+'.$model->phone;?></a></div>
+                        <div style="padding: 10px 0;"><i style="color: #fff; font-size: 20px;" class="fas fa-map-marker-alt"></i><a style="margin-left: 10px; color: #fff; font-size: 17px" href="#"><?= $adress;?></a></div>
+                        <div style="padding: 10px 0;"><i style="color: #fff; font-size: 20px;" class="fas fa-phone"></i><a style="margin-left: 10px; color: #fff; font-size: 17px" href="tel:<?= $model->phone;?>"><?= '+'.$model->phone;?></a></div>
                     </div>
                     <div class="col-md-6">
-                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Turi').': '.$model->type;?></a></div>
-                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Joylashgan joyi').': '.$district;?></a></div>
+                        <div style="padding: 9px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Turi').': '.$type;?></a></div>
+                        <div style="padding: 9px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Joylashgan joyi').': '.$district;?></a></div>
                     </div>
                 </div>
             </div>

@@ -40,7 +40,7 @@ class Restaurants extends \yii\db\ActiveRecord
         return [
             [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'phone', 'type', 'lat', 'lng', 'pic_main', 'pictures', 'district_id'], 'required'],
             [['content_uz', 'content_ru', 'content_en'], 'string'],
-            [['phone', 'type', 'district_id'], 'integer'],
+            [['phone', 'type_id', 'district_id'], 'integer'],
             [['lat', 'lng'], 'number'],
             [['pictures'], 'safe'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
@@ -73,5 +73,9 @@ class Restaurants extends \yii\db\ActiveRecord
 
     public function getDistrict() {
         return $this->hasOne(Districts::className(), ['id' => 'district_id']);
+    }
+
+    public function getType() {
+        return $this->hasOne(Restype::className(), ['id' => 'type_id']);
     }
 }
