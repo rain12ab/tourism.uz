@@ -1,8 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
+use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\GuidesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -10,31 +11,19 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Guides');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="guides-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Guides'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'full_name',
-            'languages',
-            'phone',
-            'email:email',
-            //'pic',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
-</div>
+<section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php Pjax::begin(); ?>
+                <?= $this->render('_search', ['model' => $searchModel]); ?>
+                <?= ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'itemView' => '_view',
+                    'summary' => '',
+                ]) ?>
+                <?php Pjax::end(); ?>
+            </div>
+        </div>
+    </div>
+</section>

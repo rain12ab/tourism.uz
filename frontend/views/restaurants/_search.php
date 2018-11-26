@@ -1,56 +1,67 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use yii\web\JsExpression;
+use kartik\typeahead\Typeahead;
 
+
+$list = ArrayHelper::map(common\models\Restaurants::getList(),'id','name');
 /* @var $this yii\web\View */
-/* @var $model frontend\models\RestaurantsSearch */
+/* @var $model frontend\models\ObjectsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<?php $form = ActiveForm::begin([
+    'action' => ['index'],
+    'method' => 'get',
+    'options' => [
+        'data-pjax' => true
+    ],
+]);
 
-<div class="restaurants-search">
+$this->registerJs("
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-        'options' => [
-            'data-pjax' => 1
-        ],
-    ]); ?>
+$(document).on('change', '#res_name', function(){
 
-    <?= $form->field($model, 'id') ?>
+    $(this).closest('form').submit();
 
-    <?= $form->field($model, 'name_uz') ?>
+})
 
-    <?= $form->field($model, 'name_ru') ?>
+", yii\web\View::POS_END);
 
-    <?= $form->field($model, 'name_en') ?>
+$this->registerJs("
 
-    <?= $form->field($model, 'content_uz') ?>
+$(document).on('change', '#type_id', function(){
 
-    <?php // echo $form->field($model, 'content_ru') ?>
+    $(this).closest('form').submit();
 
-    <?php // echo $form->field($model, 'content_en') ?>
+})
 
-    <?php // echo $form->field($model, 'phone') ?>
+", yii\web\View::POS_END);
 
-    <?php // echo $form->field($model, 'type') ?>
+?>
 
-    <?php // echo $form->field($model, 'lat') ?>
-
-    <?php // echo $form->field($model, 'lng') ?>
-
-    <?php // echo $form->field($model, 'pic_main') ?>
-
-    <?php // echo $form->field($model, 'pictures') ?>
-
-    <?php // echo $form->field($model, 'district_id') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+<div style="margin-bottom: 30px;" class="row">
+    <div class="col-md-6">
+        <?= $form->field($model, 'res_name', ['inputOptions' => ['name' => 'res_name', 'class' => 'form-control']])->widget(Typeahead::classname(), [
+            'options' => ['placeholder' => Yii::t('app', 'Qidirish').'...'],
+            'pluginOptions' => ['highlight'=>true],
+            'dataset' => [
+                [
+                    'display' => 'value',
+                    'remote' => [
+                        'url' => Url::to(['restaurants/list']) . '?q=%QUERY',
+                        'wildcard' => '%QUERY'
+                    ],
+                    'limit' => 10
+                ]
+            ]
+        ]); ?>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
+    <div class="col-md-6">
+        <?= $form->field($model, 'type_id', ['inputOptions' => ['name' => 'type', 'class' => 'form-control']])->dropDownList($list, ['prompt'=> Yii::t('app', 'Tanlash').'...']) ?>
+    </div>
 </div>
+<?php ActiveForm::end(); ?>

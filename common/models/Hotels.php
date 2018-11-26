@@ -93,6 +93,10 @@ class Hotels extends \yii\db\ActiveRecord
           {
             $name = 'name_ru';
           }
+        else if(Yii::$app->language == 'en')
+          {
+            $name = 'name_en';
+          }
         else
         {
             $name = null;

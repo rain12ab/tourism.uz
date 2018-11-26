@@ -16,6 +16,7 @@ use Yii;
  */
 class Guides extends \yii\db\ActiveRecord
 {
+    public $language_id;
     /**
      * {@inheritdoc}
      */
@@ -33,6 +34,7 @@ class Guides extends \yii\db\ActiveRecord
             [['full_name', 'languages', 'phone', 'email', 'pic'], 'required'],
             [['full_name', 'phone', 'email', 'pic'], 'string', 'max' => 300],
             [['languages'], 'string', 'max' => 500],
+            [['language_id'], 'integer'],
         ];
     }
 
@@ -49,5 +51,9 @@ class Guides extends \yii\db\ActiveRecord
             'email' => Yii::t('app', 'Email'),
             'pic' => Yii::t('app', 'Pic'),
         ];
+    }
+
+    public function getLang() {
+        return $this->hasMany(Country::className(), ['id' => 'language_id']);
     }
 }

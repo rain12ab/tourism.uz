@@ -8,6 +8,8 @@ use frontend\models\RestaurantsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Query;
+use yii\helpers\Json;
 
 /**
  * RestaurantsController implements the CRUD actions for Restaurants model.
@@ -43,6 +45,37 @@ class RestaurantsController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionList($q = null) {
+        $query = new Query;
+        if(Yii::$app->language == 'uz')
+            {
+                $name = 'name_uz';
+            }
+        else if(Yii::$app->language == 'ru')
+            {
+                $name = 'name_ru';
+            }
+        else if(Yii::$app->language == 'en')
+            {
+                $name = 'name_en';
+            }
+        else
+            {
+                $name = null;
+            }
+        $query->select($name)
+            ->from('restaurants')
+            ->where($name.' LIKE "%' . $q .'%"')
+            ->orderBy($name);
+        $command = $query->createCommand();
+        $data = $command->queryAll();
+        $out = [];
+        foreach ($data as $d) {
+            $out[] = ['value' => $d[$name]];
+        }
+        return Json::encode($out);
     }
 
     /**

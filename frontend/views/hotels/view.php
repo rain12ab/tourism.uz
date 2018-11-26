@@ -55,6 +55,9 @@ $url = Yii::$app->homeUrl;
 $this->title = $name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Ovqatlanish maskanlari'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+
+$result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
 ?>
 
 <style type="text/css">
@@ -104,13 +107,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <h4 style="font-size: 20px;" class="special-font"><b><?= Yii::t('app', 'Ma\'lumotlar');?></b></h4>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div style="padding: 10px 0;"><i style="color: #fff; font-size: 20px;" class="fas fa-map-marker-alt"></i><a style="margin-left: 10px; color: #fff;" href="#"><?= $adress;?></a></div>
                         <div style="padding: 10px 0;"><i style="color: #fff; font-size: 20px;" class="fas fa-phone"></i><a style="margin-left: 10px; color: #fff;" href="tel:<?= $model->phone;?>"><?= '+'.$model->phone;?></a></div>
-                    </div>
-                    <div class="col-md-4">
                         <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Turi').': '.$type;?></a></div>
                         <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Joylashgan joyi').': '.$district;?></a></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4></h4>
+                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= $model->price.' '.Yii::t('app', 'so\'m').' / '.Yii::t('app', 'bir kecha');?></a></div>
+                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= round($result[0], 2).'$ / '.Yii::t('app', 'bir kecha');?></a></div>
+                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= round($result[1], 2).'€ / '.Yii::t('app', 'bir kecha');?></a></div>
                     </div>
                 </div>
             </div>

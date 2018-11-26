@@ -78,4 +78,32 @@ class Restaurants extends \yii\db\ActiveRecord
     public function getType() {
         return $this->hasOne(Restype::className(), ['id' => 'type_id']);
     }
+
+        public function getList()
+    {
+        if(Yii::$app->language == 'uz')
+          {
+            $name = 'name_uz';
+          }
+        else if(Yii::$app->language == 'ru')
+          {
+            $name = 'name_ru';
+          }
+        else if(Yii::$app->language == 'en')
+          {
+            $name = 'name_en';
+          }
+        else
+        {
+            $name = null;
+        }
+        
+        $hotels = Restype::find()->select(['id', $name])->asArray()->all();
+        $count = Restype::find()->select(['id', $name])->count();
+        for ($i=0; $i < $count; $i++) { 
+            $hotels[$i]['name'] = $hotels[$i][$name];
+            unset($hotels[$i][$name]);
+        }
+        return $hotels;
+    }
 }

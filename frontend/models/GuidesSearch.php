@@ -12,6 +12,7 @@ use common\models\Guides;
  */
 class GuidesSearch extends Guides
 {
+    public $gid_name;
     /**
      * {@inheritdoc}
      */
@@ -19,7 +20,7 @@ class GuidesSearch extends Guides
     {
         return [
             [['id'], 'integer'],
-            [['full_name', 'languages', 'phone', 'email', 'pic'], 'safe'],
+            [['full_name_uz', 'full_name_ru', 'full_name_en', 'languages', 'phone', 'email', 'pic', 'gid_name'], 'safe'],
         ];
     }
 
@@ -62,8 +63,24 @@ class GuidesSearch extends Guides
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'full_name', $this->full_name])
-            ->andFilterWhere(['like', 'languages', $this->languages])
+        if(Yii::$app->language == 'uz')
+            {
+                $query->andFilterWhere(['like', 'name_uz', $this->gid_name]);
+            }
+        else if(Yii::$app->language == 'ru')
+            {
+                $query->andFilterWhere(['like', 'name_ru', $this->gid_name]);
+            }
+        else if(Yii::$app->language == 'en')
+            {
+                $query->andFilterWhere(['like', 'name_en', $this->gid_name]);
+            }
+        else
+            {
+                $query = null;
+            }
+
+        $query->andFilterWhere(['like', 'languages', $this->languages])
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'pic', $this->pic]);

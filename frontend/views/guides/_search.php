@@ -7,34 +7,22 @@ use yii\widgets\ActiveForm;
 /* @var $model frontend\models\GuidesSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
-<div class="guides-search">
-
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-        'options' => [
-            'data-pjax' => 1
-        ],
-    ]); ?>
-
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'full_name') ?>
-
-    <?= $form->field($model, 'languages') ?>
-
-    <?= $form->field($model, 'phone') ?>
-
-    <?= $form->field($model, 'email') ?>
-
-    <?php // echo $form->field($model, 'pic') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+<?php $form = ActiveForm::begin([
+    'action' => ['index'],
+    'method' => 'get',
+    'options' => [
+        'data-pjax' => 1
+    ],
+]); ?>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'gid_name') ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'languages') ?>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>
+<?php ActiveForm::end(); ?>
+

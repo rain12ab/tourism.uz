@@ -12,15 +12,17 @@ use common\models\Restaurants;
  */
 class RestaurantsSearch extends Restaurants
 {
+    public $res_name;
+    public $type;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'phone', 'type', 'district_id'], 'integer'],
-            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'pic_main', 'pictures'], 'safe'],
-            [['lat', 'lng'], 'number'],
+            [['id', 'phone', 'type_id', 'district_id', 'type'], 'integer'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'pic_main', 'pictures', 'res_name'], 'safe'],
+            [['lat', 'lng',], 'number'],
         ];
     }
 
@@ -50,7 +52,7 @@ class RestaurantsSearch extends Restaurants
             'query' => $query,
         ]);
 
-        $this->load($params);
+        if (!$this->load($params)) {}
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -62,11 +64,28 @@ class RestaurantsSearch extends Restaurants
         $query->andFilterWhere([
             'id' => $this->id,
             'phone' => $this->phone,
-            'type' => $this->type,
+            'type_id' => $this->type,
             'lat' => $this->lat,
             'lng' => $this->lng,
             'district_id' => $this->district_id,
         ]);
+
+        if(Yii::$app->language == 'uz')
+            {
+                $query->andFilterWhere(['like', 'name_uz', $this->res_name]);
+            }
+        else if(Yii::$app->language == 'ru')
+            {
+                $query->andFilterWhere(['like', 'name_ru', $this->res_name]);
+            }
+        else if(Yii::$app->language == 'en')
+            {
+                $query->andFilterWhere(['like', 'name_en', $this->res_name]);
+            }
+        else
+            {
+                $query = null;
+            }
 
         $query->andFilterWhere(['like', 'name_uz', $this->name_uz])
             ->andFilterWhere(['like', 'name_ru', $this->name_ru])
@@ -78,5 +97,9 @@ class RestaurantsSearch extends Restaurants
             ->andFilterWhere(['like', 'pictures', $this->pictures]);
 
         return $dataProvider;
+    }
+
+    public function formName() {
+         return '';
     }
 }
