@@ -84,7 +84,7 @@ class HotelsController extends Controller
 
     public function actionCalculate($sum)
     {
-        if(date('l') == 'Monday' OR date('l') == 'Thursday')
+        if(date('l') == 'Monday' OR date('l') == 'Tuesday')
             {
                 $url = 'https://www.uba.uz/ru/services/open_data/rates/json/?year='.date('Y');
                 $curl = new curl\Curl();

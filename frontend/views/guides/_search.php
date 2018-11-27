@@ -1,22 +1,39 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Arrayhelper;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\GuidesSearch */
 /* @var $form yii\widgets\ActiveForm */
 $data = common\models\Country::find()->select(['id', 'language_code'])->asArray()->all();
 $count = common\models\Country::find()->select(['id', 'language_code'])->count();
-var_dump($data).'<br>';
+// var_dump($data).'<br>';
 for ($i=0; $i > $count; $i++) { 
-    $data[] = $data[$i][id];
-    unset($data[$i]);
+    $data[$i] = $data[id];
+    unset($data[$i][$i]);
+
 }
 
-var_dump($data);
 
+
+$data = Arrayhelper::map($data, 'id', 'language_code');
+$data = array_filter($data);
+
+
+$url = \Yii::$app->homeUrl.'images/flags/';
+$format = <<< SCRIPT
+function format(state) {
+    if (!state.id) return state.text;
+    src = '$url' +  state.id.toLowerCase() + '.gif'
+    return '<img class="flag" src="' + src + '"/>' + state.text;
+}
+SCRIPT;
+$escape = new JsExpression("function(m) { return m; }");
+$this->registerJs($format, yii\web\View::POS_HEAD);
 ?>
 <?php $form = ActiveForm::begin([
     'action' => ['index'],
@@ -36,12 +53,13 @@ var_dump($data);
             <div class="row">
                 <div class="col-md-8">
                     <?= $form->field($model, 'languages')->widget(Select2::classname(), [
-                        'data' => $data,
+                        'data' =>$data,
+                        'theme' => Select2::THEME_DEFAULT,
                         'options' => ['placeholder' => Yii::t('app', 'Tanlash').'...'],
                         'options' => ['class' => 'form-control'],
                         'pluginOptions' => [
                             'allowClear' => true,
-                            'multiple' => true
+                            'multiple' => true,
                         ],
                     ]); ?>
                 </div>
