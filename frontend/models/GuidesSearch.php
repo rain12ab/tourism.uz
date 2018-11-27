@@ -50,7 +50,7 @@ class GuidesSearch extends Guides
             'query' => $query,
         ]);
 
-        $this->load($params);
+        if (!$this->load($params)) {}
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -65,15 +65,15 @@ class GuidesSearch extends Guides
 
         if(Yii::$app->language == 'uz')
             {
-                $query->andFilterWhere(['like', 'name_uz', $this->gid_name]);
+                $query->andFilterWhere(['like', 'full_name_uz', $this->gid_name]);
             }
         else if(Yii::$app->language == 'ru')
             {
-                $query->andFilterWhere(['like', 'name_ru', $this->gid_name]);
+                $query->andFilterWhere(['like', 'full_name_ru', $this->gid_name]);
             }
         else if(Yii::$app->language == 'en')
             {
-                $query->andFilterWhere(['like', 'name_en', $this->gid_name]);
+                $query->andFilterWhere(['like', 'full_name_en', $this->gid_name]);
             }
         else
             {
@@ -86,5 +86,9 @@ class GuidesSearch extends Guides
             ->andFilterWhere(['like', 'pic', $this->pic]);
 
         return $dataProvider;
+    }
+
+    public function formName() {
+         return '';
     }
 }

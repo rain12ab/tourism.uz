@@ -46,10 +46,11 @@ class Guides extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'full_name' => Yii::t('app', 'Full Name'),
-            'languages' => Yii::t('app', 'Languages'),
+            'languages' => Yii::t('app', 'Tillar'),
             'phone' => Yii::t('app', 'Phone'),
             'email' => Yii::t('app', 'Email'),
             'pic' => Yii::t('app', 'Pic'),
+            'gid_name' => Yii::t('app', 'F.I.Sh'),
         ];
     }
 

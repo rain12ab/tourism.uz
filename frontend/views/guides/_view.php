@@ -20,11 +20,14 @@ else
         $query = null;
     }
 $url = Yii::$app->homeUrl;
+
+$language = common\models\Country::find()->where(['id' => $model->languages])->asArray()->all();
+
 ?>
 
 
 
-<div class="col-md-6 col-lg-3 ftco-animate">
+<div class="col-md-6 col-lg-3">
 	<div style="background-color: #fff;">
 		<?= Html::a('', $url.$model->pic, ['class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic.')']);?>
 		<div style="padding: 5px 15px;">
@@ -34,12 +37,9 @@ $url = Yii::$app->homeUrl;
 				<div><?= $model->email;?></div>
 			</div>
 			<div class="meta">
-				<?php foreach ($model->languages as $model->language_id) {
-					var_dump($model->language_id);
-					var_dump($model->lang->language_code);
-				} ?>
-					<?= var_dump($model->lang->language_code);?>
-					<!-- <img style="width: 15%;" src="<?= $url.'images/flags/'.$model->lang->language_code.'.gif';?>"><?= $model->lang->iso;?> -->
+				<?php foreach ($language as $l): ?>
+					<img style="width: 15%; padding: 5px 5px;" src="<?= $url.'images/flags/'.$l['language_code'].'.gif';?>"><span style="text-transform: uppercase;"><?= $l['language_code'];?></span>
+				<?php endforeach ?>
 			</div>
 		</div>
 	</div>

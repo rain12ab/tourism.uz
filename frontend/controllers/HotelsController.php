@@ -84,7 +84,7 @@ class HotelsController extends Controller
 
     public function actionCalculate($sum)
     {
-        if(date('l') == 'Tuesday')
+        if(date('l') == 'Monday' OR date('l') == 'Thursday')
             {
                 $url = 'https://www.uba.uz/ru/services/open_data/rates/json/?year='.date('Y');
                 $curl = new curl\Curl();
@@ -94,6 +94,10 @@ class HotelsController extends Controller
 
                     case 'timeout':
                         $currency = Currency::find()->orderBy('id DESC')->one();
+                        $price_dollar = ($sum / $currency->dollar);
+                        $price_euro = ($sum / $currency->euro);
+                        $result = [$price_dollar, $price_euro];
+                        return $result;
                         break;
                         
                     case 200:
@@ -108,17 +112,28 @@ class HotelsController extends Controller
                             $model->save(false);
                         }
                         $currency = Currency::find()->orderBy('id DESC')->one();
+                        $price_dollar = ($sum / $currency->dollar);
+                        $price_euro = ($sum / $currency->euro);
+                        $result = [$price_dollar, $price_euro];
+                        return $result;
                         break;
 
                     case 404:
                         $currency = Currency::find()->orderBy('id DESC')->one();
+                        $price_dollar = ($sum / $currency->dollar);
+                        $price_euro = ($sum / $currency->euro);
+                        $result = [$price_dollar, $price_euro];
+                        return $result;
+                        break;
+
+                    case 503:
+                        $currency = Currency::find()->orderBy('id DESC')->one();
+                        $price_dollar = ($sum / $currency->dollar);
+                        $price_euro = ($sum / $currency->euro);
+                        $result = [$price_dollar, $price_euro];
+                        return $result;
                         break;
                 }
-
-                $price_dollar = ($sum / $currency->dollar);
-                $price_euro = ($sum / $currency->euro);
-                $result = [$price_dollar, $price_euro];
-                return $result;
             }
         else
             {
