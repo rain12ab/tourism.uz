@@ -80,7 +80,7 @@ class GuidesSearch extends Guides
                 $query = null;
             }
 
-        $query->andFilterWhere('languages'.' LIKE "%' . $this->languages .'%"')
+        $query->andFilterWhere(['like', 'languages', $this->languages])
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'pic', $this->pic]);

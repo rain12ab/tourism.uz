@@ -23,17 +23,6 @@ for ($i=0; $i > $count; $i++) {
 $data = Arrayhelper::map($data, 'id', 'language_code');
 $data = array_filter($data);
 
-
-$url = \Yii::$app->homeUrl.'images/flags/';
-$format = <<< SCRIPT
-function format(state) {
-    if (!state.id) return state.text;
-    src = '$url' +  state.id.toLowerCase() + '.gif'
-    return '<img class="flag" src="' + src + '"/>' + state.text;
-}
-SCRIPT;
-$escape = new JsExpression("function(m) { return m; }");
-$this->registerJs($format, yii\web\View::POS_HEAD);
 ?>
 <?php $form = ActiveForm::begin([
     'action' => ['index'],
@@ -42,7 +31,32 @@ $this->registerJs($format, yii\web\View::POS_HEAD);
         'data-pjax' => 1
     ],
 ]);
+$this->registerJs("
 
+$(document).on('change', '#gid_name', function(){
+
+    $(this).closest('form').submit();
+
+})
+
+", yii\web\View::POS_END);
+
+$this->registerJs("
+
+$(document).on('change', '#languages', function(){
+
+    $(this).closest('form').submit();
+
+})
+
+", yii\web\View::POS_END);
+
+if(Yii::$app->language == 'uz') {
+    $l = 'ru';
+}
+else {
+    $l = Yii::$app->language;
+}
 ?>
 <div class="col-md-12">
     <div class="row">
@@ -50,23 +64,20 @@ $this->registerJs($format, yii\web\View::POS_HEAD);
             <?= $form->field($model, 'gid_name', ['inputOptions' => ['name' => 'gid_name', 'class' => 'form-control']]) ?>
         </div>
         <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <?= $form->field($model, 'languages')->widget(Select2::classname(), [
-                        'data' =>$data,
-                        'theme' => Select2::THEME_DEFAULT,
-                        'options' => ['placeholder' => Yii::t('app', 'Tanlash').'...'],
-                        'options' => ['class' => 'form-control'],
-                        'pluginOptions' => [
-                            'allowClear' => true,
-                            'multiple' => true,
-                        ],
-                    ]); ?>
-                </div>
-                <div class="col-md-4">
-                    <?= Html::submitButton(Yii::t('app', 'Tanlash'), ['class' => 'btn btn-primary']) ?>
-                </div>
+            <?= $form->field($model, 'languages')->widget(Select2::classname(), [
+                'data' =>$data,
+                'language' => 'ru',
+                'size' => Select2::LARGE,
+                'options' => ['placeholder' => Yii::t('app', 'Tanlash').'...'],
+                'pluginOptions' => [
+                    'allowClear' => true,
+                    'multiple' => true,
+                ],
+            ]); ?>
         </div>
+    </div>
+    <div class="form-group">
+        <?= Html::submitButton(Yii::t('app', 'Qidirish'), ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
 <?php ActiveForm::end(); ?>

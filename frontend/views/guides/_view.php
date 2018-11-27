@@ -17,7 +17,7 @@ else if(Yii::$app->language == 'en')
     }
 else
     {
-        $query = null;
+        $name = null;
     }
 $url = Yii::$app->homeUrl;
 
