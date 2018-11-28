@@ -29,7 +29,7 @@ $language = common\models\Country::find()->where(['id' => $model->languages])->a
 
 <div class="col-md-6 col-lg-3">
 	<div style="background-color: #fff;">
-		<?= Html::a('', $url.$model->pic, ['class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic.')']);?>
+		<?= Html::a('', '', ['class' => 'block-20', 'style' => 'background-image: url('.$url.$model->pic.')']);?>
 		<div style="padding: 5px 15px;">
 			<h3 class="heading"><?= $name;?></h3>
 			<div class="meta">

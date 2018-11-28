@@ -8,7 +8,7 @@ use yii\widgets\ListView;
 /* @var $searchModel frontend\models\GuidesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Guides');
+$this->title = Yii::t('app', 'Gidlar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <section class="ftco-section bg-light">
