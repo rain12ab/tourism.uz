@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
  */
 class GalleryController extends Controller
 {
-    public $layout = 'content';
+    public $layout = 'gallery';
     /**
      * {@inheritdoc}
      */
