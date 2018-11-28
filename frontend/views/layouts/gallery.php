@@ -26,15 +26,23 @@ AwesomeAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Caveat&amp;subset=cyrillic,latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
     <?php $this->head() ?>
 </head>
-<body class="is-preload">
+<body class="is-preload-0 is-preload-1 is-preload-2">
 <?php $this->beginBody() ?>
-<div id="wrapper">
-<?= $content;?>
+		<!-- Main -->
+<div id="main">
+
+		<?= $content;?>
+
+	<!-- Footer -->
+		<footer id="footer">
+			<ul class="copyright">
+				<li style="padding: 10px 0;">&copy; <?= Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');?>.</li>
+				<li style="padding: 10px 0;"><?= Yii::t('app', 'Ma\'lumotlardan foydalanilganda www.navoitourism.uz ga havola ko\'rsatilishi shart.');?></li>
+			</ul>
+		</footer>
+
 </div>
 <?php $this->endBody() ?>
 </body>

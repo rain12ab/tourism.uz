@@ -13,13 +13,12 @@ class GalleryAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'gallery/css/main.css',
+        // 'gallery/css/noscript.css',
 
     ];
     public $js = [
-        'gallery/js/jquery.scrolly.min.js',
         'gallery/js/browser.min.js',
         'gallery/js/breakpoints.min.js',
-        'gallery/js/util.js',
         'gallery/js/main.js',
 
     ];

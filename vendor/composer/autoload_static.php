@@ -10,6 +10,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
@@ -30,6 +31,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
             'yii\\debug\\' => 10,
             'yii\\composer\\' => 13,
             'yii\\bootstrap\\' => 14,
+            'yii\\bootstrap4\\' => 15,
             'yii\\authclient\\' => 15,
             'yii\\' => 4,
         ),
@@ -118,6 +120,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\EventDispatcher\\' => 34,
@@ -133,6 +136,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'L' => 
         array (
             'Leafo\\ScssPhp\\' => 14,
+        ),
+        'I' => 
+        array (
+            'Imagine\\' => 8,
         ),
         'G' => 
         array (
@@ -151,6 +158,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Common\\Lexer\\' => 22,
             'DeepCopy\\' => 9,
         ),
         'C' => 
@@ -168,7 +176,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'yii\\jui\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui/src',
         ),
         'yii\\imagine\\' => 
         array (
@@ -184,7 +192,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'yii\\faker\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-faker',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-faker/src',
         ),
         'yii\\debug\\' => 
         array (
@@ -196,7 +204,11 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'yii\\bootstrap\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap/src',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap',
+        ),
+        'yii\\bootstrap4\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap4/src',
         ),
         'yii\\authclient\\' => 
         array (
@@ -274,7 +286,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'kartik\\popover\\' => 
         array (
-            0 => __DIR__ . '/..' . '/kartik-v/yii2-popover-x',
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-popover-x/src',
         ),
         'kartik\\plugins\\tabs\\' => 
         array (
@@ -420,6 +432,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/contracts',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
@@ -456,6 +472,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         array (
             0 => __DIR__ . '/..' . '/leafo/scssphp/src',
         ),
+        'Imagine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/imagine/imagine/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -479,6 +499,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
         ),
         'DeepCopy\\' => 
         array (
@@ -507,13 +531,6 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
         ),
-        'I' => 
-        array (
-            'Imagine' => 
-            array (
-                0 => __DIR__ . '/..' . '/imagine/imagine/lib',
-            ),
-        ),
         'H' => 
         array (
             'HTMLPurifier' => 
@@ -523,10 +540,6 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'D' => 
         array (
-            'Doctrine\\Common\\Lexer\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
-            ),
             'Diff' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',

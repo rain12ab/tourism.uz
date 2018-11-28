@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of phpunit/php-timer.
  *
@@ -13,7 +13,7 @@ namespace SebastianBergmann\Timer;
 final class Timer
 {
     /**
-     * @var array
+     * @var int[]
      */
     private static $times = [
         'hour'   => 3600000,
@@ -22,7 +22,7 @@ final class Timer
     ];
 
     /**
-     * @var array
+     * @var float[]
      */
     private static $startTimes = [];
 

@@ -1,51 +1,47 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
+use yii\helpers\Url;
+use yii\widgets\ListView;
+
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\GallerySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Galereya');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
-<section class="intro">
-    <header>
-        <h1><?= $this->title;?></h1>
-        <p><?= Yii::t('app', 'Navoiy hayotidan fotolavhalar');?></p>
-        <ul class="actions">
-            <li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
-        </ul>
-    </header>
-    <div class="content">
-        <span class="image fill" data-position="center"><img src="images/pic01.jpg" alt="" /></span>
-    </div>
-</section>
-<section id="first">
-    <header>
-        <h2>Magna sed nullam nisl adipiscing</h2>
-    </header>
-    <div class="content">
-        <p><strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
-        <span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-    </div>
-</section>
-<section>
-    <header>
-        <h2>Feugiat consequat tempus ultrices</h2>
-    </header>
-    <div class="content">
-        <p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
-        <ul class="feature-icons">
-            <li class="icon fa-laptop">Consequat tempus</li>
-            <li class="icon fa-bolt">Etiam adipiscing</li>
-            <li class="icon fa-signal">Libero nullam</li>
-            <li class="icon fa-gear">Blandit condimentum</li>
-            <li class="icon fa-map-marker">Lorem ipsum dolor</li>
-            <li class="icon fa-code">Nibh amet venenatis</li>
-        </ul>
-        <p>Vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
-    </div>
+$url = Yii::$app->homeUrl;
+?>
+<?= Html::a('<i style="margin-right: 10px;" class="fas fa-sign-out-alt"></i>'.Yii::t('app', 'Chiqish'), $url, ['class' => 'btn btn-primary','style' => 'margin: 10px;']);?>
+<!-- Header -->
+<header id="header">
+    <h1><?= Yii::t('app', 'Galereya');?></h1>
+    <ul class="icons">
+        <?php foreach($contacts as $contact):?>
+            <li><a target="_blank" href="<?= $contact->facebook;?>" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a target="_blank" href="<?= $contact->instagram;?>" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a target="_blank" href="<?= $contact->telegram;?>" class="icon fa-telegram"><span class="label">Telegram</span></a></li>
+        <?php endforeach;?>
+    </ul>
+</header>
+<section id="thumbnails">
+    <?php foreach($pics as $pic):
+    if (Yii::$app->language == 'uz') {
+        $title = $pic->title_uz;
+    }
+    else if (Yii::$app->language == 'ru') {
+        $title = $pic->title_ru;
+    }
+    else if (Yii::$app->language == 'en') {
+        $title = $pic->title_en;
+    }
+    else {
+        $title = null;
+    }?>
+        <article>
+            <a class="thumbnail" href="<?= $url.$pic->url;?>" data-position="left center"><img src="<?= $url.$pic->url;?>" alt="" /></a>
+            <h2><?= $title;?></h2>
+        </article>
+    <?php endforeach;?>
 </section>

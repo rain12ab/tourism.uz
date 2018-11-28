@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Gallery;
+use common\models\Contacts;
 use frontend\models\GallerySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -36,12 +37,20 @@ class GalleryController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new GallerySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $searchModel = new GallerySearch();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // return $this->render('index', [
+        //     'searchModel' => $searchModel,
+        //     'dataProvider' => $dataProvider,
+        // ]);
+
+        $pics = Gallery::find()->orderBy('id DESC')->all();
+        $contacts = Contacts::find()->where(['id' => 1])->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'pics' => $pics,
+            'contacts' => $contacts,
         ]);
     }
 

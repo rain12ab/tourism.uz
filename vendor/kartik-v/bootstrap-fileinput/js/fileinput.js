@@ -1,5 +1,5 @@
 /*!
- * bootstrap-fileinput v4.5.1
+ * bootstrap-fileinput v4.5.2
  * http://plugins.krajee.com/file-input
  *
  * Author: Kartik Visweswaran
@@ -64,6 +64,7 @@
             return input !== undefined && (exact ? input === str : input.match(str));
         },
         isIE: function (ver) {
+            var div, status;
             // check for IE versions < 11
             if (navigator.appName !== 'Microsoft Internet Explorer') {
                 return false;
@@ -71,7 +72,7 @@
             if (ver === 10) {
                 return new RegExp('msie\\s' + ver, 'i').test(navigator.userAgent);
             }
-            var div = document.createElement("div"), status;
+            div = document.createElement("div");
             div.innerHTML = "<!--[if IE " + ver + "]> <i></i> <![endif]-->";
             status = div.getElementsByTagName("i").length;
             document.body.appendChild(div);
@@ -89,7 +90,7 @@
             }
         },
         getDragDropFolders: function (items) {
-            var i, item, len = items.length, folders = 0;
+            var i, item, len = items ? items.length : 0, folders = 0;
             if (len > 0 && items[0].webkitGetAsEntry()) {
                 for (i = 0; i < len; i++) {
                     item = items[i].webkitGetAsEntry();
@@ -661,7 +662,8 @@
                 '      {browse}\n' +
                 '    </div>\n' +
                 '</div>';
-            tMain2 = '{preview}\n<div class="kv-upload-progress kv-hidden"></div>\n<div class="clearfix"></div>\n{remove}\n{cancel}\n{upload}\n{browse}\n';
+            tMain2 = '{preview}\n<div class="kv-upload-progress kv-hidden"></div>\n<div class="clearfix"></div>\n' +
+                '{remove}\n{cancel}\n{upload}\n{browse}\n';
             tPreview = '<div class="file-preview {class}">\n' +
                 '    {close}' +
                 '    <div class="{dropClass}">\n' +
@@ -762,7 +764,7 @@
             tZoomCache = '<div class="kv-zoom-cache" style="display:none">{zoomContent}</div>';
             vDefaultDim = {width: "100%", height: "100%", 'min-height': "480px"};
             if (self._isPdfRendered()) {
-                tPdf = self.pdfRendererTemplate.replace('{renderer}', self.pdfRendererUrl);
+                tPdf = self.pdfRendererTemplate.replace('{renderer}', self._encodeURI(self.pdfRendererUrl));
             }
             self.defaults = {
                 layoutTemplates: {
@@ -848,6 +850,9 @@
                     object: {width: "auto", height: "100%", 'max-width': "100%", 'min-height': "480px"},
                     pdf: vDefaultDim,
                     other: {width: "auto", height: "100%", 'min-height': "480px"}
+                },
+                mimeTypeAliases: {
+                    'video/quicktime': 'video/mp4'
                 },
                 fileTypeSettings: {
                     image: function (vType, vName) {
@@ -1145,6 +1150,10 @@
                 return;
             }
             $el.off(ev).on(ev, callback);
+        },
+        _encodeURI: function (vUrl) {
+            var self = this;
+            return self.encodeUrl ? encodeURI(vUrl) : vUrl;
         },
         _log: function (msg) {
             var self = this, id = self.$element.attr('id');
@@ -1488,14 +1497,17 @@
             e.preventDefault();
         },
         _zoneDragEnter: function (e) {
-            var self = this, hasFiles = $.inArray('Files', e.originalEvent.dataTransfer.types) > -1;
+            var self = this, dataTransfer = e.originalEvent.dataTransfer,
+                hasFiles = $.inArray('Files', dataTransfer.types) > -1;
             self._zoneDragDropInit(e);
             if (self.isDisabled || !hasFiles) {
                 e.originalEvent.dataTransfer.effectAllowed = 'none';
                 e.originalEvent.dataTransfer.dropEffect = 'none';
                 return;
             }
-            $h.addCss(self.$dropZone, 'file-highlighted');
+            if (self._raise('fileDragEnter', {'sourceEvent': e, 'files': dataTransfer.types.Files})) {
+                $h.addCss(self.$dropZone, 'file-highlighted');
+            }
         },
         _zoneDragLeave: function (e) {
             var self = this;
@@ -1503,7 +1515,10 @@
             if (self.isDisabled) {
                 return;
             }
-            self.$dropZone.removeClass('file-highlighted');
+            if (self._raise('fileDragLeave', {'sourceEvent': e})) {
+                self.$dropZone.removeClass('file-highlighted');
+            }
+
         },
         _zoneDrop: function (e) {
             /** @namespace e.originalEvent.dataTransfer */
@@ -1524,6 +1539,9 @@
                 };
             e.preventDefault();
             if (self.isDisabled || $h.isEmpty(files)) {
+                return;
+            }
+            if (!self._raise('fileDragDrop', {'sourceEvent': e, 'files': files})) {
                 return;
             }
             if (folders > 0) {
@@ -1784,10 +1802,10 @@
             $modal.focus();
         },
         _setZoomContent: function ($frame, animate) {
-            var self = this, $content, tmplt, body, title, $body, $dataEl, config, pid = $frame.attr('id'),
-                $modal = self.$modal, $prev = $modal.find('.btn-prev'), $next = $modal.find('.btn-next'), $tmp,
+            var self = this, $content, tmplt, body, title, $body, $dataEl, config, previewId = $frame.attr('id'),
+                $zoomPreview = self.$preview.find('#zoom-' + previewId), $modal = self.$modal, $tmp,
                 $btnFull = $modal.find('.btn-fullscreen'), $btnBord = $modal.find('.btn-borderless'), cap, size,
-                $btnTogh = $modal.find('.btn-toggleheader'), $zoomPreview = self.$preview.find('#zoom-' + pid);
+                $btnTogh = $modal.find('.btn-toggleheader');
             tmplt = $zoomPreview.attr('data-template') || 'generic';
             $content = $zoomPreview.find('.kv-file-content');
             body = $content.length ? $content.html() : '';
@@ -1820,12 +1838,12 @@
                     }
                 });
             }
-            $modal.data('previewId', pid);
-            self._handler($prev, 'click', function () {
-                self._zoomSlideShow('prev', pid);
+            $modal.data('previewId', previewId);
+            self._handler($modal.find('.btn-prev'), 'click', function () {
+                self._zoomSlideShow('prev', previewId);
             });
-            self._handler($next, 'click', function () {
-                self._zoomSlideShow('next', pid);
+            self._handler($modal.find('.btn-next'), 'click', function () {
+                self._zoomSlideShow('next', previewId);
             });
             self._handler($btnFull, 'click', function () {
                 self._resizeZoomDialog(true);
@@ -1860,12 +1878,13 @@
                 $modal.focus();
             });
             self._handler($modal, 'keydown', function (e) {
-                var key = e.which || e.keyCode;
-                if (key === 37 && !$prev.attr('disabled')) {
-                    self._zoomSlideShow('prev', pid);
+                var key = e.which || e.keyCode, $prev = $(this).find('.btn-prev'), $next = $(this).find('.btn-next'),
+                    vId = $(this).data('previewId'), vPrevKey = self.rtl ? 39 : 37, vNextKey = self.rtl ? 37 : 39;
+                if (key === vPrevKey && $prev.length && !$prev.attr('disabled')) {
+                    self._zoomSlideShow('prev', vId);
                 }
-                if (key === 39 && !$next.attr('disabled')) {
-                    self._zoomSlideShow('next', pid);
+                if (key === vNextKey && $next.length && !$next.attr('disabled')) {
+                    self._zoomSlideShow('next', vId);
                 }
             });
         },
@@ -2148,7 +2167,7 @@
             }
         },
         _ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
-            var self = this, settings;
+            var self = this, settings, vUrl;
             if (!self._raise('filepreajax', [previewId, index])) {
                 return;
             }
@@ -2158,12 +2177,13 @@
             self._mergeAjaxCallback('success', fnSuccess);
             self._mergeAjaxCallback('complete', fnComplete);
             self._mergeAjaxCallback('error', fnError);
+            vUrl = index && self.uploadUrlThumb ? self.uploadUrlThumb : self.uploadUrl;
             settings = $.extend(true, {}, {
                 xhr: function () {
                     var xhrobj = $.ajaxSettings.xhr();
                     return self._initXhr(xhrobj, previewId, self.getFileStack().length);
                 },
-                url: index && self.uploadUrlThumb ? self.uploadUrlThumb : self.uploadUrl,
+                url: self._encodeURI(vUrl),
                 type: 'POST',
                 dataType: 'json',
                 data: self.formdata,
@@ -2784,7 +2804,7 @@
                 self._mergeAjaxCallback('success', fnSuccess, 'delete');
                 self._mergeAjaxCallback('error', fnError, 'delete');
                 settings = $.extend(true, {}, {
-                    url: vUrl,
+                    url: self._encodeURI(vUrl),
                     type: 'POST',
                     dataType: 'json',
                     data: $.extend(true, {}, {key: vKey}, extraData)
@@ -2838,6 +2858,10 @@
             }
             return self._getLayoutTemplate('size').replace('{sizeText}', out);
         },
+        _getFileType: function (ftype) {
+            var self = this;
+            return self.mimeTypeAliases[ftype] || ftype;
+        },
         _generatePreviewTemplate: function (cat, data, fname, ftype, previewId, isError, size, frameClass, foot, ind, templ) {
             var self = this, caption = self.slug(fname), prevContent, zoomContent = '', styleAttribs = '',
                 screenW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
@@ -2879,7 +2903,7 @@
                     'previewId': id,
                     'caption': caption,
                     'frameClass': css,
-                    'type': ftype,
+                    'type': self._getFileType(ftype),
                     'fileindex': ind,
                     'typeCss': typeCss,
                     'footer': footer,
@@ -3918,8 +3942,8 @@
                             }
                         };
                         fileInfo = {'name': caption, 'type': file.type};
-                        $.each(settings, function (key, func) {
-                            if (key !== 'object' && key !== 'other' && func(file.type, caption)) {
+                        $.each(settings, function (k, f) {
+                            if (k !== 'object' && k !== 'other' && typeof f === 'function' && f(file.type, caption)) {
                                 knownTypes++;
                             }
                         });
@@ -4281,6 +4305,7 @@
         required: false,
         rtl: false,
         hideThumbnailContent: false,
+        encodeUrl: true,
         generateFileId: null,
         previewClass: '',
         captionClass: '',
@@ -4469,7 +4494,8 @@
             close: 'Close detailed preview'
         },
         usePdfRenderer: function () {
-            return !!navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/i);
+            var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+            return !!navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/i) || isIE11;
         },
         pdfRendererUrl: '',
         pdfRendererTemplate: '<iframe class="kv-preview-data file-preview-pdf" src="{renderer}?file={data}" {style}></iframe>'

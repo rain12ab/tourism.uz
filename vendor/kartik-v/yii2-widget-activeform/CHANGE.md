@@ -1,6 +1,13 @@
 Change Log: `yii2-widget-activeform`
 ====================================
 
+## Version 1.5.8
+
+**Date**: _under development_
+
+- (enh #118): Add feature to show star indicator for required field labels.
+- (enh #117): Add ability to insert content at begin and end of rendered ActiveField.
+
 ## Version 1.5.7
 
 **Date**: 27-Sep-2018
