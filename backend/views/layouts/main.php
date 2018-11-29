@@ -33,7 +33,7 @@ AwesomeAsset::register($this);
 <?php $this->beginBody() ?>
 
   <div class="wrapper">
-    <div class="sidebar" data="blue">
+    <div class="sidebar">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
