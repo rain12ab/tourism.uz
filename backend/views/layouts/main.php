@@ -10,7 +10,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\bootstrap4\Breadcrumbs;
-use common\widgets\Alert;
+use yii\bootstrap4\Alert;
 use yii\widgets\Pjax;
 use yii\web\View;
 
@@ -167,6 +167,19 @@ AwesomeAsset::register($this);
       </nav>
       <!-- End Navbar -->
       <div class="content">
+        <?php if(Yii::$app->session->hasFlash('success')):?>
+        <?= Alert::widget([
+          'options' => ['class' => 'alert-success'],
+          'body' => Yii::$app->session->getFlash('success'),
+        ]) ?>
+        <?php endif;?>
+        <?php 
+        $js=<<< JS
+     $(".alert").animate({opacity: 1.0}, 3000).fadeOut("slow");
+JS;
+
+$this->registerJs($js, yii\web\View::POS_READY);
+        ?>
         <?= $content;?>
       </div>
       <footer class="footer">

@@ -33,12 +33,16 @@ use yii\helpers\Url;
           $name = null;
           $district = null;
         }
+      $result = Yii::$app->runAction('hotels/calculate', ['sum' => $hotel->price]);
       ?>
       <div class="col-lg-3 promo ftco-animate">
         <a href="<?= Url::to(['hotels/view', 'id' => $hotel->id]);?>" class="promo-img mb-4" style="background-image: url(<?= Yii::$app->request->baseUrl;?>/<?= $hotel->pic_main;?>);"></a>
         <div class="text text-center">
           <h2><?= $name;?></h2>
-          <span style="font-size: 14px;" class="price"><?= round(Yii::$app->runAction('hotels/calculate', ['sum' => $hotel->price]), 2).'$/'.Yii::t('app', 'bir kecha');?></span><br>
+          <span style="font-size: 14px;" class="price"><?= round($result[0], 2).'$/'.Yii::t('app', 'bir kecha');?></span>
+          <br>
+          <span style="font-size: 14px;" class="price"><?= round($result[1], 2).'€/'.Yii::t('app', 'bir kecha');?></span>
+          <br>
           <span style="font-size: 14px;" class="price"><?= $hotel->price.' '.Yii::t('app', 'so\'m').'/'.Yii::t('app', 'bir kecha');?></span><br>
           <?php for ($i=0; $i < $hotel->stars; $i++): ?>
             <span><i style="color: yellow;" class="fas fa-star"></i></span>

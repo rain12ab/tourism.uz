@@ -1,0 +1,364 @@
+2018-11-29 15:12:12 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][error][yii\base\ErrorException:2] yii\base\ErrorException: unlink(C:\OSPanel\domains\tourism.uz\backend\config): Permission denied in C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php:73
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'unlink(C:\\OSPan...', 'C:\\OSPanel\\doma...', 73, Array)
+#1 C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php(73): unlink('C:\\OSPanel\\doma...')
+#2 [internal function]: backend\controllers\AboutController->actionDeletepic('0')
+#3 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('deletepic', Array)
+#6 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('about/deletepic', Array)
+#7 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 C:\OSPanel\domains\tourism.uz\backend\web\index.php(17): yii\base\Application->run()
+#9 {main}
+2018-11-29 15:12:12 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][info][application] $_GET = [
+    'id' => '0'
+]
+
+$_POST = [
+    '_csrf-backend' => 'mCLUByiVpj-4HD_L8cSmF_R_xgO7sUKodUo0IfpPvnqud4FTfaDhfdt7e4K4jJdDhSWiTO-cEuM5eQ0SpR7SIw=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-frontend' => 'aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j\";}'
+    'PHPSESSID' => 'u1otgt3etioc2vi5kqj77uhs92'
+    '_ym_uid' => '1540984687296100544'
+    '_ym_d' => '1540984687'
+    'advanced-frontend' => 'tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q'
+    'language' => '527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa:2:{i:0;s:8:\"language\";i:1;s:2:\"uz\";}'
+    '_language' => '3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a:2:{i:0;s:9:\"_language\";i:1;s:2:\"uz\";}'
+    'advanced-backend' => 'u437bo0qmr6t17ivjb9ts7nis6vd9g4h'
+    '_identity-backend' => '6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"sEtwKkfxOV42A9pvYa6IFRswySfThUFc\",2592000]\";}'
+    '_csrf-backend' => '572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6UUTU5GBcgDIIH1TqZdOT-PKL393_QlY\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/admin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_APP' => 'backend'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'tourism.uz'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://tourism.uz'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://tourism.uz/admin/about/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7'
+    'HTTP_COOKIE' => '_csrf-frontend=aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j%22%3B%7D; PHPSESSID=u1otgt3etioc2vi5kqj77uhs92; _ym_uid=1540984687296100544; _ym_d=1540984687; advanced-frontend=tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q; language=527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; _language=3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=u437bo0qmr6t17ivjb9ts7nis6vd9g4h; _identity-backend=6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22sEtwKkfxOV42A9pvYa6IFRswySfThUFc%22%2C2592000%5D%22%3B%7D; _csrf-backend=572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226UUTU5GBcgDIIH1TqZdOT-PKL393_QlY%22%3B%7D'
+    'PATH' => 'c:\\ospanel\\modules\\php\\PHP-7.1\\ext;c:\\ospanel\\modules\\php\\PHP-7.1\\pear;c:\\ospanel\\modules\\php\\PHP-7.1\\pear\\bin;c:\\ospanel\\modules\\php\\PHP-7.1;c:\\ospanel\\modules\\imagemagick;c:\\ospanel\\modules\\wget\\bin;c:\\ospanel\\modules\\git;c:\\ospanel\\modules\\git\\bin;c:\\ospanel\\modules\\git\\mingw\\bin;c:\\ospanel\\modules\\git\\cmd;c:\\ospanel\\modules\\database\\MySQL-5.7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'tourism.uz'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OSPanel/domains/tourism.uz/backend/web/index.php'
+    'REMOTE_PORT' => '48332'
+    'REDIRECT_URL' => '/admin/about/deletepic'
+    'REDIRECT_QUERY_STRING' => 'id=0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id=0'
+    'REQUEST_URI' => '/admin/about/deletepic?id=0'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543493532.076
+    'REQUEST_TIME' => 1543493532
+    'argv' => [
+        0 => 'id=0'
+    ]
+    'argc' => 1
+]
+2018-11-29 15:12:23 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][error][yii\base\ErrorException:2] yii\base\ErrorException: unlink(C:\OSPanel\domains\tourism.uz\backend\config): Permission denied in C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php:73
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'unlink(C:\\OSPan...', 'C:\\OSPanel\\doma...', 73, Array)
+#1 C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php(73): unlink('C:\\OSPanel\\doma...')
+#2 [internal function]: backend\controllers\AboutController->actionDeletepic('0')
+#3 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('deletepic', Array)
+#6 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('about/deletepic', Array)
+#7 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 C:\OSPanel\domains\tourism.uz\backend\web\index.php(17): yii\base\Application->run()
+#9 {main}
+2018-11-29 15:12:23 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][info][application] $_GET = [
+    'id' => '0'
+]
+
+$_POST = [
+    '_csrf-backend' => 'mCLUByiVpj-4HD_L8cSmF_R_xgO7sUKodUo0IfpPvnqud4FTfaDhfdt7e4K4jJdDhSWiTO-cEuM5eQ0SpR7SIw=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-frontend' => 'aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j\";}'
+    'PHPSESSID' => 'u1otgt3etioc2vi5kqj77uhs92'
+    '_ym_uid' => '1540984687296100544'
+    '_ym_d' => '1540984687'
+    'advanced-frontend' => 'tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q'
+    'language' => '527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa:2:{i:0;s:8:\"language\";i:1;s:2:\"uz\";}'
+    '_language' => '3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a:2:{i:0;s:9:\"_language\";i:1;s:2:\"uz\";}'
+    'advanced-backend' => 'u437bo0qmr6t17ivjb9ts7nis6vd9g4h'
+    '_identity-backend' => '6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"sEtwKkfxOV42A9pvYa6IFRswySfThUFc\",2592000]\";}'
+    '_csrf-backend' => '572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6UUTU5GBcgDIIH1TqZdOT-PKL393_QlY\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/admin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_APP' => 'backend'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'tourism.uz'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://tourism.uz'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://tourism.uz/admin/about/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7'
+    'HTTP_COOKIE' => '_csrf-frontend=aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j%22%3B%7D; PHPSESSID=u1otgt3etioc2vi5kqj77uhs92; _ym_uid=1540984687296100544; _ym_d=1540984687; advanced-frontend=tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q; language=527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; _language=3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=u437bo0qmr6t17ivjb9ts7nis6vd9g4h; _identity-backend=6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22sEtwKkfxOV42A9pvYa6IFRswySfThUFc%22%2C2592000%5D%22%3B%7D; _csrf-backend=572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226UUTU5GBcgDIIH1TqZdOT-PKL393_QlY%22%3B%7D'
+    'PATH' => 'c:\\ospanel\\modules\\php\\PHP-7.1\\ext;c:\\ospanel\\modules\\php\\PHP-7.1\\pear;c:\\ospanel\\modules\\php\\PHP-7.1\\pear\\bin;c:\\ospanel\\modules\\php\\PHP-7.1;c:\\ospanel\\modules\\imagemagick;c:\\ospanel\\modules\\wget\\bin;c:\\ospanel\\modules\\git;c:\\ospanel\\modules\\git\\bin;c:\\ospanel\\modules\\git\\mingw\\bin;c:\\ospanel\\modules\\git\\cmd;c:\\ospanel\\modules\\database\\MySQL-5.7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'tourism.uz'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OSPanel/domains/tourism.uz/backend/web/index.php'
+    'REMOTE_PORT' => '48351'
+    'REDIRECT_URL' => '/admin/about/deletepic'
+    'REDIRECT_QUERY_STRING' => 'id=0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id=0'
+    'REQUEST_URI' => '/admin/about/deletepic?id=0'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543493543.899
+    'REQUEST_TIME' => 1543493543
+    'argv' => [
+        0 => 'id=0'
+    ]
+    'argc' => 1
+]
+2018-11-29 15:12:33 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][error][yii\base\ErrorException:2] yii\base\ErrorException: unlink(C:\OSPanel\domains\tourism.uz\backend\config): Permission denied in C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php:73
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'unlink(C:\\OSPan...', 'C:\\OSPanel\\doma...', 73, Array)
+#1 C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php(73): unlink('C:\\OSPanel\\doma...')
+#2 [internal function]: backend\controllers\AboutController->actionDeletepic('0')
+#3 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('deletepic', Array)
+#6 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('about/deletepic', Array)
+#7 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 C:\OSPanel\domains\tourism.uz\backend\web\index.php(17): yii\base\Application->run()
+#9 {main}
+2018-11-29 15:12:33 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][info][application] $_GET = [
+    'id' => '0'
+]
+
+$_POST = [
+    '_csrf-backend' => 'mCLUByiVpj-4HD_L8cSmF_R_xgO7sUKodUo0IfpPvnqud4FTfaDhfdt7e4K4jJdDhSWiTO-cEuM5eQ0SpR7SIw=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-frontend' => 'aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j\";}'
+    'PHPSESSID' => 'u1otgt3etioc2vi5kqj77uhs92'
+    '_ym_uid' => '1540984687296100544'
+    '_ym_d' => '1540984687'
+    'advanced-frontend' => 'tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q'
+    'language' => '527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa:2:{i:0;s:8:\"language\";i:1;s:2:\"uz\";}'
+    '_language' => '3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a:2:{i:0;s:9:\"_language\";i:1;s:2:\"uz\";}'
+    'advanced-backend' => 'u437bo0qmr6t17ivjb9ts7nis6vd9g4h'
+    '_identity-backend' => '6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"sEtwKkfxOV42A9pvYa6IFRswySfThUFc\",2592000]\";}'
+    '_csrf-backend' => '572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6UUTU5GBcgDIIH1TqZdOT-PKL393_QlY\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/admin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_APP' => 'backend'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'tourism.uz'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://tourism.uz'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://tourism.uz/admin/about/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7'
+    'HTTP_COOKIE' => '_csrf-frontend=aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j%22%3B%7D; PHPSESSID=u1otgt3etioc2vi5kqj77uhs92; _ym_uid=1540984687296100544; _ym_d=1540984687; advanced-frontend=tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q; language=527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; _language=3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=u437bo0qmr6t17ivjb9ts7nis6vd9g4h; _identity-backend=6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22sEtwKkfxOV42A9pvYa6IFRswySfThUFc%22%2C2592000%5D%22%3B%7D; _csrf-backend=572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226UUTU5GBcgDIIH1TqZdOT-PKL393_QlY%22%3B%7D'
+    'PATH' => 'c:\\ospanel\\modules\\php\\PHP-7.1\\ext;c:\\ospanel\\modules\\php\\PHP-7.1\\pear;c:\\ospanel\\modules\\php\\PHP-7.1\\pear\\bin;c:\\ospanel\\modules\\php\\PHP-7.1;c:\\ospanel\\modules\\imagemagick;c:\\ospanel\\modules\\wget\\bin;c:\\ospanel\\modules\\git;c:\\ospanel\\modules\\git\\bin;c:\\ospanel\\modules\\git\\mingw\\bin;c:\\ospanel\\modules\\git\\cmd;c:\\ospanel\\modules\\database\\MySQL-5.7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'tourism.uz'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OSPanel/domains/tourism.uz/backend/web/index.php'
+    'REMOTE_PORT' => '48363'
+    'REDIRECT_URL' => '/admin/about/deletepic'
+    'REDIRECT_QUERY_STRING' => 'id=0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id=0'
+    'REQUEST_URI' => '/admin/about/deletepic?id=0'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543493553.657
+    'REQUEST_TIME' => 1543493553
+    'argv' => [
+        0 => 'id=0'
+    ]
+    'argc' => 1
+]
+2018-11-29 15:12:37 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][error][yii\base\ErrorException:2] yii\base\ErrorException: unlink(C:\OSPanel\domains\tourism.uz\backend\config): Permission denied in C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php:73
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'unlink(C:\\OSPan...', 'C:\\OSPanel\\doma...', 73, Array)
+#1 C:\OSPanel\domains\tourism.uz\backend\controllers\AboutController.php(73): unlink('C:\\OSPanel\\doma...')
+#2 [internal function]: backend\controllers\AboutController->actionDeletepic('0')
+#3 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('deletepic', Array)
+#6 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('about/deletepic', Array)
+#7 C:\OSPanel\domains\tourism.uz\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 C:\OSPanel\domains\tourism.uz\backend\web\index.php(17): yii\base\Application->run()
+#9 {main}
+2018-11-29 15:12:37 [127.0.0.1][1][u437bo0qmr6t17ivjb9ts7nis6vd9g4h][info][application] $_GET = [
+    'id' => '0'
+]
+
+$_POST = [
+    '_csrf-backend' => 'mCLUByiVpj-4HD_L8cSmF_R_xgO7sUKodUo0IfpPvnqud4FTfaDhfdt7e4K4jJdDhSWiTO-cEuM5eQ0SpR7SIw=='
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-frontend' => 'aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j\";}'
+    'PHPSESSID' => 'u1otgt3etioc2vi5kqj77uhs92'
+    '_ym_uid' => '1540984687296100544'
+    '_ym_d' => '1540984687'
+    'advanced-frontend' => 'tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q'
+    'language' => '527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa:2:{i:0;s:8:\"language\";i:1;s:2:\"uz\";}'
+    '_language' => '3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a:2:{i:0;s:9:\"_language\";i:1;s:2:\"uz\";}'
+    'advanced-backend' => 'u437bo0qmr6t17ivjb9ts7nis6vd9g4h'
+    '_identity-backend' => '6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"sEtwKkfxOV42A9pvYa6IFRswySfThUFc\",2592000]\";}'
+    '_csrf-backend' => '572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"6UUTU5GBcgDIIH1TqZdOT-PKL393_QlY\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/admin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_APP' => 'backend'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'tourism.uz'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '106'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://tourism.uz'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://tourism.uz/admin/about/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7'
+    'HTTP_COOKIE' => '_csrf-frontend=aaefe65e55bbe9204af36f5cf1ced6f6d1b8d0b85e47c7d78058bde23e4f5559a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22jwA66JyrfEzm8XOr_S9JbD_JXxtbMq5j%22%3B%7D; PHPSESSID=u1otgt3etioc2vi5kqj77uhs92; _ym_uid=1540984687296100544; _ym_d=1540984687; advanced-frontend=tiqbqsaj4sc7avu4kc0mimgg0o2g9k0q; language=527b0fcbd6debd384258560402e8e626d941c9947ddf18ca4c2e05bf3bb7c6eaa%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; _language=3d57b452c3bb164b9fd1d6ec09db2c059e4a85f9cc46cdf80391e28e356801d9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_language%22%3Bi%3A1%3Bs%3A2%3A%22uz%22%3B%7D; advanced-backend=u437bo0qmr6t17ivjb9ts7nis6vd9g4h; _identity-backend=6219b006d84777fcdebb62a3fe5e80ab2091d6039443de2545493b7d0c878500a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22sEtwKkfxOV42A9pvYa6IFRswySfThUFc%22%2C2592000%5D%22%3B%7D; _csrf-backend=572df8e133cda4207d877b7d28e22f72f5dca8f919dea81d8b057f2e84438fb7a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%226UUTU5GBcgDIIH1TqZdOT-PKL393_QlY%22%3B%7D'
+    'PATH' => 'c:\\ospanel\\modules\\php\\PHP-7.1\\ext;c:\\ospanel\\modules\\php\\PHP-7.1\\pear;c:\\ospanel\\modules\\php\\PHP-7.1\\pear\\bin;c:\\ospanel\\modules\\php\\PHP-7.1;c:\\ospanel\\modules\\imagemagick;c:\\ospanel\\modules\\wget\\bin;c:\\ospanel\\modules\\git;c:\\ospanel\\modules\\git\\bin;c:\\ospanel\\modules\\git\\mingw\\bin;c:\\ospanel\\modules\\git\\cmd;c:\\ospanel\\modules\\database\\MySQL-5.7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7\\bin;c:\\ospanel\\modules\\http\\Apache-PHP-7;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'tourism.uz'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OSPanel/domains/tourism.uz'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OSPanel/domains/tourism.uz/backend/web/index.php'
+    'REMOTE_PORT' => '48369'
+    'REDIRECT_URL' => '/admin/about/deletepic'
+    'REDIRECT_QUERY_STRING' => 'id=0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'id=0'
+    'REQUEST_URI' => '/admin/about/deletepic?id=0'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543493557.314
+    'REQUEST_TIME' => 1543493557
+    'argv' => [
+        0 => 'id=0'
+    ]
+    'argc' => 1
+]

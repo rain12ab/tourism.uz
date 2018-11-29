@@ -33,9 +33,8 @@ class About extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content_uz', 'content_ru', 'content_en', 'pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'required'],
+            [['content_uz', 'content_ru', 'content_en'], 'required'],
             [['content_uz', 'content_ru', 'content_en'], 'string'],
-            [['pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'string', 'max' => 300],
         ];
     }
 
@@ -49,11 +48,7 @@ class About extends \yii\db\ActiveRecord
             'content_uz' => Yii::t('app', 'Content Uz'),
             'content_ru' => Yii::t('app', 'Content Ru'),
             'content_en' => Yii::t('app', 'Content En'),
-            'pic1' => Yii::t('app', 'Pic1'),
-            'pic2' => Yii::t('app', 'Pic2'),
-            'pic3' => Yii::t('app', 'Pic3'),
-            'pic4' => Yii::t('app', 'Pic4'),
-            'pic5' => Yii::t('app', 'Pic5'),
+            'pics' => Yii::t('app', 'Pic1'),
         ];
     }
 }

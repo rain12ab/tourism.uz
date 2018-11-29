@@ -413,8 +413,7 @@
             "require": {
                 "bower-asset/jquery": ">=1.2.2"
             },
-            "type": "bower-asset",
-            "time": "2017-01-21T21:08:37+00:00"
+            "type": "bower-asset"
         },
         {
             "name": "bower-asset/jquery-ui",

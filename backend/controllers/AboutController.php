@@ -24,6 +24,7 @@ class AboutController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'deletepic' => ['POST'],
                 ],
             ],
         ];
@@ -35,13 +36,16 @@ class AboutController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AboutSeach();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $searchModel = new AboutSeach();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        // return $this->render('index', [
+        //     'searchModel' => $searchModel,
+        //     'dataProvider' => $dataProvider,
+        // ]);
+        $datas = About::find()->where(['id' => 1])->all();
+
+        return $this->render('index', ['datas' => $datas]);
     }
 
     public function actionSelector()
@@ -60,6 +64,22 @@ class AboutController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+    public function actionDeletepic($id)
+    {
+        $model = $this->findModel(1);
+        $pics = $model->pics;
+        $oldFile = $pics[$id] ? Yii::getAlias('@frontend/web/') . $pics[$id] : null;
+        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+        unset($pics[$id]);
+        $model->pics = $pics;
+        $model->pics = array_values($model->pics);
+        $model->save(); 
+
+        Yii::$app->session->setFlash('success', "Rasm o'chirildi!");
+
+        return $this->redirect(['index']);
     }
 
     /**

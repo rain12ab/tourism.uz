@@ -4307,7 +4307,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs {
-  border-bottom: 0.0625rem solid #e3e3e3;
+  border-bottom: 0.0625rem solid #e3e3e300;
 }
 
 .nav-tabs .nav-item {
