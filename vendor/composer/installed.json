@@ -1,27 +1,27 @@
 [
     {
         "name": "2amigos/yii2-ckeditor-widget",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "2.1.1",
+        "version_normalized": "2.1.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/2amigos/yii2-ckeditor-widget.git",
-            "reference": "60cec03ccb48e2a66453e93ce6661ac85d7a1a06"
+            "reference": "248e671faf7ec1e6affbcc6554d991095139d379"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/2amigos/yii2-ckeditor-widget/zipball/60cec03ccb48e2a66453e93ce6661ac85d7a1a06",
-            "reference": "60cec03ccb48e2a66453e93ce6661ac85d7a1a06",
+            "url": "https://api.github.com/repos/2amigos/yii2-ckeditor-widget/zipball/248e671faf7ec1e6affbcc6554d991095139d379",
+            "reference": "248e671faf7ec1e6affbcc6554d991095139d379",
             "shasum": ""
         },
         "require": {
-            "ckeditor/ckeditor": "dev-full/4.7.x as 4.7.1",
+            "ckeditor/ckeditor": "dev-full/4.7.x",
             "yiisoft/yii2": "^2.0"
         },
         "require-dev": {
             "phpunit/phpunit": "4.*"
         },
-        "time": "2017-09-19T21:59:55+00:00",
+        "time": "2017-07-22T15:38:16+00:00",
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {
@@ -6206,12 +6206,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-framework.git",
-            "reference": "ffa06c0fc6fae7cb23e17def6e238bb8077c1ff4"
+            "reference": "233295e54448ed202b891a1edef1db274161af04"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ffa06c0fc6fae7cb23e17def6e238bb8077c1ff4",
-            "reference": "ffa06c0fc6fae7cb23e17def6e238bb8077c1ff4",
+            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/233295e54448ed202b891a1edef1db274161af04",
+            "reference": "233295e54448ed202b891a1edef1db274161af04",
             "shasum": ""
         },
         "require": {
@@ -6227,7 +6227,7 @@
             "php": ">=5.4.0",
             "yiisoft/yii2-composer": "~2.0.4"
         },
-        "time": "2018-11-28T07:22:04+00:00",
+        "time": "2018-11-29T15:16:19+00:00",
         "bin": [
             "yii"
         ],

@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc6be364d59c17a343257c5880233c1b",
+    "content-hash": "01289e98cd86dbd462d12c5b916c6a24",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
-            "version": "dev-master",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/2amigos/yii2-ckeditor-widget.git",
-                "reference": "60cec03ccb48e2a66453e93ce6661ac85d7a1a06"
+                "reference": "248e671faf7ec1e6affbcc6554d991095139d379"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-ckeditor-widget/zipball/60cec03ccb48e2a66453e93ce6661ac85d7a1a06",
-                "reference": "60cec03ccb48e2a66453e93ce6661ac85d7a1a06",
+                "url": "https://api.github.com/repos/2amigos/yii2-ckeditor-widget/zipball/248e671faf7ec1e6affbcc6554d991095139d379",
+                "reference": "248e671faf7ec1e6affbcc6554d991095139d379",
                 "shasum": ""
             },
             "require": {
-                "ckeditor/ckeditor": "dev-full/4.7.x as 4.7.1",
+                "ckeditor/ckeditor": "dev-full/4.7.x",
                 "yiisoft/yii2": "^2.0"
             },
             "require-dev": {
@@ -61,7 +61,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2017-09-19T21:59:55+00:00"
+            "time": "2017-07-22T15:38:16+00:00"
         },
         {
             "name": "2amigos/yii2-gallery-widget",
@@ -413,7 +413,8 @@
             "require": {
                 "bower-asset/jquery": ">=1.2.2"
             },
-            "type": "bower-asset"
+            "type": "bower-asset",
+            "time": "2017-01-21T21:08:37+00:00"
         },
         {
             "name": "bower-asset/jquery-ui",
@@ -3599,12 +3600,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ffa06c0fc6fae7cb23e17def6e238bb8077c1ff4"
+                "reference": "233295e54448ed202b891a1edef1db274161af04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ffa06c0fc6fae7cb23e17def6e238bb8077c1ff4",
-                "reference": "ffa06c0fc6fae7cb23e17def6e238bb8077c1ff4",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/233295e54448ed202b891a1edef1db274161af04",
+                "reference": "233295e54448ed202b891a1edef1db274161af04",
                 "shasum": ""
             },
             "require": {
@@ -3691,7 +3692,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-11-28T07:22:04+00:00"
+            "time": "2018-11-29T15:16:19+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",

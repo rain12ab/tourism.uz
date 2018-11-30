@@ -381,15 +381,6 @@ return array (
       '@kartik/widgets' => $vendorDir . '/kartik-v/yii2-widgets/src',
     ),
   ),
-  '2amigos/yii2-ckeditor-widget' => 
-  array (
-    'name' => '2amigos/yii2-ckeditor-widget',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@dosamigos/ckeditor' => $vendorDir . '/2amigos/yii2-ckeditor-widget/src',
-    ),
-  ),
   'linslin/yii2-curl' => 
   array (
     'name' => 'linslin/yii2-curl',
@@ -451,6 +442,15 @@ return array (
     'alias' => 
     array (
       '@yii/httpclient' => $vendorDir . '/yiisoft/yii2-httpclient/src',
+    ),
+  ),
+  '2amigos/yii2-ckeditor-widget' => 
+  array (
+    'name' => '2amigos/yii2-ckeditor-widget',
+    'version' => '2.1.1.0',
+    'alias' => 
+    array (
+      '@dosamigos/ckeditor' => $vendorDir . '/2amigos/yii2-ckeditor-widget/src',
     ),
   ),
 );

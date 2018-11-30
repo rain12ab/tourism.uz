@@ -88,7 +88,7 @@ widget. No more talking, here is the code:
  
 use dosamigos\ckeditor\CKEditorInline;
 
-// First we need to tell CKEDITOR variable where is our external plugin 
+// First we need to tell CKEDITOR variable where is our external plufin 
 $this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/pbckcode/plugin.js', '');");
 
 // ... 

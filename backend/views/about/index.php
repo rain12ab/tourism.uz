@@ -52,19 +52,19 @@ $url = Yii::$app->homeUrl.'../';
 							</div>
 						</div>
 					</div>
-	              <div class="card-body">
-	                <div class="tab-content">
-					  <div class="tab-pane active" id="uz">
-					    <p style="padding: 3vh;"><?= $data->content_uz;?></p>
-					  </div>
-					  <div class="tab-pane" id="ru">
-					    <p style="padding: 3vh;"><?= $data->content_ru;?></p>
-					  </div>
-					  <div class="tab-pane" id="en">
-					    <p style="padding: 3vh;"><?= $data->content_en;?></p>
-					  </div>
+	                <div class="card-body">
+    	                <div class="tab-content">
+    					  <div class="tab-pane active" id="uz">
+    					    <p style="padding: 3vh;"><?= $data->content_uz;?></p>
+    					  </div>
+    					  <div class="tab-pane" id="ru">
+    					    <p style="padding: 3vh;"><?= $data->content_ru;?></p>
+    					  </div>
+    					  <div class="tab-pane" id="en">
+    					    <p style="padding: 3vh;"><?= $data->content_en;?></p>
+    					  </div>
+    	                </div>
 	                </div>
-	              </div>
 	            </div>
     		</div>
     		<div class="col-md-6">
