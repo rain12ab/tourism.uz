@@ -105,6 +105,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
             'dosamigos\\selectize\\' => 20,
             'dosamigos\\google\\maps\\' => 22,
             'dosamigos\\gallery\\' => 18,
+            'dosamigos\\fileupload\\' => 21,
             'dosamigos\\ckeditor\\' => 19,
         ),
         'c' => 
@@ -407,6 +408,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'dosamigos\\gallery\\' => 
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-gallery-widget/src',
+        ),
+        'dosamigos\\fileupload\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-file-upload-widget/src',
         ),
         'dosamigos\\ckeditor\\' => 
         array (
@@ -720,7 +725,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'PHPUnit\\Util\\Configuration' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Configuration.php',
         'PHPUnit\\Util\\ConfigurationGenerator' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/ConfigurationGenerator.php',
         'PHPUnit\\Util\\ErrorHandler' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/ErrorHandler.php',
-        'PHPUnit\\Util\\FileLoader' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Fileloader.php',
+        'PHPUnit\\Util\\FileLoader' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/FileLoader.php',
         'PHPUnit\\Util\\Filesystem' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Filesystem.php',
         'PHPUnit\\Util\\Filter' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Filter.php',
         'PHPUnit\\Util\\Getopt' => __DIR__ . '/..' . '/phpunit/phpunit/src/Util/Getopt.php',

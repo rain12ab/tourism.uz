@@ -79,7 +79,7 @@ class AboutController extends Controller
 
         Yii::$app->session->setFlash('success', "Rasm o'chirildi!");
 
-        return $this->redirect(['index']);
+        return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
     }
 
     /**

@@ -453,4 +453,13 @@ return array (
       '@dosamigos/ckeditor' => $vendorDir . '/2amigos/yii2-ckeditor-widget/src',
     ),
   ),
+  '2amigos/yii2-file-upload-widget' => 
+  array (
+    'name' => '2amigos/yii2-file-upload-widget',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget/src',
+    ),
+  ),
 );

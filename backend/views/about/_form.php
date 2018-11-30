@@ -10,6 +10,7 @@ use yii\web\JsExpression;
 /* @var $this yii\web\View */
 /* @var $model common\models\About */
 /* @var $form yii\widgets\ActiveForm */
+$url = Yii::$app->homeUrl.'../';
 ?>
 <?php $form = ActiveForm::begin(); ?>
 <div class="row">
@@ -50,13 +51,6 @@ use yii\web\JsExpression;
 					 'language' => 'ru',
 					    
 					 'clientOptions' => [
-					//        'selector'=> "textarea",  // change this value according to your HTML
-					//        'plugins'=> "codesample",
-					//        'toolbar'=> "codesample",
-					     
-					//        'theme' => "advanced",
-					     
-					     //set br for enter
 					     'force_br_newlines' => true,
 					     'force_p_newlines' => false,
 					     'forced_root_block' => '',
@@ -115,13 +109,6 @@ use yii\web\JsExpression;
 					 'language' => 'ru',
 					    
 					 'clientOptions' => [
-					//        'selector'=> "textarea",  // change this value according to your HTML
-					//        'plugins'=> "codesample",
-					//        'toolbar'=> "codesample",
-					     
-					//        'theme' => "advanced",
-					     
-					     //set br for enter
 					     'force_br_newlines' => true,
 					     'force_p_newlines' => false,
 					     'forced_root_block' => '',
@@ -180,13 +167,6 @@ use yii\web\JsExpression;
 					 'language' => 'ru',
 					    
 					 'clientOptions' => [
-					//        'selector'=> "textarea",  // change this value according to your HTML
-					//        'plugins'=> "codesample",
-					//        'toolbar'=> "codesample",
-					     
-					//        'theme' => "advanced",
-					     
-					     //set br for enter
 					     'force_br_newlines' => true,
 					     'force_p_newlines' => false,
 					     'forced_root_block' => '',
@@ -243,13 +223,43 @@ use yii\web\JsExpression;
 	        </div>
 	    </div>
 	</div>
-    
-
+</div>  
+<div class="row">
+	<div class="col-md-12">
+	    <div class="card">
+			<div class="card-header card-header-tabs">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h2 class="card-title">Rasmlar</h2>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<?php for ($i=0; $i < count($model->pics); $i++):?>
+		                <div style="padding: 1vh;" class="col-md-2">
+		                    <?= Html::a(Html::img($url.$model->pics[$i], ['class' => 'img-fluid', 'style' => 'width: 100%;']), $url.$model->pics[$i], ['rel' => 'fancybox']);?>
+		                    <?= Html::a('O\'chirish', ['deletepic', 'id' => $i], [
+					            'class' => 'btn btn-danger text-center',
+					            'data' => [
+					                'confirm' => 'Aniqmi?',
+					                'method' => 'post',
+					            ],
+					        ]) ?>
+		                </div>
+		            <?php endfor?>
+		            <div class="col-md-2">
+		            	<?= $form->field($model, 'pics')->fileInput() ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
 
 
-</div>
+
 <?php ActiveForm::end(); ?>

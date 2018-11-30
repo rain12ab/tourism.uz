@@ -44,7 +44,8 @@
         "perminder-klair/yii2-videojs": "dev-master",
         "newerton/yii2-fancybox": "dev-master",
         "linslin/yii2-curl": "*",
-        "yiisoft/yii2-bootstrap4": "~1.0.0"
+        "yiisoft/yii2-bootstrap4": "~1.0.0",
+        "2amigos/yii2-file-upload-widget": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
