@@ -19,6 +19,7 @@ use Yii;
  */
 class About extends \yii\db\ActiveRecord
 {
+    public $img_file;
     /**
      * {@inheritdoc}
      */
@@ -35,6 +36,7 @@ class About extends \yii\db\ActiveRecord
         return [
             [['content_uz', 'content_ru', 'content_en'], 'required'],
             [['content_uz', 'content_ru', 'content_en'], 'string'],
+            [['img_file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 

@@ -8,6 +8,10 @@ use backend\models\AboutSeach;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 
 /**
  * AboutController implements the CRUD actions for About model.
@@ -25,6 +29,7 @@ class AboutController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                     'deletepic' => ['POST'],
+                    'addpic' => ['POST'],
                 ],
             ],
         ];
@@ -79,7 +84,32 @@ class AboutController extends Controller
 
         Yii::$app->session->setFlash('success', "Rasm o'chirildi!");
 
-        return $this->redirect(['index']);
+        return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+    }
+
+    public function actionAddpic()
+    {
+        $model = $this->findModel(1);
+        $img_array = $model->pics;
+        if ($model->load(Yii::$app->request->post())) {
+            $img_name = uniqid();
+            $temp_name = uniqid().'_temp';
+            $img = UploadedFile::getInstance($model, 'img_file');
+            $img->saveAs('../../frontend/web/images/about/'.$temp_name.'.'.$img->extension);
+            Image::resize(Yii::getAlias('@frontend/web/').'/images/about/'.$temp_name.'.'.$img->extension, 1280, 720)->save('../../frontend/web/images/about/'.$img_name.'.'.$img->extension, ['quality' => 50]);
+            array_push($img_array, 'images/about/'.$img_name.'.'.$img->extension);
+            $model->pics = $img_array;
+            $oldFile = $img ? Yii::getAlias('@frontend/web/') . '../../frontend/web/images/about/'.$temp_name.'.'.$img->extension : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+            $model->save();
+            Yii::$app->session->setFlash('success', "Rasm qo'shildi!");
+            return $this->redirect(['update', 'id' => 1]);
+        }
+        else {
+            Yii::$app->session->setFlash('success', "Xatolik uchratildi!");
+            return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+        }
+        
     }
 
     /**
