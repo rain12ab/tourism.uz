@@ -109,7 +109,6 @@ class AboutController extends Controller
             Yii::$app->session->setFlash('success', "Xatolik uchratildi!");
             return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
         }
-        
     }
 
     /**
