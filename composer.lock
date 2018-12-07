@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-
     "content-hash": "fe77c44459cbecea4a1c415776a84275",
-
-    "content-hash": "63855f77185ba309bd57cd5c78c1edba",
-
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -66,64 +62,6 @@
                 "yii2"
             ],
             "time": "2017-07-22T15:38:16+00:00"
-        },
-        {
-            "name": "2amigos/yii2-file-upload-widget",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/2amigos/yii2-file-upload-widget.git",
-                "reference": "073baf9adf2e380d7550f120d71ef421117477a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-file-upload-widget/zipball/073baf9adf2e380d7550f120d71ef421117477a2",
-                "reference": "073baf9adf2e380d7550f120d71ef421117477a2",
-                "shasum": ""
-            },
-            "require": {
-                "2amigos/yii2-gallery-widget": "^1.0",
-                "bower-asset/blueimp-file-upload": "^9.9",
-                "yiisoft/yii2": "^2.0.0",
-                "yiisoft/yii2-bootstrap": "^2.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "dosamigos\\fileupload\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "2amigOS! Consulting Group",
-                    "email": "hola@2amigos.us",
-                    "homepage": "http://2amigos.us",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Blueimp file upload widget for the Yii framework",
-            "homepage": "https://github.com/2amigos/yii2-file-upload-widget",
-            "keywords": [
-                "2amigos",
-                "upload",
-                "widget",
-                "yii",
-                "yii 2",
-                "yii2"
-            ],
-            "time": "2018-10-20T14:17:25+00:00"
         },
         {
             "name": "2amigos/yii2-gallery-widget",
@@ -354,48 +292,6 @@
             "time": "2018-11-01T20:46:52+00:00"
         },
         {
-            "name": "bower-asset/blueimp-canvas-to-blob",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Canvas-to-Blob.git",
-                "reference": "9f3deb2e710d39c72a988559609d9dc9a319de0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Canvas-to-Blob/zipball/9f3deb2e710d39c72a988559609d9dc9a319de0b",
-                "reference": "9f3deb2e710d39c72a988559609d9dc9a319de0b",
-                "shasum": null
-            },
-            "type": "bower-asset",
-            "time": "2017-08-27T22:53:19+00:00"
-        },
-        {
-            "name": "bower-asset/blueimp-file-upload",
-            "version": "v9.28.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/blueimp/jQuery-File-Upload.git",
-                "reference": "ee54fc3f57418edc6c86532cfe124a9e2c70deed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/jQuery-File-Upload/zipball/ee54fc3f57418edc6c86532cfe124a9e2c70deed",
-                "reference": "ee54fc3f57418edc6c86532cfe124a9e2c70deed",
-                "shasum": null
-            },
-            "require": {
-                "bower-asset/blueimp-canvas-to-blob": ">=2.1.1",
-                "bower-asset/blueimp-load-image": ">=1.13.0",
-                "bower-asset/blueimp-tmpl": ">=2.5.4",
-                "bower-asset/jquery": ">=1.6"
-            },
-            "type": "bower-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "bower-asset/blueimp-gallery",
             "version": "v2.17.0",
             "source": {
@@ -410,40 +306,6 @@
                 "shasum": null
             },
             "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/blueimp-load-image",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/blueimp/JavaScript-Load-Image.git",
-                "reference": "e19f53104dfb1ec19be33455e45bca959561067b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/e19f53104dfb1ec19be33455e45bca959561067b",
-                "reference": "e19f53104dfb1ec19be33455e45bca959561067b",
-                "shasum": null
-            },
-            "type": "bower-asset",
-            "time": "2018-11-13T18:27:20+00:00"
-        },
-        {
-            "name": "bower-asset/blueimp-tmpl",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Templates.git",
-                "reference": "da7647cb93fff2030e73a701db22c66de76a9919"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Templates/zipball/da7647cb93fff2030e73a701db22c66de76a9919",
-                "reference": "da7647cb93fff2030e73a701db22c66de76a9919",
-                "shasum": null
-            },
-            "type": "bower-asset",
-            "time": "2017-08-27T22:51:02+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -551,7 +413,8 @@
             "require": {
                 "bower-asset/jquery": ">=1.2.2"
             },
-            "type": "bower-asset"
+            "type": "bower-asset",
+            "time": "2017-01-21T21:08:37+00:00"
         },
         {
             "name": "bower-asset/jquery-ui",
@@ -700,12 +563,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cebe/markdown.git",
-                "reference": "530bc7dcbdfea5ad2da030110ee3ac07cc797f90"
+                "reference": "a91a7cb3b814f773f876a7c2e8a09df8885c8b1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cebe/markdown/zipball/530bc7dcbdfea5ad2da030110ee3ac07cc797f90",
-                "reference": "530bc7dcbdfea5ad2da030110ee3ac07cc797f90",
+                "url": "https://api.github.com/repos/cebe/markdown/zipball/a91a7cb3b814f773f876a7c2e8a09df8885c8b1d",
+                "reference": "a91a7cb3b814f773f876a7c2e8a09df8885c8b1d",
                 "shasum": ""
             },
             "require": {
@@ -752,7 +615,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2018-06-13T20:42:05+00:00"
+            "time": "2018-12-06T11:07:54+00:00"
         },
         {
             "name": "ckeditor/ckeditor",
@@ -1058,15 +921,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8db1967d92f55de1b94b175478ed16a7dfc53a90"
+                "reference": "592954d1392a89bbbf85cb35def625998957a1e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8db1967d92f55de1b94b175478ed16a7dfc53a90",
-                "reference": "8db1967d92f55de1b94b175478ed16a7dfc53a90",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/592954d1392a89bbbf85cb35def625998957a1e8",
+                "reference": "592954d1392a89bbbf85cb35def625998957a1e8",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.4",
                 "php": ">=5.5"
@@ -1115,7 +979,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-11-24T20:31:03+00:00"
+            "time": "2018-12-06T17:38:52+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1174,12 +1038,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "9f83dded91781a01c63574e387eaa769be769115"
+                "reference": "610233d48f24c53fe058addcaf94577ebd0e82fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
-                "reference": "9f83dded91781a01c63574e387eaa769be769115",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/610233d48f24c53fe058addcaf94577ebd0e82fd",
+                "reference": "610233d48f24c53fe058addcaf94577ebd0e82fd",
                 "shasum": ""
             },
             "require": {
@@ -1233,7 +1097,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-12-04T20:46:45+00:00"
+            "time": "2018-12-06T12:35:27+00:00"
         },
         {
             "name": "hosannahighertech/yii2-audiojs",
@@ -1285,12 +1149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine.git",
-                "reference": "57c9cbc0c30e3cc43da961b774da3a55f6dc7da3"
+                "reference": "ea78b3cfbbc655baf3cce6f34239e2644a2845a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/57c9cbc0c30e3cc43da961b774da3a55f6dc7da3",
-                "reference": "57c9cbc0c30e3cc43da961b774da3a55f6dc7da3",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/ea78b3cfbbc655baf3cce6f34239e2644a2845a2",
+                "reference": "ea78b3cfbbc655baf3cce6f34239e2644a2845a2",
                 "shasum": ""
             },
             "require": {
@@ -1335,7 +1199,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2018-11-21T17:32:25+00:00"
+            "time": "2018-12-06T15:12:16+00:00"
         },
         {
             "name": "imanilchaudhari/yii2-social-share",
@@ -1940,12 +1804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "5fdfcfc2c7cd285411d97e4ab4baae508d6d896a"
+                "reference": "13dd1d66909de3320f14e1343392ebe551b5d5e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/5fdfcfc2c7cd285411d97e4ab4baae508d6d896a",
-                "reference": "5fdfcfc2c7cd285411d97e4ab4baae508d6d896a",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/13dd1d66909de3320f14e1343392ebe551b5d5e2",
+                "reference": "13dd1d66909de3320f14e1343392ebe551b5d5e2",
                 "shasum": ""
             },
             "require": {
@@ -1984,7 +1848,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-11-20T04:15:55+00:00"
+            "time": "2018-12-05T14:43:41+00:00"
         },
         {
             "name": "kartik-v/yii2-helpers",
@@ -3776,12 +3640,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "d0cd7419b87fc1ddf7bf1de8d24e5e92c49c54eb"
+                "reference": "0e650314209ee66bcc44bf3f84d3e775f447a0b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d0cd7419b87fc1ddf7bf1de8d24e5e92c49c54eb",
-                "reference": "d0cd7419b87fc1ddf7bf1de8d24e5e92c49c54eb",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/0e650314209ee66bcc44bf3f84d3e775f447a0b9",
+                "reference": "0e650314209ee66bcc44bf3f84d3e775f447a0b9",
                 "shasum": ""
             },
             "require": {
@@ -3868,7 +3732,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-12-04T22:37:12+00:00"
+            "time": "2018-12-06T15:35:30+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -6109,12 +5973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f"
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/3edf0ab943d1985a356721952cba36ff31bd6e5f",
-                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
                 "shasum": ""
             },
             "require": {
@@ -6169,7 +6033,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-11-24T09:35:08+00:00"
+            "time": "2018-12-05T08:06:11+00:00"
         },
         {
             "name": "symfony/css-selector",

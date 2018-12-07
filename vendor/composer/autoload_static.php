@@ -106,7 +106,6 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
             'dosamigos\\selectize\\' => 20,
             'dosamigos\\google\\maps\\' => 22,
             'dosamigos\\gallery\\' => 18,
-            'dosamigos\\fileupload\\' => 21,
             'dosamigos\\ckeditor\\' => 19,
         ),
         'c' => 
@@ -413,10 +412,6 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'dosamigos\\gallery\\' => 
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-gallery-widget/src',
-        ),
-        'dosamigos\\fileupload\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/2amigos/yii2-file-upload-widget/src',
         ),
         'dosamigos\\ckeditor\\' => 
         array (

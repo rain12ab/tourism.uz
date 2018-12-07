@@ -228,15 +228,6 @@ return array (
       '@kartik/detail' => $vendorDir . '/kartik-v/yii2-detail-view/src',
     ),
   ),
-  'kartik-v/yii2-grid' => 
-  array (
-    'name' => 'kartik-v/yii2-grid',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid/src',
-    ),
-  ),
   'perminder-klair/yii2-videojs' => 
   array (
     'name' => 'perminder-klair/yii2-videojs',
@@ -460,6 +451,8 @@ return array (
     'alias' => 
     array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
+    ),
+  ),
   '2amigos/yii2-file-upload-widget' => 
   array (
     'name' => '2amigos/yii2-file-upload-widget',
@@ -467,6 +460,15 @@ return array (
     'alias' => 
     array (
       '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget/src',
+    ),
+  ),
+  'kartik-v/yii2-grid' => 
+  array (
+    'name' => 'kartik-v/yii2-grid',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid/src',
     ),
   ),
 );

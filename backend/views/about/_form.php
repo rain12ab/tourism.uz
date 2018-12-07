@@ -243,16 +243,11 @@ $url = Yii::$app->homeUrl."../";
 			<div class="card-header card-header-tabs">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-
-						<h2 class="card-title">Boshqarma haqida</h2>
-
 						<h2 class="card-title">Rasmlar</h2>
-
 					</div>
 				</div>
 			</div>
 			<div class="card-body">
-
 				<center>
 					<div class="col-sm-12">
 						<div class="row">
@@ -295,29 +290,10 @@ $url = Yii::$app->homeUrl."../";
 						</div>
 					</div>
 				</center>
-				<div class="row">
-					<?php for ($i=0; $i < count($model->pics); $i++):?>
-		                <div style="padding: 1vh;" class="col-md-2">
-		                    <?= Html::a(Html::img($url.$model->pics[$i], ['class' => 'img-fluid', 'style' => 'width: 100%;']), $url.$model->pics[$i], ['rel' => 'fancybox']);?>
-		                    <?= Html::a('O\'chirish', ['deletepic', 'id' => $i], [
-					            'class' => 'btn btn-danger text-center',
-					            'data' => [
-					                'confirm' => 'Aniqmi?',
-					                'method' => 'post',
-					            ],
-					        ]) ?>
-		                </div>
-		            <?php endfor?>
-		            <div class="col-md-2">
-		            	<?= $form->field($model, 'pics')->fileInput() ?>
-				</div>
 			</div>
 		</div>
 	</div>
 </div>
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
 
 
 <?php $this->registerJs('
@@ -337,7 +313,4 @@ document.getElementById("about-img_file").onchange = function() {
     });', yii\web\View::POS_END
     );
 ?>
-
-
-<?php ActiveForm::end(); ?>
 
