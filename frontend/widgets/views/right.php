@@ -9,7 +9,7 @@ use yii\helpers\Url;
     }
   }
 </style>
-<div class="col-lg-4 sidebar">
+<div class="col-md-4 sidebar">
   <div class="sidebar-box ftco-animate">
     <h2><?= Yii::t('app', 'So\'nggi fotolavha');?></h2>
     <a href="<?= Url::to(['gallery/view', 'id' => $photo->id]);?>"><img style="width: 100%;" src="<?= Yii::$app->request->baseUrl;?>/<?= $photo->url;?>">

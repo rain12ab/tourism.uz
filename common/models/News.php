@@ -37,6 +37,7 @@ class News extends \yii\db\ActiveRecord
             [['content_uz', 'content_ru', 'content_en'], 'string'],
             [['title_uz', 'title_ru', 'title_en', 'pic'], 'string', 'max' => 300],
             [['date'], 'string', 'max' => 200],
+            [['author'], 'string', 'max' => 500],
         ];
     }
 

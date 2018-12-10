@@ -44,7 +44,7 @@
         "perminder-klair/yii2-videojs": "dev-master",
         "newerton/yii2-fancybox": "dev-master",
         "linslin/yii2-curl": "*",
-        "yiisoft/yii2-bootstrap4": "~1.0.0",
+        "yiisoft/yii2-bootstrap4": "^1.0@dev",
         "alvinojutsu/yii2-image-cropper": "*"
     },
     "require-dev": {

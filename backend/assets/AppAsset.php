@@ -21,7 +21,7 @@ class AppAsset extends AssetBundle
         'js/plugins/perfect-scrollbar.jquery.min.js',
         'js/plugins/chartjs.min.js',
         'js/plugins/bootstrap-notify.js',
-        'js/black-dashboard.min.js?v=1.0.0',
+        'js/black-dashboard.min.js',
     ];
 
     public $depends = [

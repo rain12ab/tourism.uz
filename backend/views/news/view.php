@@ -64,21 +64,21 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div style="margin: 10px 0;" class="col-md-12">
                             <label><?= $model->getAttributeLabel(content_uz);?></label>
-                            <p style="padding: 10px; border: 1px solid #2b3553; border-radius: 0.4285rem"><?= $model->content_uz;?></p>
+                            <div style="padding: 10px; border: 1px solid #2b3553; border-radius: 0.4285rem;"><?= $model->content_uz;?></div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div style="margin: 10px 0;" class="col-md-12">
                             <label><?= $model->getAttributeLabel(content_ru);?></label>
-                            <p style="padding: 10px; border: 1px solid #2b3553; border-radius: 0.4285rem"><?= $model->content_ru;?></p>
+                            <div style="padding: 10px; border: 1px solid #2b3553; border-radius: 0.4285rem;"><?= $model->content_ru;?></div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div style="margin: 10px 0;" class="col-md-12">
                             <label><?= $model->getAttributeLabel(content_en);?></label>
-                            <p style="padding: 10px; border: 1px solid #2b3553; border-radius: 0.4285rem"><?= $model->content_en;?></p>
+                            <div style="padding: 10px; border: 1px solid #2b3553; border-radius: 0.4285rem;"><?= $model->content_en;?></div>
                         </div>
                     </div>
                 </div>
