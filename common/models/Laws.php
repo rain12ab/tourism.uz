@@ -29,8 +29,8 @@ class Laws extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz', 'name_ru', 'url_uz', 'url_ru', 'lawtype_id'], 'required'],
-            [['name_uz', 'name_ru'], 'string'],
+            [['name_uz', 'name_ru', 'url_uz', 'url_ru', 'lawtype_id', 'date'], 'required'],
+            [['name_uz', 'name_ru', 'date'], 'string'],
             [['lawtype_id'], 'integer'],
             [['url_uz', 'url_ru'], 'string', 'max' => 1000],
         ];
@@ -45,9 +45,10 @@ class Laws extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'name_uz' => Yii::t('app', 'Hujjat nomi'),
             'name_ru' => Yii::t('app', 'Название документа'),
-            'url_uz' => Yii::t('app', 'Url uz'),
-            'url_ru' => Yii::t('app', 'Url ru'),
+            'url_uz' => Yii::t('app', 'E-manzil uz'),
+            'url_ru' => Yii::t('app', 'E-manzil ru'),
             'lawtype_id' => Yii::t('app', 'Hujjat turi'),
+            'date' => Yii::t('app', 'Sanasi'),
         ];
     }
 
@@ -73,5 +74,10 @@ class Laws extends \yii\db\ActiveRecord
             unset($laws[$i][$name]);
         }
         return $laws;
+    }
+
+    public function getName()
+    {
+        return $this->hasOne(Lawtype::className(), ['id' => 'lawtype_id']);
     }
 }

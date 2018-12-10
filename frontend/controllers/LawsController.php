@@ -57,6 +57,7 @@ class LawsController extends Controller
     {
         $searchModel = new LawsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->setSort(['defaultOrder' => ['id' => SORT_DESC]]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

@@ -36,9 +36,9 @@ class Contacts extends \yii\db\ActiveRecord
     {
         return [
             [['email', 'phone', 'telegram', 'facebook', 'instagram', 'adress_uz', 'adress_ru', 'adress_en', 'lat', 'lng'], 'required'],
-            [['phone'], 'integer'],
             [['lat', 'lng'], 'number'],
-            [['email', 'telegram', 'facebook', 'instagram', 'adress_uz', 'adress_ru', 'adress_en'], 'string', 'max' => 300],
+            [['phone', 'telegram', 'facebook', 'instagram', 'adress_uz', 'adress_ru', 'adress_en'], 'string', 'max' => 300],
+            ['email', 'email'],
         ];
     }
 
@@ -50,15 +50,15 @@ class Contacts extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'email' => Yii::t('app', 'Email'),
-            'phone' => Yii::t('app', 'Phone'),
+            'phone' => Yii::t('app', 'Telefon raqam'),
             'telegram' => Yii::t('app', 'Telegram'),
             'facebook' => Yii::t('app', 'Facebook'),
             'instagram' => Yii::t('app', 'Instagram'),
-            'adress_uz' => Yii::t('app', 'Adress Uz'),
-            'adress_ru' => Yii::t('app', 'Adress Ru'),
-            'adress_en' => Yii::t('app', 'Adress En'),
-            'lat' => Yii::t('app', 'Lat'),
-            'lng' => Yii::t('app', 'Lng'),
+            'adress_uz' => Yii::t('app', 'Manzil Uz'),
+            'adress_ru' => Yii::t('app', 'Manzil Ru'),
+            'adress_en' => Yii::t('app', 'Manzil En'),
+            'lat' => Yii::t('app', 'Latitude (Kenglik)'),
+            'lng' => Yii::t('app', 'Longitude (Uzunlik)'),
         ];
     }
 }

@@ -44,13 +44,13 @@ class Team extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'full_name_uz' => Yii::t('app', 'Full Name Uz'),
-            'full_name_ru' => Yii::t('app', 'Full Name Ru'),
-            'full_name_en' => Yii::t('app', 'Full Name En'),
-            'post_uz' => Yii::t('app', 'Post Uz'),
-            'post_ru' => Yii::t('app', 'Post Ru'),
-            'post_en' => Yii::t('app', 'Post En'),
-            'pic' => Yii::t('app', 'Pic'),
+            'full_name_uz' => Yii::t('app', 'FISH Uz'),
+            'full_name_ru' => Yii::t('app', 'FISH Ru'),
+            'full_name_en' => Yii::t('app', 'FISH En'),
+            'post_uz' => Yii::t('app', 'Lavozim Uz'),
+            'post_ru' => Yii::t('app', 'Lavozim Ru'),
+            'post_en' => Yii::t('app', 'Lavozim En'),
+            'pic' => Yii::t('app', 'Rasm'),
         ];
     }
 }

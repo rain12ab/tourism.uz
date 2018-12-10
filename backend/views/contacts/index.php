@@ -1,45 +1,38 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ContactsSeach */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contacts';
+$this->title = 'Aloqa ma\'lumotlari';
+$this->params['breadcrumbs'][] = ['label' => 'Boshqarma ma\'lumotlari', 'url' => ['about/selector'], 'data-pjax' => '0',];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contacts-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
-        <?= Html::a('Create Contacts', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('O\'zgartirish', ['update', 'id' => 1], ['class' => 'btn btn-primary']) ?>
     </p>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title"><?= $this->title;?></h2>
+                </div>
+                <div class="card-body">
+                    <?= ListView::widget([
+                        'dataProvider' => $dataProvider,
+                        'itemView' => '_contact',
+                        'summary' => '',
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'email:email',
-            'phone',
-            'telegram',
-            'facebook',
-            //'instagram',
-            //'adress_uz',
-            //'adress_ru',
-            //'adress_en',
-            //'lat',
-            //'lng',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
     <?php Pjax::end(); ?>
 </div>

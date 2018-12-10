@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								else{
 								    null;
 								}
-			                    return Html::a(Html::tag('i', '', ['class' => 'fas fa-eye']),$url);
+			                    return Html::a(Html::tag('i', '', ['class' => 'fas fa-eye']),$url, ['target' => '_blank']);
 			                }
 			            ]
 			        ],

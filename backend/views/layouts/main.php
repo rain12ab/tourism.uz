@@ -145,6 +145,7 @@ AwesomeAsset::register($this);
                   <div class="photo">
                     <img src="<?= Yii::$app->homeUrl.'img/default-avatar.png';?>" alt="Profile Photo">
                   </div>
+                  <span style="margin-right: 2vh;"><?= Yii::$app->user->identity->username;?></span>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
                     Chiqish

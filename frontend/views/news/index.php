@@ -10,16 +10,14 @@ use yii\widgets\ListView;
 $this->title = Yii::t('app', 'Yangiliklar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row">
-        	<div class="col-md-12">
-                <?= ListView::widget([
-                    'dataProvider' => $dataProvider,
-                    'itemView' => '_view',
-                    'summary' => '',
-                ]) ?>
-            </div>
+<div class="container">
+    <div class="row">
+    	<div class="col-md-12">
+            <?= ListView::widget([
+                'dataProvider' => $dataProvider,
+                'itemView' => '_view',
+                'summary' => '',
+            ]) ?>
         </div>
     </div>
-</section>
+</div>

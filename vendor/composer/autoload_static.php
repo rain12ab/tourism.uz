@@ -41,7 +41,6 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'n' => 
         array (
-            'newerton\\jcrop\\' => 15,
             'newerton\\fancybox\\' => 18,
         ),
         'l' => 
@@ -112,6 +111,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         array (
             'codemix\\localeurls\\' => 19,
             'cebe\\markdown\\' => 14,
+        ),
+        'a' => 
+        array (
+            'alvinux\\imagecropper\\' => 21,
         ),
         'W' => 
         array (
@@ -205,7 +208,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         ),
         'yii\\bootstrap\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap',
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap/src',
         ),
         'yii\\bootstrap4\\' => 
         array (
@@ -224,10 +227,6 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        'newerton\\jcrop\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/newerton/yii2-jcrop',
         ),
         'newerton\\fancybox\\' => 
         array (
@@ -424,6 +423,10 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
+        'alvinux\\imagecropper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alvinojutsu/yii2-image-cropper',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -698,6 +701,7 @@ class ComposerStaticInit4423eeeec3e3022c95c8a2994a7f1303
         'PHPUnit\\Runner\\AfterSuccessfulTestHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterSuccessfulTestHook.php',
         'PHPUnit\\Runner\\AfterTestErrorHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestErrorHook.php',
         'PHPUnit\\Runner\\AfterTestFailureHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestFailureHook.php',
+        'PHPUnit\\Runner\\AfterTestHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestHook.php',
         'PHPUnit\\Runner\\AfterTestWarningHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/AfterTestWarningHook.php',
         'PHPUnit\\Runner\\BaseTestRunner' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/BaseTestRunner.php',
         'PHPUnit\\Runner\\BeforeFirstTestHook' => __DIR__ . '/..' . '/phpunit/phpunit/src/Runner/Hook/BeforeFirstTestHook.php',

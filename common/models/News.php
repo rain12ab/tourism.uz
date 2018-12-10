@@ -47,14 +47,15 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title_uz' => Yii::t('app', 'Title Uz'),
-            'title_ru' => Yii::t('app', 'Title Ru'),
-            'title_en' => Yii::t('app', 'Title En'),
-            'content_uz' => Yii::t('app', 'Content Uz'),
-            'content_ru' => Yii::t('app', 'Content Ru'),
-            'content_en' => Yii::t('app', 'Content En'),
-            'pic' => Yii::t('app', 'Pic'),
-            'date' => Yii::t('app', 'Date'),
+            'title_uz' => Yii::t('app', 'Sarlavha Uz'),
+            'title_ru' => Yii::t('app', 'Sarlavha Ru'),
+            'title_en' => Yii::t('app', 'Sarlavha En'),
+            'content_uz' => Yii::t('app', 'Kontent Uz'),
+            'content_ru' => Yii::t('app', 'Kontent Ru'),
+            'content_en' => Yii::t('app', 'Kontent En'),
+            'pic' => Yii::t('app', 'Rasm'),
+            'date' => Yii::t('app', 'Sanasi'),
+            'author' => Yii::t('app', 'Muallif'),
         ];
     }
 }

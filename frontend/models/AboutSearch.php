@@ -19,7 +19,7 @@ class AboutSearch extends About
     {
         return [
             [['id'], 'integer'],
-            [['content_uz', 'content_ru', 'content_en', 'pic1', 'pic2', 'pic3', 'pic4', 'pic5'], 'safe'],
+            [['content_uz', 'content_ru', 'content_en', 'pics'], 'safe'],
         ];
     }
 
@@ -65,11 +65,7 @@ class AboutSearch extends About
         $query->andFilterWhere(['like', 'content_uz', $this->content_uz])
             ->andFilterWhere(['like', 'content_ru', $this->content_ru])
             ->andFilterWhere(['like', 'content_en', $this->content_en])
-            ->andFilterWhere(['like', 'pic1', $this->pic1])
-            ->andFilterWhere(['like', 'pic2', $this->pic2])
-            ->andFilterWhere(['like', 'pic3', $this->pic3])
-            ->andFilterWhere(['like', 'pic4', $this->pic4])
-            ->andFilterWhere(['like', 'pic5', $this->pic5]);
+            ->andFilterWhere(['like', 'pics', $this->pics]);
 
         return $dataProvider;
     }

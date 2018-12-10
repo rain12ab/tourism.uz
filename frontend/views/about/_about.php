@@ -20,6 +20,8 @@ else
     $content = null;    
   }
 
+$url = Yii::$app->homeUrl;
+
 ?>
 
 <div class="row ftco-animate">
@@ -32,32 +34,13 @@ else
 		<p style="color: #000;"><?= $content;?></p>
 	</div>
 	<div class="col-md-6">
-		<?php $items = [
-		    [
-		        'url' => Yii::$app->request->baseUrl.'/'.$model->pic1,
-		        'src' => Yii::$app->request->baseUrl.'/'.$model->pic1,
-		        
-		    ],
-		    [
-		        'url' => Yii::$app->request->baseUrl.'/'.$model->pic2,
-		        'src' => Yii::$app->request->baseUrl.'/'.$model->pic2,
-		    ],
-		    [
-		        'url' => Yii::$app->request->baseUrl.'/'.$model->pic3,
-		        'src' => Yii::$app->request->baseUrl.'/'.$model->pic3,
-		        
-		    ],
-		    [
-		        'url' => Yii::$app->request->baseUrl.'/'.$model->pic4,
-		        'src' => Yii::$app->request->baseUrl.'/'.$model->pic4,
-		        
-		    ],
-		    [
-		        'url' => Yii::$app->request->baseUrl.'/'.$model->pic5,
-		        'src' => Yii::$app->request->baseUrl.'/'.$model->pic5,
-		        
-		    ],
-		];?>
+
+		<?php
+		for ($i=0; $i < count($model->pics); $i++) { 
+			$items[$i]['url'] = $url.$model->pics[$i];
+			$items[$i]['src'] = $url.$model->pics[$i];
+		}
+		?>
 		<?= dosamigos\gallery\Carousel::widget([
 		    'items' => $items,
 		    'showControls' => false,
