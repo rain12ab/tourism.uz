@@ -14,6 +14,34 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'socialShare' => [
+            'class' => \ymaker\social\share\configurators\Configurator::class,
+            'enableDefaultIcons' => true,
+            'socialNetworks' => [
+                'facebook' => [
+                    'class' => \ymaker\social\share\drivers\Facebook::class,
+                    'label' => Yii::t('app', 'Facebook'),
+                ],
+                'twitter' => [
+                    'class' => \ymaker\social\share\drivers\Twitter::class,
+                    'label' => Yii::t('app', 'Twitter'),
+                    'config' => [
+                        'account' => $params['twitterAccount']
+                    ],
+                ],
+                'telegram' => [
+                    'class' => \ymaker\social\share\drivers\Telegram::class,
+                    'label' => Yii::t('app', 'Telegram'),
+                ],
+                'vkontakte' => [
+                    'class' => \ymaker\social\share\drivers\Vkontakte::class,
+                    'label' => Yii::t('app', 'Vkontakte'),
+                ],
+            ],
+            'options' => [
+                'class' => 'tag-cloud-link',
+            ],
+        ],
         'i18n' => [
             'translations' => [
                 'app' => [

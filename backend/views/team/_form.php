@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\web\JsExpression;
 use yii\web\View;
 use dosamigos\croppie\CroppieWidget;
+use yii\bootstrap4\Modal;
 
 $pos = View::POS_END;
 /* @var $this yii\web\View */
@@ -46,6 +47,10 @@ $pos = View::POS_END;
                         <?= $form->field($model, 'post_en')->textInput(['maxlength' => true]) ?>
                     </div>
                 </div>
+                <?php Modal::begin([
+                    'toggleButton' => ['label' => 'Asosiy rasmini yuklash', 'class' => 'btn btn-primary'],
+                    'size' => 'modal-lg',
+                ]);?>
                 <div class="row">
                     <div class="col-md-12">
                         <?= \alvinux\imagecropper\Cropper::widget([
@@ -58,6 +63,7 @@ $pos = View::POS_END;
                         ]); ?>                
                     </div>
                 </div>
+                <?php Modal::end();?>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use dosamigos\google\maps\LatLng;
 use dosamigos\google\maps\services\DirectionsWayPoint;
 use dosamigos\google\maps\services\TravelMode;
@@ -73,6 +74,12 @@ $result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
 .block-20 {
     height: 350px;
 }
+.tagcloud a {
+    color: #fff;
+}
+.tagcloud a:hover {
+    border: 1px solid #fff; 
+}
 @media screen and (max-width: 991px) {
     .ftco-section-2 .section-2-blocks-wrapper .text {
         background: #20214e;
@@ -119,6 +126,15 @@ $result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
                         <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= round($result[0], 2).'$ / '.Yii::t('app', 'bir kecha');?></a></div>
                         <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= round($result[1], 2).'€ / '.Yii::t('app', 'bir kecha');?></a></div>
                     </div>
+                </div>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <?= \ymaker\social\share\widgets\SocialShare::widget([
+                        'configurator'  => 'socialShare',
+                        'url'           => \yii\helpers\Url::to('https://navoitourism.uz/hotels/view?id='.$model->id),
+                        'title'         => $name,
+                        'description'   => StringHelper::truncate($content, 100),
+                        'imageUrl'      => Yii::$app->homeUrl.$model->pic_main,
+                    ]); ?>
                 </div>
             </div>
             <div class="col-md-6 ftco-animate">

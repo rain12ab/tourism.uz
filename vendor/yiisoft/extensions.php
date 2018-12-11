@@ -255,15 +255,6 @@ return array (
       '@dosamigos/selectize' => $vendorDir . '/2amigos/yii2-selectize-widget/src',
     ),
   ),
-  'imanilchaudhari/yii2-social-share' => 
-  array (
-    'name' => 'imanilchaudhari/yii2-social-share',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@imanilchaudhari/socialshare' => $vendorDir . '/imanilchaudhari/yii2-social-share',
-    ),
-  ),
   'kartik-v/yii2-widget-typeahead' => 
   array (
     'name' => 'kartik-v/yii2-widget-typeahead',
@@ -316,15 +307,6 @@ return array (
     'alias' => 
     array (
       '@kartik/sidenav' => $vendorDir . '/kartik-v/yii2-widget-sidenav',
-    ),
-  ),
-  'kartik-v/yii2-widget-select2' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-select2',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2/src',
     ),
   ),
   'kartik-v/yii2-widget-rating' => 
@@ -460,6 +442,24 @@ return array (
     'alias' => 
     array (
       '@kartik/daterange' => $vendorDir . '/kartik-v/yii2-date-range',
+    ),
+  ),
+  'yiimaker/yii2-social-share' => 
+  array (
+    'name' => 'yiimaker/yii2-social-share',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@ymaker/social/share' => $vendorDir . '/yiimaker/yii2-social-share/src',
+    ),
+  ),
+  'kartik-v/yii2-widget-select2' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-select2',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2/src',
     ),
   ),
 );

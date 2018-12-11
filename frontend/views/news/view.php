@@ -34,7 +34,8 @@ $this->title = StringHelper::truncate($title, 500);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Yangiliklar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="container">
+
+<div style="margin: 20px auto;" class="container">
     <div class="row">
         <div class="col-md-8">
             <h1 class="mb-3"><?= $title;?></h1>
@@ -42,13 +43,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 <i style="padding: 0 10px;" class="fas fa-clock"></i><span style="font-size: 14px; margin-right: 10px;"><?= Yii::t('app', 'Vaqti');?>: <?= $model->date;?></span>
                 <i style="padding: 0 10px;" class="fas fa-user"></i><span style="font-size: 14px; margin-right: 10px;"><?= Yii::t('app', 'Muallif');?>: <?= $model->author;?></span>
             </div>
-            <img class="img-fluid" style="width: 100%; margin-bottom: 10px" src="<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>">
+            
             <div class="col">
+                <img class="img-fluid" style="width: 100%; margin-bottom: 10px" src="<?= Yii::$app->request->baseUrl;?>/<?= $model->pic;?>">
                 <?= $content;?>
+            </div>
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+                <?= \ymaker\social\share\widgets\SocialShare::widget([
+                    'configurator'  => 'socialShare',
+                    'url'           => \yii\helpers\Url::to('https://navoitourism.uz/news/view?id='.$model->id),
+                    'title'         => $title,
+                    'description'   => StringHelper::truncate($content, 100),
+                    'imageUrl'      => Yii::$app->homeUrl.$model->pic,
+                ]); ?>
+                
             </div>
             <h3 class="mb-3" style="text-align: center; margin-top: 30px;"><?= Yii::t('app', 'Agarda sizda savollaring bo\'lsa, murojaat qiling');?></h3>
             <?= MessageWidget::widget();?>
         </div>
-            <?= RightSidebarWidget::widget();?>
+        <?= RightSidebarWidget::widget();?>
     </div>
 </div>

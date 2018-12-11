@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use dosamigos\google\maps\LatLng;
 use dosamigos\google\maps\services\DirectionsWayPoint;
 use dosamigos\google\maps\services\TravelMode;
@@ -67,6 +68,12 @@ $this->params['breadcrumbs'][] = $this->title;
 .special-font {
     color: #fff;
 }
+.tagcloud a {
+    color: #fff;
+}
+.tagcloud a:hover {
+    border: 1px solid #fff; 
+}
 @media screen and (max-width: 991px) {
     .text-inner{
         margin-top: 10px;
@@ -104,6 +111,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div style="padding: 9px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Turi').': '.$type;?></a></div>
                         <div style="padding: 9px 0;color: #fff; font-size: 17px;"><?= Yii::t('app', 'Joylashgan joyi').': '.$district;?></a></div>
                     </div>
+                </div>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <?= \ymaker\social\share\widgets\SocialShare::widget([
+                        'configurator'  => 'socialShare',
+                        'url'           => \yii\helpers\Url::to('https://navoitourism.uz/restaurants/view?id='.$model->id),
+                        'title'         => $name,
+                        'description'   => StringHelper::truncate($content, 100),
+                        'imageUrl'      => Yii::$app->homeUrl.$model->pic_main,
+                    ]); ?>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-6 ftco-animate">

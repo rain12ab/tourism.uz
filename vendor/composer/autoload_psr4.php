@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ymaker\\social\\share\\' => array($vendorDir . '/yiimaker/yii2-social-share/src'),
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer/src'),
     'yii\\jui\\' => array($vendorDir . '/yiisoft/yii2-jui/src'),
     'yii\\imagine\\' => array($vendorDir . '/yiisoft/yii2-imagine/src'),
@@ -58,7 +59,6 @@ return array(
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base/src'),
     'kartik\\alert\\' => array($vendorDir . '/kartik-v/yii2-widget-alert'),
     'kartik\\affix\\' => array($vendorDir . '/kartik-v/yii2-widget-affix'),
-    'imanilchaudhari\\socialshare\\' => array($vendorDir . '/imanilchaudhari/yii2-social-share'),
     'hosanna\\audiojs\\' => array($vendorDir . '/hosannahighertech/yii2-audiojs'),
     'edofre\\sliderpro\\' => array($vendorDir . '/edofre/yii2-slider-pro/src'),
     'dosamigos\\tinymce\\' => array($vendorDir . '/2amigos/yii2-tinymce-widget/src'),

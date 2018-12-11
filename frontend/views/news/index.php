@@ -10,7 +10,7 @@ use yii\widgets\ListView;
 $this->title = Yii::t('app', 'Yangiliklar');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="container">
+<div style="margin: 20px auto;" class="container">
     <div class="row">
     	<div class="col-md-12">
             <?= ListView::widget([

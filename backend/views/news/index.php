@@ -11,14 +11,16 @@ $this->title = 'Yangiliklar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
+    <div class="col-md-12">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a('Yangilik kiritish', ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
+    <?php Pjax::begin(); ?>
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
+
+    
         <?= ListView::widget([
             'dataProvider' => $dataProvider,
             'itemView' => '_view',
@@ -27,4 +29,5 @@ $this->params['breadcrumbs'][] = $this->title;
             'options' => ['class' => 'row', 'id' => false],
         ]); ?>
     <?php Pjax::end(); ?>
+</div>
 </div>

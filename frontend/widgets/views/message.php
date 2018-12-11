@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 
 
 
-    <?php $form = ActiveForm::begin(['options' => ['class' => 'probootstrap-form mb60']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['class' => 'p-5 bg-light']]); ?>
     <div class="row">
       <div class="col-md-4">
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>

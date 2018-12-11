@@ -7664,8 +7664,9 @@ h1, h2, h3, h4, h5,
 
 .ftco-section-2 .section-2-blocks-wrapper .text {
   position: relative;
-  z-index: -1;
-  padding: 15px; }
+  /* z-index: -1; */
+  padding: 15px;
+  }
   @media (min-width: 768px) {
     .ftco-section-2 .section-2-blocks-wrapper .text {
       padding: 10% 7%;
@@ -8654,9 +8655,10 @@ textarea.form-control {
   margin-bottom: 7px;
   margin-right: 4px;
   border-radius: 4px;
-  color: #000;
+  color: #405bb3;
   border: 1px solid #ccc;
-  font-size: 11px; }
+  font-size: 20px;
+  }
   .tagcloud a:hover {
     border: 1px solid #000; }
 

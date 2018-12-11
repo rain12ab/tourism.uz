@@ -22,6 +22,7 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
     public static $prefixLengthsPsr4 = array (
         'y' => 
         array (
+            'ymaker\\social\\share\\' => 20,
             'yii\\swiftmailer\\' => 16,
             'yii\\jui\\' => 8,
             'yii\\imagine\\' => 12,
@@ -86,10 +87,6 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
             'kartik\\base\\' => 12,
             'kartik\\alert\\' => 13,
             'kartik\\affix\\' => 13,
-        ),
-        'i' => 
-        array (
-            'imanilchaudhari\\socialshare\\' => 28,
         ),
         'h' => 
         array (
@@ -174,6 +171,10 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
     );
 
     public static $prefixDirsPsr4 = array (
+        'ymaker\\social\\share\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiimaker/yii2-social-share/src',
+        ),
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer/src',
@@ -383,10 +384,6 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
         'kartik\\affix\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-affix',
-        ),
-        'imanilchaudhari\\socialshare\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/imanilchaudhari/yii2-social-share',
         ),
         'hosanna\\audiojs\\' => 
         array (

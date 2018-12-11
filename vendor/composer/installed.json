@@ -1746,51 +1746,6 @@
         ]
     },
     {
-        "name": "imanilchaudhari/yii2-social-share",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/imanilchaudhari/yii2-social-share.git",
-            "reference": "6bf8f6e47db2ee4c8ae62d286246d5ce63f7b28f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/imanilchaudhari/yii2-social-share/zipball/6bf8f6e47db2ee4c8ae62d286246d5ce63f7b28f",
-            "reference": "6bf8f6e47db2ee4c8ae62d286246d5ce63f7b28f",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": "*"
-        },
-        "time": "2018-04-08T05:43:27+00:00",
-        "type": "yii2-extension",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "imanilchaudhari\\socialshare\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Anil Chaudhari",
-                "email": "imanilchaudhari@gmail.com"
-            }
-        ],
-        "description": "This is a social share bar for yii2 projects.",
-        "keywords": [
-            " extension",
-            " social",
-            " social share",
-            " yii2 social",
-            "yii2"
-        ]
-    },
-    {
         "name": "kartik-v/bootstrap-fileinput",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -3307,18 +3262,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-            "reference": "2bbb9cae329bd536f1a22ae14f8e0dc890063f66"
+            "reference": "dd09e46e618cf1c67a39fac9f38d97a95184fe8a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/2bbb9cae329bd536f1a22ae14f8e0dc890063f66",
-            "reference": "2bbb9cae329bd536f1a22ae14f8e0dc890063f66",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/dd09e46e618cf1c67a39fac9f38d97a95184fe8a",
+            "reference": "dd09e46e618cf1c67a39fac9f38d97a95184fe8a",
             "shasum": ""
         },
         "require": {
             "kartik-v/yii2-krajee-base": ">=1.9"
         },
-        "time": "2018-11-05T12:34:42+00:00",
+        "time": "2018-12-11T10:34:32+00:00",
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {
@@ -4674,12 +4629,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "f8a74214924e3d2345f1dfff880756c3f93ba374"
+            "reference": "caf1076e2ae7d47536384595634ce6ee57cd661b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f8a74214924e3d2345f1dfff880756c3f93ba374",
-            "reference": "f8a74214924e3d2345f1dfff880756c3f93ba374",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/caf1076e2ae7d47536384595634ce6ee57cd661b",
+            "reference": "caf1076e2ae7d47536384595634ce6ee57cd661b",
             "shasum": ""
         },
         "require": {
@@ -4718,7 +4673,7 @@
             "ext-xdebug": "*",
             "phpunit/php-invoker": "^2.0"
         },
-        "time": "2018-12-07T13:10:50+00:00",
+        "time": "2018-12-11T06:56:34+00:00",
         "bin": [
             "phpunit"
         ],
@@ -4912,9 +4867,9 @@
             "la-haute-societe/tcpdf": "<6.2.22",
             "laravel/framework": ">=4,<4.0.99|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.42|>=5.6,<5.6.30",
             "laravel/socialite": ">=1,<1.0.99|>=2,<2.0.10",
-            "magento/magento1ce": "<1.9.3.9",
-            "magento/magento1ee": ">=1.9,<1.14.3.2",
-            "magento/product-community-edition": ">=2,<2.2.6",
+            "magento/magento1ce": "<1.9.4",
+            "magento/magento1ee": ">=1.9,<1.14.4",
+            "magento/product-community-edition": ">=2,<2.2.7",
             "monolog/monolog": ">=1.8,<1.12",
             "namshi/jose": "<2.2",
             "onelogin/php-saml": "<2.10.4",
@@ -5023,7 +4978,7 @@
             "zfcampus/zf-apigility-doctrine": ">=1,<1.0.3",
             "zfr/zfr-oauth2-server-module": "<0.1.2"
         },
-        "time": "2018-12-09T09:52:28+00:00",
+        "time": "2018-12-10T15:00:47+00:00",
         "type": "metapackage",
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -5630,12 +5585,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "8e96138da1af9b35952d0fe5f3abefb15f55c778"
+            "reference": "e8c3ed713d199760c1730fb89a38cefe7f54c4ae"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8e96138da1af9b35952d0fe5f3abefb15f55c778",
-            "reference": "8e96138da1af9b35952d0fe5f3abefb15f55c778",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e8c3ed713d199760c1730fb89a38cefe7f54c4ae",
+            "reference": "e8c3ed713d199760c1730fb89a38cefe7f54c4ae",
             "shasum": ""
         },
         "require": {
@@ -5644,13 +5599,13 @@
         },
         "require-dev": {
             "mockery/mockery": "~0.9.1",
-            "symfony/phpunit-bridge": "~3.3@dev"
+            "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
         },
         "suggest": {
             "ext-intl": "Needed to support internationalized email addresses",
             "true/punycode": "Needed to support internationalized email addresses, if ext-intl is not installed"
         },
-        "time": "2018-12-10T03:24:57+00:00",
+        "time": "2018-12-11T07:20:26+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -6437,6 +6392,63 @@
             "assert",
             "check",
             "validate"
+        ]
+    },
+    {
+        "name": "yiimaker/yii2-social-share",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiimaker/yii2-social-share.git",
+            "reference": "25557b6ba74eae8b992cd97bf7ce5c94ab42eed6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiimaker/yii2-social-share/zipball/25557b6ba74eae8b992cd97bf7ce5c94ab42eed6",
+            "reference": "25557b6ba74eae8b992cd97bf7ce5c94ab42eed6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0",
+            "yiisoft/yii2": "^2.0.13"
+        },
+        "require-dev": {
+            "codeception/codeception": "~2.3",
+            "friendsofphp/php-cs-fixer": "^2.13"
+        },
+        "time": "2018-12-10T12:20:40+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "ymaker\\social\\share\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Vladimir Kuprienko",
+                "email": "vldmr.kuprienko@gmail.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Extension for sharing on social networks",
+        "keywords": [
+            "media",
+            "networks",
+            "share",
+            "social",
+            "widget",
+            "yii2"
         ]
     },
     {

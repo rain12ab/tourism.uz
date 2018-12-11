@@ -67,8 +67,20 @@ class NewsController extends Controller
     {
         $model = new News();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            // var_dump($model->pic);
+            // die;
+            $uni = uniqid();
+            $pic = $model->pic["300x300"];
+            $pic = str_replace('data:image/png;base64,', '', $pic);
+            $pic = str_replace(' ', '+', $pic);
+            $pic = base64_decode($pic);
+            $file = '../../frontend/web/images/team/' . $uni . '.png';
+            $url = 'images/team/' . $uni . '.png';
+            $success1 = file_put_contents($file, $pic);
+            $model->pic = $url;
+            $model->save();
+            return $this->redirect('index');
         }
 
         return $this->render('create', [

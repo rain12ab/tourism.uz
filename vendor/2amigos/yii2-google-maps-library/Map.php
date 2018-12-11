@@ -91,7 +91,7 @@ class Map extends ObjectAbstract
     /**
      * @var int the width in pixels or percent of the container holding the map.
      */
-    public $width = 512;
+    public $width = auto;
     /**
      * @var int the height in pixels or percent of the container holding the map.
      */
