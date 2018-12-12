@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47be3577f806b56ed9e73e2673613ab0",
+    "content-hash": "deaf120ff88641cbaeeb4e28d8cb9760",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -3515,6 +3515,17 @@
         {
             "name": "roave/security-advisories",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Roave/SecurityAdvisories.git",
+                "reference": "9fd088ff8176ceb154c7d3cc0d1241af80e5c93e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/9fd088ff8176ceb154c7d3cc0d1241af80e5c93e",
+                "reference": "9fd088ff8176ceb154c7d3cc0d1241af80e5c93e",
+                "shasum": ""
+            },
             "conflict": {
                 "3f/pygmentize": "<1.2",
                 "adodb/adodb-php": "<5.20.12",
@@ -3648,8 +3659,8 @@
                 "titon/framework": ">=0,<9.9.99",
                 "truckersmp/phpwhois": "<=4.3.1",
                 "twig/twig": "<1.20",
-                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.30|>=8,<8.7.17|>=9,<9.3.2",
-                "typo3/cms-core": ">=8,<8.7.17|>=9,<9.3.2",
+                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.21|>=9,<9.5.2",
+                "typo3/cms-core": ">=8,<8.7.21|>=9,<9.5.2",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.10|>=3.1,<3.1.7|>=3.2,<3.2.7|>=3.3,<3.3.5",
                 "typo3/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4",
                 "wallabag/tcpdf": "<6.2.22",
@@ -3700,7 +3711,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2018-12-10T15:00:47+00:00"
+            "time": "2018-12-11T16:56:18+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6919,7 +6930,8 @@
         "hosannahighertech/yii2-audiojs": 20,
         "perminder-klair/yii2-videojs": 20,
         "newerton/yii2-fancybox": 20,
-        "yiisoft/yii2-bootstrap4": 20
+        "yiisoft/yii2-bootstrap4": 20,
+        "kartik-v/yii2-widget-fileinput": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

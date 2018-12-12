@@ -27,6 +27,7 @@ use Yii;
  */
 class Hotels extends \yii\db\ActiveRecord
 {
+    public $img_file;
     /**
      * {@inheritdoc}
      */
@@ -41,12 +42,13 @@ class Hotels extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'required'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'required'],
             [['content_uz', 'content_ru', 'content_en', 'pictures'], 'string'],
-            [['stars', 'phone'], 'integer'],
+            [['stars', 'phone', 'district_id', 'hotel_type', 'price'], 'integer'],
             [['lat', 'lng'], 'number'],
-            [['name'], 'string', 'max' => 500],
+            [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
             [['email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'string', 'max' => 300],
+            [['img_file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -57,21 +59,26 @@ class Hotels extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'content_uz' => Yii::t('app', 'Content Uz'),
-            'content_ru' => Yii::t('app', 'Content Ru'),
-            'content_en' => Yii::t('app', 'Content En'),
-            'stars' => Yii::t('app', 'Stars'),
-            'lat' => Yii::t('app', 'Lat'),
-            'lng' => Yii::t('app', 'Lng'),
-            'phone' => Yii::t('app', 'Phone'),
+            'name_uz' => Yii::t('app', 'Nomi uz'),
+            'name_ru' => Yii::t('app', 'Nomi ru'),
+            'name_en' => Yii::t('app', 'Nomi en'),
+            'content_uz' => Yii::t('app', 'Kontent Uz'),
+            'content_ru' => Yii::t('app', 'Kontent Ru'),
+            'content_en' => Yii::t('app', 'Kontent En'),
+            'stars' => Yii::t('app', 'Yulduz soni'),
+            'lat' => Yii::t('app', 'Latitude (Kenglik)'),
+            'lng' => Yii::t('app', 'Longitude (Uzunlik)'),
+            'phone' => Yii::t('app', 'Tel.raqam'),
             'email' => Yii::t('app', 'Email'),
-            'adress_uz' => Yii::t('app', 'Adress Uz'),
-            'adress_ru' => Yii::t('app', 'Adress Ru'),
-            'adress_en' => Yii::t('app', 'Adress En'),
+            'adress_uz' => Yii::t('app', 'Manzil Uz'),
+            'adress_ru' => Yii::t('app', 'Manzil Ru'),
+            'adress_en' => Yii::t('app', 'Manzil En'),
             'pic_main' => Yii::t('app', 'pic_main'),
             'hotel_name' => Yii::t('app', 'Mehmonxona nomi bo\'yicha qidirish'),
             'hotel_type' => Yii::t('app', 'Mehmonxona turi'),
+            'district_id' => Yii::t('app', 'Joylashuvi'),
+            'pic_main' => Yii::t('app', 'Asosiy rasm'),
+            'pictures' => Yii::t('app', 'Galereya'),
         ];
     }
 
@@ -109,5 +116,33 @@ class Hotels extends \yii\db\ActiveRecord
             unset($hotels[$i][$name]);
         }
         return $hotels;
+    }
+
+    public function getListdistrict()
+    {
+        if(Yii::$app->language == 'uz')
+          {
+            $name = 'name_uz';
+          }
+        else if(Yii::$app->language == 'ru')
+          {
+            $name = 'name_ru';
+          }
+        else if(Yii::$app->language == 'en')
+          {
+            $name = 'name_en';
+          }
+        else
+        {
+            $name = null;
+        }
+        
+        $district = Districts::find()->select(['id', $name])->asArray()->all();
+        $count = Districts::find()->select(['id', $name])->count();
+        for ($i=0; $i < $count; $i++) { 
+            $district[$i]['name'] = $district[$i][$name];
+            unset($district[$i][$name]);
+        }
+        return $district;
     }
 }

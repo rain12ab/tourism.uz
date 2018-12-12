@@ -12,7 +12,6 @@ use dosamigos\google\maps\Map;
 use dosamigos\google\maps\services\DirectionsRequest;
 use dosamigos\google\maps\overlays\Polygon;
 use dosamigos\google\maps\layers\BicyclingLayer;
-use frontend\widgets\MessageWidget;
 use yii\bootstrap4\Modal;
 
 ?>
