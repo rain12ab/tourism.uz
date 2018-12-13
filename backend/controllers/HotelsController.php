@@ -202,6 +202,8 @@ class HotelsController extends Controller
                 Image::resize(Yii::getAlias('@frontend/web/').'/images/hotels/'.$pic_temp_name.'.'.$model->pic_main->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->pic_main->extension, ['quality' => 50]);
                 $oldFile = $prev_main ? Yii::getAlias('@frontend/web/') . $prev_main : null;
                 if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                $tempFile = $model->pic_main ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->pic_main->extension : null;
+                if ($tempFile && file_exists($tempFile)) unlink($tempFile);
                 $model->pic_main = 'images/hotels/'.$pic_main_name.'.'.$model->pic_main->extension;
             }
             $model->save(false);
