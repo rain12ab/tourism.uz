@@ -3474,16 +3474,16 @@
         },
         {
             "name": "ralouphie/getallheaders",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ralouphie/getallheaders.git",
-                "reference": "cd148e0cf8789def229b1bc24be0cb0eeb24301c"
+                "reference": "beb49b96960f0cbf17e7fbcaaddc8eb434e126eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/cd148e0cf8789def229b1bc24be0cb0eeb24301c",
-                "reference": "cd148e0cf8789def229b1bc24be0cb0eeb24301c",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/beb49b96960f0cbf17e7fbcaaddc8eb434e126eb",
+                "reference": "beb49b96960f0cbf17e7fbcaaddc8eb434e126eb",
                 "shasum": ""
             },
             "require": {
@@ -3510,7 +3510,7 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "time": "2018-12-10T04:22:02+00:00"
+            "time": "2018-12-11T21:53:24+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -3879,12 +3879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "2b617435836b481ab8c798813b8aa67890968fb7"
+                "reference": "c4345681983543a6dad920975b0df5e666ca75ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/2b617435836b481ab8c798813b8aa67890968fb7",
-                "reference": "2b617435836b481ab8c798813b8aa67890968fb7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c4345681983543a6dad920975b0df5e666ca75ca",
+                "reference": "c4345681983543a6dad920975b0df5e666ca75ca",
                 "shasum": ""
             },
             "require": {
@@ -3971,7 +3971,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-12-10T08:50:50+00:00"
+            "time": "2018-12-12T19:57:24+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -5437,12 +5437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "caf1076e2ae7d47536384595634ce6ee57cd661b"
+                "reference": "c23d78776ad415d5506e0679723cb461d71f488f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/caf1076e2ae7d47536384595634ce6ee57cd661b",
-                "reference": "caf1076e2ae7d47536384595634ce6ee57cd661b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c23d78776ad415d5506e0679723cb461d71f488f",
+                "reference": "c23d78776ad415d5506e0679723cb461d71f488f",
                 "shasum": ""
             },
             "require": {
@@ -5513,7 +5513,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-12-11T06:56:34+00:00"
+            "time": "2018-12-12T07:20:32+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

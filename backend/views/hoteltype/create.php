@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Hoteltype */
 
-$this->title = 'Create Hoteltype';
+$this->title = 'Mehmonxona turlarini kiritish';
 $this->params['breadcrumbs'][] = ['label' => 'Hoteltypes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

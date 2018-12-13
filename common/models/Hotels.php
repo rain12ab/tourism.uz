@@ -42,7 +42,7 @@ class Hotels extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'required'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en'], 'required'],
             [['content_uz', 'content_ru', 'content_en', 'pictures'], 'string'],
             [['stars', 'phone', 'district_id', 'hotel_type', 'price'], 'integer'],
             [['lat', 'lng'], 'number'],

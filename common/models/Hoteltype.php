@@ -40,9 +40,9 @@ class Hoteltype extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name_uz' => Yii::t('app', 'Name Uz'),
-            'name_ru' => Yii::t('app', 'Name Ru'),
-            'name_en' => Yii::t('app', 'Name En'),
+            'name_uz' => Yii::t('app', 'Nomi Uz'),
+            'name_ru' => Yii::t('app', 'Nomi Ru'),
+            'name_en' => Yii::t('app', 'Nomi En'),
         ];
     }
 }

@@ -49,6 +49,11 @@ class HotelsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    public function actionSelect()
+    {
+        return $this->render('select');
+    }
     
     public function actionAddpic($id)
     {
@@ -161,8 +166,45 @@ class HotelsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $url = '../../frontend/web/images/hotels/';
+        $prev_img = $model->pictures;
+        $prev_main = $model->pic_main;
+        if ($model->load(Yii::$app->request->post())) {
+            if(empty(UploadedFile::getInstances($model, 'pictures')) == true)
+            {
+                $model->pictures = $prev_img;
+            }
+            else
+            {
+                if ($files = UploadedFile::getInstances($model, 'pictures')) {
+                    foreach ($files as $file) {
+                        $img_name = $file->baseName.rand(333, 9999);
+                        $temp_name = $img_name.'_temp';
+                        $file->saveAs($url.$temp_name.'.'.$file->extension);
+                        Image::resize(Yii::getAlias('@frontend/web/').'/images/hotels/'.$temp_name.'.'.$file->extension, 1280, 720)->save($url.$img_name.'.'.$file->extension, ['quality' => 50]);
+                        $oldFile = $file ? Yii::getAlias('@frontend/web/') . $url.$temp_name.'.'.$file->extension : null;
+                        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                        array_push($prev_img, 'images/hotels/'.$img_name.'.'.$file->extension);
+                    }
+                    $model->pictures = $prev_img;
+                }
+            }
+            if(empty(UploadedFile::getInstances($model, 'pic_main')) == true)
+            {
+                $model->pic_main = $prev_main;
+            }
+            else
+            {
+                $model->pic_main = UploadedFile::getInstance($model, 'pic_main');
+                $pic_main_name = $model->pic_main->baseName.rand(333, 9999);
+                $pic_temp_name = $pic_main_name.'_temp';
+                $model->pic_main->saveAs($url.$pic_temp_name.'.'.$model->pic_main->extension);
+                Image::resize(Yii::getAlias('@frontend/web/').'/images/hotels/'.$pic_temp_name.'.'.$model->pic_main->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->pic_main->extension, ['quality' => 50]);
+                $oldFile = $prev_main ? Yii::getAlias('@frontend/web/') . $prev_main : null;
+                if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                $model->pic_main = 'images/hotels/'.$pic_main_name.'.'.$model->pic_main->extension;
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

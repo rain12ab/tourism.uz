@@ -72,7 +72,14 @@ AwesomeAsset::register($this);
             </a>
           </li>
           <li>
-            <a href="<?= Url::to(['hotels/index']);?>">
+          <li>
+            <a href="<?= Url::to(['objects/index']);?>">
+              <i class="fas fa-globe"></i>
+              <p>Turistik obyektlar</p>
+            </a>
+          </li>
+          <li>
+            <a href="<?= Url::to(['hotels/select']);?>">
               <i class="fas fa-hotel"></i>
               <p>Mehmonxonalar</p>
             </a>
