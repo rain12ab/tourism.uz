@@ -97,21 +97,32 @@ class TeamController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $pic_prev = $model->pic;
         if ($model->load(Yii::$app->request->post())) {
             // var_dump($model->pic);
             // die;
-            $uni = uniqid();
-            $pic = $model->pic["300x300"];
-            $pic = str_replace('data:image/png;base64,', '', $pic);
-            $pic = str_replace(' ', '+', $pic);
-            $pic = base64_decode($pic);
-            $file = '../../frontend/web/images/team/' . $uni . '.png';
-            $url = 'images/team/' . $uni . '.png';
-            $success1 = file_put_contents($file, $pic);
-            $model->pic = $url;
-            $model->save();
-            return $this->redirect('index');
+            if($model->pic["300x300"] != " ")
+            {
+                $uni = uniqid();
+                $pic = $model->pic["300x300"];
+                $pic = str_replace('data:image/png;base64,', '', $pic);
+                $pic = str_replace(' ', '+', $pic);
+                $pic = base64_decode($pic);
+                $file = '../../frontend/web/images/team/' . $uni . '.png';
+                $url = 'images/team/' . $uni . '.png';
+                $success1 = file_put_contents($file, $pic);
+                $model->pic = $url;
+                $model->save();
+                $oldFile = $pic_prev ? Yii::getAlias('@frontend/web/') . $pic_prev : null;
+                if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                return $this->redirect('index');
+            }
+            else
+            {
+                $model->pic = $pic_prev;
+                $model->save(false);
+                return $this->redirect('index');
+            }
         }
 
         return $this->render('update', [
@@ -128,6 +139,9 @@ class TeamController extends Controller
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
+        $oldFile = $model->pic ? Yii::getAlias('@frontend/web/') . $model->pic : null;
+        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -8,6 +8,10 @@ use backend\models\RestaurantsSeach;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 
 /**
  * RestaurantsController implements the CRUD actions for Restaurants model.
@@ -24,6 +28,8 @@ class RestaurantsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'deletepic' => ['POST'],
+                    'addpic' => ['POST'],
                 ],
             ],
         ];
@@ -42,6 +48,53 @@ class RestaurantsController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionSelect()
+    {
+        return $this->render('select');
+    }
+
+    public function actionAddpic($id)
+    {
+        $model = $this->findModel($id);
+        $url = '../../frontend/web/images/restaurants/';
+        $img_array = $model->pictures;
+        if ($model->load(Yii::$app->request->post())) {
+            $img = UploadedFile::getInstance($model, 'img_file');
+            $img_name = $img->baseName.rand(333, 9999);
+            $temp_name = $img_name.'_temp';
+            $img->saveAs($url.$temp_name.'.'.$img->extension);
+            Image::resize(Yii::getAlias('@frontend/web/').'/images/restaurants/'.$temp_name.'.'.$img->extension, 1280, 720)->save($url.$img_name.'.'.$img->extension, ['quality' => 50]);
+            array_push($img_array, 'images/restaurants/'.$img_name.'.'.$img->extension);
+            $model->pictures = $img_array;
+            $oldFile = $img ? Yii::getAlias('@frontend/web/') . $url.$temp_name.'.'.$img->extension : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+            $model->save(false);
+            Yii::$app->session->setFlash('success', "Rasm qo'shildi!");
+            return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+        }
+        else {
+            Yii::$app->session->setFlash('success', "Xatolik uchratildi!");
+            return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+        }
+        
+    }
+
+    public function actionDeletepic($i, $id)
+    {
+        $model = $this->findModel($id);
+        $pics = $model->pictures;
+        $oldFile = $pics[$i] ? Yii::getAlias('@frontend/web/') . $pics[$i] : null;
+        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+        unset($pics[$i]);
+        $model->pictures = $pics;
+        $model->pictures = array_values($model->pictures);
+        $model->save(false); 
+
+        Yii::$app->session->setFlash('success', "Rasm o'chirildi!");
+
+        return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
     }
 
     /**
@@ -65,11 +118,38 @@ class RestaurantsController extends Controller
     public function actionCreate()
     {
         $model = new Restaurants();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
+        $url = '../../frontend/web/images/restaurants/';
+        if ($model->load(Yii::$app->request->post())) {
+            $model->pic_main = UploadedFile::getInstance($model, 'pic_main');
+            $pic_main_name = $model->pic_main->baseName.rand(333, 9999);
+            $pic_temp_name = $pic_main_name.'_temp';
+            $model->pic_main->saveAs($url.$pic_temp_name.'.'.$model->pic_main->extension);
+            Image::resize(Yii::getAlias('@frontend/web/').'/images/restaurants/'.$pic_temp_name.'.'.$model->pic_main->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->pic_main->extension, ['quality' => 50]);
+            $oldFile = $model->pic_main ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->pic_main->extension : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+            $model->pic_main = 'images/restaurants/'.$pic_main_name.'.'.$model->pic_main->extension;
+           
+            if ($files = UploadedFile::getInstances($model, 'pictures')) {
+                $img_array = array();
+                foreach ($files as $file) {
+                    $img_name = $file->baseName.rand(333, 9999);
+                    $temp_name = $img_name.'_temp';
+                    $file->saveAs($url.$temp_name.'.'.$file->extension);
+                    Image::resize(Yii::getAlias('@frontend/web/').'/images/restaurants/'.$temp_name.'.'.$file->extension, 1280, 720)->save($url.$img_name.'.'.$file->extension, ['quality' => 50]);
+                    $oldFile = $file ? Yii::getAlias('@frontend/web/') . $url.$temp_name.'.'.$file->extension : null;
+                    if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                    array_push($img_array, 'images/restaurants/'.$img_name.'.'.$file->extension);
+                }
+                $model->pictures = $img_array;
+            }
+            else {
+                Yii::$app->session->setFlash('success', "Xatolik uchratildi!");
+                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+            }  
+        $model->save(false);
+        return $this->redirect(['view', 'id' => $model->id]);
+        }        
+            
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -85,8 +165,45 @@ class RestaurantsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $url = '../../frontend/web/images/restaurants/';
+        $prev_img = $model->pictures;
+        $prev_main = $model->pic_main;
+        if ($model->load(Yii::$app->request->post())) {
+            if(empty(UploadedFile::getInstances($model, 'pictures')) == true)
+            {
+                $model->pictures = $prev_img;
+            }
+            else
+            {
+                if ($files = UploadedFile::getInstances($model, 'pictures')) {
+                    foreach ($files as $file) {
+                        $img_name = $file->baseName.rand(333, 9999);
+                        $temp_name = $img_name.'_temp';
+                        $file->saveAs($url.$temp_name.'.'.$file->extension);
+                        Image::resize(Yii::getAlias('@frontend/web/').'/images/restaurants/'.$temp_name.'.'.$file->extension, 1280, 720)->save($url.$img_name.'.'.$file->extension, ['quality' => 50]);
+                        $oldFile = $file ? Yii::getAlias('@frontend/web/') . $url.$temp_name.'.'.$file->extension : null;
+                        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                        array_push($prev_img, 'images/restaurants/'.$img_name.'.'.$file->extension);
+                    }
+                    $model->pictures = $prev_img;
+                }
+            }
+            if(empty(UploadedFile::getInstances($model, 'pic_main')) == true)
+            {
+                $model->pic_main = $prev_main;
+            }
+            else
+            {
+                $model->pic_main = UploadedFile::getInstance($model, 'pic_main');
+                $pic_main_name = $model->pic_main->baseName.rand(333, 9999);
+                $pic_temp_name = $pic_main_name.'_temp';
+                $model->pic_main->saveAs($url.$pic_temp_name.'.'.$model->pic_main->extension);
+                Image::resize(Yii::getAlias('@frontend/web/').'/images/restaurants/'.$pic_temp_name.'.'.$model->pic_main->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->pic_main->extension, ['quality' => 50]);
+                $oldFile = $prev_main ? Yii::getAlias('@frontend/web/') . $prev_main : null;
+                if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                $model->pic_main = 'images/restaurants/'.$pic_main_name.'.'.$model->pic_main->extension;
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -104,6 +221,13 @@ class RestaurantsController extends Controller
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
+        for ($i=0; $i < count($model->pictures) ; $i++) { 
+            $oldFile = $model->pictures ? Yii::getAlias('@frontend/web/') . '../../frontend/web/'.$model->pictures[$i] : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+        }
+        $oldFile = $model->pic_main ? Yii::getAlias('@frontend/web/') . '../../frontend/web/'.$model->pic_main : null;
+        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -5,14 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Objects */
 
-$this->title = 'Update Objects: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Objects', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = $model->name_uz.'ni o\'zgaritish';
+$this->params['breadcrumbs'][] = ['label' => 'Turistik obyektlar', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="objects-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

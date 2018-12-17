@@ -24,6 +24,7 @@ use Yii;
  */
 class Restaurants extends \yii\db\ActiveRecord
 {
+    public $img_file;
     /**
      * {@inheritdoc}
      */
@@ -38,13 +39,15 @@ class Restaurants extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'phone', 'type', 'lat', 'lng', 'pic_main', 'pictures', 'district_id'], 'required'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'phone', 'type', 'lat', 'lng', 'district_id'], 'required'],
             [['content_uz', 'content_ru', 'content_en'], 'string'],
+            [['adress_uz', 'adress_ru', 'adress_en'], 'string'],
             [['phone', 'type_id', 'district_id'], 'integer'],
             [['lat', 'lng'], 'number'],
             [['pictures'], 'safe'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
             [['pic_main'], 'string', 'max' => 300],
+            [['img_file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -55,19 +58,19 @@ class Restaurants extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name_uz' => Yii::t('app', 'Name Uz'),
-            'name_ru' => Yii::t('app', 'Name Ru'),
-            'name_en' => Yii::t('app', 'Name En'),
-            'content_uz' => Yii::t('app', 'Content Uz'),
-            'content_ru' => Yii::t('app', 'Content Ru'),
-            'content_en' => Yii::t('app', 'Content En'),
-            'phone' => Yii::t('app', 'Phone'),
-            'type' => Yii::t('app', 'Type'),
-            'lat' => Yii::t('app', 'Lat'),
-            'lng' => Yii::t('app', 'Lng'),
-            'pic_main' => Yii::t('app', 'Pic Main'),
-            'pictures' => Yii::t('app', 'Pictures'),
-            'district_id' => Yii::t('app', 'District ID'),
+            'name_uz' => Yii::t('app', 'Nomi Uz'),
+            'name_ru' => Yii::t('app', 'Nomi Ru'),
+            'name_en' => Yii::t('app', 'Nomi En'),
+            'content_uz' => Yii::t('app', 'Kontent Uz'),
+            'content_ru' => Yii::t('app', 'Kontent Ru'),
+            'content_en' => Yii::t('app', 'Kontent En'),
+            'phone' => Yii::t('app', 'Tel.raqam'),
+            'type' => Yii::t('app', 'Turi'),
+            'lat' => Yii::t('app', 'Latitude (Kenglik)'),
+            'lng' => Yii::t('app', 'Longitude (Uzunlik)'),
+            'pic_main' => Yii::t('app', 'Asosiy rasm'),
+            'pictures' => Yii::t('app', 'Galereya'),
+            'district_id' => Yii::t('app', 'Joylashuvi'),
         ];
     }
 

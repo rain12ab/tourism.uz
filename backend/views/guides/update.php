@@ -5,14 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Guides */
 
-$this->title = 'Update Guides: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Guides', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = $model->full_name_uz.'ni o\'zgartirish';
+$this->params['breadcrumbs'][] = ['label' => 'Gidlar', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="guides-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

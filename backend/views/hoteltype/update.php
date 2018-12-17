@@ -5,10 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Hoteltype */
 
-$this->title = 'Update Hoteltype: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Hoteltypes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = $model->name_uz.'ni o\'zgartirish';
+$this->params['breadcrumbs'][] = ['label' => 'Mehmonxonalar turi', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name_uz.'ni o\'zgartirish', 'url' => ['view', 'id' => $model->name_uz.'ni o\'zgartirish']];
 ?>
 <div class="hoteltype-update">
 

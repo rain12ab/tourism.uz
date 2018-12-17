@@ -28,8 +28,8 @@ class Restype extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz', 'name_ru', 'name_rn'], 'required'],
-            [['name_uz', 'name_ru', 'name_rn'], 'string', 'max' => 500],
+            [['name_uz', 'name_ru', 'name_en'], 'required'],
+            [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
         ];
     }
 
@@ -40,9 +40,9 @@ class Restype extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name_uz' => Yii::t('app', 'Name Uz'),
-            'name_ru' => Yii::t('app', 'Name Ru'),
-            'name_rn' => Yii::t('app', 'Name Rn'),
+            'name_uz' => Yii::t('app', 'Nomi Uz'),
+            'name_ru' => Yii::t('app', 'Nomi Ru'),
+            'name_en' => Yii::t('app', 'Nomi En'),
         ];
     }
 }

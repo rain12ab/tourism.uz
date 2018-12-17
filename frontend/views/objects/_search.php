@@ -61,7 +61,7 @@ $(document).on('change', '#objectssearch-".$name."', function(){
                     'limit' => 10
                 ]
             ]
-        ]); ?>
+        ])->label($model->getAttributeLabel($name.'_2')); ?>
     </div>
 </div>
 <?php ActiveForm::end(); ?>
