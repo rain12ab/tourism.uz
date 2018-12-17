@@ -85,7 +85,7 @@ AwesomeAsset::register($this);
             </a>
           </li>
           <li>
-            <a href="<?= Url::to(['restaurants/index']);?>">
+            <a href="<?= Url::to(['restaurants/select']);?>">
               <i class="fas fa-utensils"></i>
               <p>Ovqatlanish maskanlari</p>
             </a>

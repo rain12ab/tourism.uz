@@ -31,9 +31,9 @@ class Guides extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['full_name', 'languages', 'phone', 'email', 'pic'], 'required'],
-            [['full_name', 'phone', 'email', 'pic'], 'string', 'max' => 300],
-            [['languages'], 'string', 'max' => 500],
+            [['full_name_uz', 'full_name_ru', 'full_name_en', 'languages', 'phone', 'email', 'pic'], 'required'],
+            [['full_name_uz', 'full_name_ru', 'full_name_en', 'phone', 'email', 'pic'], 'string', 'max' => 300],
+            [['languages'], 'safe'],
             [['language_id'], 'integer'],
         ];
     }
@@ -45,11 +45,13 @@ class Guides extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'full_name' => Yii::t('app', 'Full Name'),
+            'full_name_uz' => Yii::t('app', 'F.I.Sh uz'),
+            'full_name_ru' => Yii::t('app', 'F.I.Sh ru'),
+            'full_name_en' => Yii::t('app', 'F.I.Sh en'),
             'languages' => Yii::t('app', 'Tillar'),
-            'phone' => Yii::t('app', 'Phone'),
+            'phone' => Yii::t('app', 'Tel.raqam'),
             'email' => Yii::t('app', 'Email'),
-            'pic' => Yii::t('app', 'Pic'),
+            'pic' => Yii::t('app', 'Rasm'),
             'gid_name' => Yii::t('app', 'F.I.Sh'),
         ];
     }

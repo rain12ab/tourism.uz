@@ -14,7 +14,7 @@ use Yii;
  * @property string $content_uz
  * @property string $content_ru
  * @property string $content_en
- * @property string $pic1
+ * @property string $pictures
  * @property string $pic2
  * @property string $pic3
  * @property string $pic4
@@ -23,6 +23,7 @@ use Yii;
  */
 class Objects extends \yii\db\ActiveRecord
 {
+    public $img_file;
     /**
      * {@inheritdoc}
      */
@@ -37,11 +38,12 @@ class Objects extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'pic1', 'pic2', 'pic3', 'pic4', 'lat', 'lng'], 'required'],
+            [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'lat', 'lng'], 'required'],
             [['content_uz', 'content_ru', 'content_en', 'pictures'], 'string'],
             [['lat', 'lng'], 'number'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
             [['pic_main'], 'string', 'max' => 300],
+            [['img_file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -52,18 +54,20 @@ class Objects extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name_uz' => Yii::t('app', 'Joy nomi bo\'yicha qidirish'),
-            'name_ru' => Yii::t('app', 'Поиск по названию места'),
-            'name_en' => Yii::t('app', 'Search by name of place'),
-            'content_uz' => Yii::t('app', 'Content Uz'),
-            'content_ru' => Yii::t('app', 'Content Ru'),
-            'content_en' => Yii::t('app', 'Content En'),
-            'pic1' => Yii::t('app', 'Pic1'),
-            'pic2' => Yii::t('app', 'Pic2'),
-            'pic3' => Yii::t('app', 'Pic3'),
-            'pic4' => Yii::t('app', 'Pic4'),
-            'lat' => Yii::t('app', 'Lat'),
-            'lng' => Yii::t('app', 'Lng'),
+            'name_uz_2' => Yii::t('app', 'Joy nomi bo\'yicha qidirish'),
+            'name_ru_2' => Yii::t('app', 'Поиск по названию места'),
+            'name_en_2' => Yii::t('app', 'Search by name of place'),
+            'name_uz' => Yii::t('app', 'Nomi Uz'),
+            'name_ru' => Yii::t('app', 'Nomi Ru'),
+            'name_en' => Yii::t('app', 'Nomi En'),
+            'content_uz' => Yii::t('app', 'Kontent Uz'),
+            'content_ru' => Yii::t('app', 'Kontent Ru'),
+            'content_en' => Yii::t('app', 'Kontent En'),
+            'pictures' => Yii::t('app', 'Galereya'),
+            'pic_main' => Yii::t('app', 'Asosiy rasm'),
+            'lat' => Yii::t('app', 'Latitude (Kenglik)'),
+            'lng' => Yii::t('app', 'Longitude (Uzunlik)'),
+            'popular' => Yii::t('app', 'Mashhurligi'),
         ];
     }
 

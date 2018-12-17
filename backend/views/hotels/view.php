@@ -232,7 +232,7 @@ $url = Yii::$app->homeUrl.'../';
                                         ],
                                     ]); ?>
                                     <label for="hotels-img_file">
-                                    <div style="margin-bottom: -30px; padding: 2px 2px;" class="btn card">
+                                    <div style="padding: 2px 2px;" class="btn card">
                                         <div class="card-body">
 
                                             

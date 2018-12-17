@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Restype */
+/* @var $model common\models\Hoteltype */
 
-$this->title = 'Create Restype';
-$this->params['breadcrumbs'][] = ['label' => 'Restypes', 'url' => ['index']];
+$this->title = 'Ovqatlanish maskani turlarini kiritish';
+$this->params['breadcrumbs'][] = ['label' => 'Ovqatlanish maskani turlari', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="restype-create">
+<div class="hoteltype-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

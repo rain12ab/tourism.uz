@@ -5,10 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Restaurants */
 
-$this->title = 'Update Restaurants: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Restaurants', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = $model->name_uz.'ni o\'zgaritish';
+$this->params['breadcrumbs'][] = ['label' => 'Ovqatlanish maskanlari', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="restaurants-update">
 
