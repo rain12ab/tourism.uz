@@ -38,7 +38,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-  <div class="container">
+  <div style="margin: 10px 40px;" class="container-fluid">
     <img class="site-logo" style="margin-right: 10px;" src="<?= Yii::$app->request->baseUrl;?>/images/logo/logo.png" /><a class="navbar-brand" href="<?= Yii::$app->homeUrl;?>"><h6><?= Yii::t('app', 'Navoiy viloyat turizmni<br>rivojlantirish hududiy<br>boshqarmasi');?></h6></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span> Menu
@@ -68,6 +68,8 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
             <?= Html::tag('li', Html::a(Yii::t('app', 'Galereya'), Url::to(['gallery/index'])));?>
           </ul>
         </li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['reception/index']);?>"><?= Yii::t('app', 'Virtual qabulxona');?></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to('https://invest.navoitourism.uz');?>"><?= Yii::t('app', 'Investorlarga');?></a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><img style="width: 35px;height: auto;margin-right: 5px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $current_lang_code->language_code;?>.gif"><?= $current_lang->name;?>
           </a>

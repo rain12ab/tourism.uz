@@ -8,6 +8,10 @@ use backend\models\GallerySeach;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\imagine\Image;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
+use yii\web\UploadedFile;
 
 /**
  * GalleryController implements the CRUD actions for Gallery model.
@@ -65,9 +69,18 @@ class GalleryController extends Controller
     public function actionCreate()
     {
         $model = new Gallery();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $url = '../../frontend/web/images/gallery/';
+        if ($model->load(Yii::$app->request->post())) {
+            $model->url = UploadedFile::getInstance($model, 'url');
+            $pic_main_name = $model->url->baseName.rand(333, 9999);
+            $pic_temp_name = $pic_main_name.'_temp';
+            $model->url->saveAs($url.$pic_temp_name.'.'.$model->url->extension);
+            Image::resize(Yii::getAlias('@frontend/web/').'/images/gallery/'.$pic_temp_name.'.'.$model->url->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->url->extension, ['quality' => 75]);
+            $oldFile = $model->url ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->url->extension : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+            $model->url = 'images/gallery/'.$pic_main_name.'.'.$model->url->extension;
+            $model->save();
+            return $this->redirect('index');
         }
 
         return $this->render('create', [
@@ -85,9 +98,29 @@ class GalleryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $url = '../../frontend/web/images/gallery/';
+        $pic_prev = $model->url;
+        if ($model->load(Yii::$app->request->post())) {
+            if(UploadedFile::getInstance($model, 'url') == null)
+                {
+                    $model->url = $pic_prev;
+                    $model->save();
+                }
+            else
+                {
+                    $model->url = UploadedFile::getInstance($model, 'url');
+                    $pic_main_name = $model->url->baseName.rand(333, 9999);
+                    $pic_temp_name = $pic_main_name.'_temp';
+                    $model->url->saveAs($url.$pic_temp_name.'.'.$model->url->extension);
+                    Image::resize(Yii::getAlias('@frontend/web/').'/images/gallery/'.$pic_temp_name.'.'.$model->url->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->url->extension, ['quality' => 75]);
+                    $oldFile = $model->url ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->url->extension : null;
+                    if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                    $model->url = 'images/gallery/'.$pic_main_name.'.'.$model->url->extension;
+                    $oldFile = $pic_prev ? Yii::getAlias('@frontend/web/') . $pic_prev : null;
+                    if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                    $model->save();
+                }
+            return $this->redirect('index');
         }
 
         return $this->render('update', [
@@ -104,6 +137,9 @@ class GalleryController extends Controller
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
+        $oldFile = $model->url ? Yii::getAlias('@frontend/web/') . $model->url : null;
+        if ($oldFile && file_exists($oldFile)) unlink($oldFile);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

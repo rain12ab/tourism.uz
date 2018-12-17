@@ -29,7 +29,7 @@ class Gallery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title_uz', 'title_ru', 'title_en', 'url'], 'required'],
+            [['title_uz', 'title_ru', 'title_en'], 'required'],
             [['title_uz', 'title_ru', 'title_en', 'url'], 'string', 'max' => 300],
         ];
     }

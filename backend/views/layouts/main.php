@@ -97,6 +97,12 @@ AwesomeAsset::register($this);
             </a>
           </li>
           <li>
+            <a href="<?= Url::to(['reception/index']);?>">
+              <i class="fas fa-vote-yea"></i>
+              <p>Qabulxona</p>
+            </a>
+          </li>
+          <li>
             <a href="<?= Url::to(['gallery/index']);?>">
               <i class="fas fa-images"></i>
               <p>Galereya</p>
