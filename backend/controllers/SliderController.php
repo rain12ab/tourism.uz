@@ -65,9 +65,18 @@ class SliderController extends Controller
     public function actionCreate()
     {
         $model = new Slider();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $url = '../../frontend/web/images/slider/';
+        if ($model->load(Yii::$app->request->post())) {
+            $model->img = UploadedFile::getInstance($model, 'url');
+            $pic_main_name = $model->img->baseName.rand(333, 9999);
+            $pic_temp_name = $pic_main_name.'_temp';
+            $model->img->saveAs($url.$pic_temp_name.'.'.$model->img->extension);
+            Image::resize(Yii::getAlias('@frontend/web/').'/images/slider/'.$pic_temp_name.'.'.$model->img->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->img->extension, ['quality' => 75]);
+            $oldFile = $model->img ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->img->extension : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+            $model->img = 'images/slider/'.$pic_main_name.'.'.$model->img->extension;
+            $model->save();
+            return $this->redirect('index');
         }
 
         return $this->render('create', [
@@ -85,9 +94,29 @@ class SliderController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $url = '../../frontend/web/images/gallery/';
+        $pic_prev = $model->url;
+        if ($model->load(Yii::$app->request->post())) {
+            if(UploadedFile::getInstance($model, 'url') == null)
+                {
+                    $model->url = $pic_prev;
+                    $model->save();
+                }
+            else
+                {
+                    $model->url = UploadedFile::getInstance($model, 'url');
+                    $pic_main_name = $model->url->baseName.rand(333, 9999);
+                    $pic_temp_name = $pic_main_name.'_temp';
+                    $model->url->saveAs($url.$pic_temp_name.'.'.$model->url->extension);
+                    Image::resize(Yii::getAlias('@frontend/web/').'/images/gallery/'.$pic_temp_name.'.'.$model->url->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->url->extension, ['quality' => 75]);
+                    $oldFile = $model->url ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->url->extension : null;
+                    if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                    $model->url = 'images/gallery/'.$pic_main_name.'.'.$model->url->extension;
+                    $oldFile = $pic_prev ? Yii::getAlias('@frontend/web/') . $pic_prev : null;
+                    if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                    $model->save();
+                }
+            return $this->redirect('index');
         }
 
         return $this->render('update', [

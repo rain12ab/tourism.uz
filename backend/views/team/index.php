@@ -51,13 +51,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'update'=>function ($url, $model) {
                             $customurl=Yii::$app->getUrlManager()->createUrl(['team/update','id'=> $model['id']]);
                             return \yii\helpers\Html::a( '<span class="far fa-edit"></span>', $customurl,
-                                                    ['title' => Yii::t('yii', 'O\'zgartirish'), 'data-pjax' => '0']);
+                            ['title' => Yii::t('yii', 'O\'zgartirish'), 'data-pjax' => '0']);
 
                         },
                         'delete'=>function ($url, $model) {
                             $customurl=Yii::$app->getUrlManager()->createUrl(['team/delete','id'=> $model['id']]);
                             return \yii\helpers\Html::a( '<span class="fas fa-times"></span>', $customurl,
-                                                    ['title' => Yii::t('yii', 'O\'chirish'), 'data-pjax' => '0', 'data-method' => 'post', 'data-confirm' => 'Aniqmi?',]);
+                            ['title' => Yii::t('yii', 'O\'chirish'), 'data-pjax' => '0', 'data-method' => 'post', 'data-confirm' => 'Aniqmi?',]);
                         }
                     ],
                 ],

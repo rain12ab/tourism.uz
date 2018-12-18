@@ -5,14 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Slider */
 
-$this->title = 'Update Slider: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = $model->title_uz.' ni o\'zgartirish';
+$this->params['breadcrumbs'][] = ['label' => 'Slayder', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="slider-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
