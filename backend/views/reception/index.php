@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\ReceptionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Receptions');
+$this->title = Yii::t('app', 'Virtual qabulxona');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reception-index">
@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Reception'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Jarayonda'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Yopildi'), ['create'], ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= GridView::widget([
@@ -38,17 +39,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template'=>'{view}{delete}',
+                'template'=>'{view}{delete}{denial}',
                 'buttons'=>[
-                    'view'=>function ($url, $model) {
+                    'view'=> function ($url, $model) {
                         $customurl=Yii::$app->getUrlManager()->createUrl(['reception/view','id'=> $model['id']]);
                         return \yii\helpers\Html::a( '<span style="margin: 1px;" class="far fa-eye"></span>', $customurl,
                                                 ['title' => Yii::t('yii', 'O\'zgartirish'), 'data-pjax' => '0']);
 
                     },
-                    'delete'=>function ($url, $model) {
+                    'delete'=> function ($url, $model) {
                         $customurl=Yii::$app->getUrlManager()->createUrl(['reception/delete','id'=> $model['id']]);
                         return \yii\helpers\Html::a( '<span style="margin: 1px;" class="fas fa-times"></span>', $customurl,
+                                                ['title' => Yii::t('yii', 'O\'chirish'), 'data-pjax' => '0', 'data-method' => 'post', 'data-confirm' => 'Aniqmi?',]);
+                    },
+                    'denial'=> function ($url, $model) {
+                        $customurl=Yii::$app->getUrlManager()->createUrl(['reception/denial','id'=> $model['id']]);
+                        return \yii\helpers\Html::a( '<span style="margin: 1px;" class="fas fa-ban"></span>', $customurl,
                                                 ['title' => Yii::t('yii', 'O\'chirish'), 'data-pjax' => '0', 'data-method' => 'post', 'data-confirm' => 'Aniqmi?',]);
                     },
                 ],

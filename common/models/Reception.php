@@ -52,17 +52,17 @@ class Reception extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'full_name' => Yii::t('app', 'Full Name'),
-            'message' => Yii::t('app', 'Message'),
-            'file' => Yii::t('app', 'File'),
-            'title' => Yii::t('app', 'Title'),
-            'organization' => Yii::t('app', 'Organization'),
-            'phone' => Yii::t('app', 'Phone'),
+            'full_name' => Yii::t('app', 'F.I.Sh'),
+            'message' => Yii::t('app', 'Xabar'),
+            'file' => Yii::t('app', 'Fayl'),
+            'title' => Yii::t('app', 'Sarlavha'),
+            'organization' => Yii::t('app', 'Tashkilot'),
+            'phone' => Yii::t('app', 'Tel.raqam'),
             'email' => Yii::t('app', 'Email'),
-            'passport' => Yii::t('app', 'Passport'),
-            'type' => Yii::t('app', 'Type'),
-            'datetime' => Yii::t('app', 'Datetime'),
-            'unique_number' => Yii::t('app', 'Unique Number'),
+            'passport' => Yii::t('app', 'Pasport'),
+            'type' => Yii::t('app', 'Turi'),
+            'datetime' => Yii::t('app', 'Vaqti'),
+            'unique_number' => Yii::t('app', 'Individual raqami'),
             'status' => Yii::t('app', 'Status'),
         ];
     }
