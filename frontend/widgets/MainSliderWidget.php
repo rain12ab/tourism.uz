@@ -13,7 +13,7 @@ class MainSliderWidget extends Widget
 {
     public function run()
     {
-        $slider = Slider::find()->all();
+        $slider = Slider::find()->orderBy('turn ASC')->all();
         return $this->render('main_slider', [
             'slider' => $slider,
         ]);

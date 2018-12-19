@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\LawsSeach */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Galereya';
+$this->title = 'Slayder';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <style type="text/css">
@@ -90,6 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 ],
             ],
+            'turn',
         ],
     ]); ?>
     <?php Pjax::end(); ?>

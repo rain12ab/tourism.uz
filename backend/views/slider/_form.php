@@ -9,7 +9,7 @@ use kartik\file\FileInput;
 /* @var $model common\models\Gallery */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['enableAjaxValidation' => true]); ?>
 	
 	<div class="row">
 		<div class="col-md-12">
@@ -31,6 +31,11 @@ use kartik\file\FileInput;
 					<div class="row">
 						<div class="col-md-12">
 							<?= $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<?= $form->field($model, 'turn')->textInput(['maxlength' => true]) ?>
 						</div>
 					</div>
 					<div class="row">

@@ -29,8 +29,10 @@ class Slider extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title_uz', 'title_ru', 'title_en', 'img'], 'required'],
+            [['title_uz', 'title_ru', 'title_en', 'turn'], 'required'],
             [['title_uz', 'title_ru', 'title_en', 'img'], 'string', 'max' => 500],
+            [['turn'], 'integer', 'max' => 12],
+            ['turn', 'unique'],
         ];
     }
 
@@ -45,6 +47,7 @@ class Slider extends \yii\db\ActiveRecord
             'title_ru' => Yii::t('app', 'Title Ru'),
             'title_en' => Yii::t('app', 'Title En'),
             'img' => Yii::t('app', 'Img'),
+            'turn' => Yii::t('app', 'Navbat'),
         ];
     }
 }
