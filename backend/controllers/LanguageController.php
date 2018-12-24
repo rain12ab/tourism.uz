@@ -44,6 +44,11 @@ class LanguageController extends Controller
         ]);
     }
 
+    public function actionSelector()
+    {
+        return $this->render('selector');
+    }
+
     /**
      * Displays a single Language model.
      * @param integer $id
