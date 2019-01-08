@@ -33,7 +33,7 @@ use yii\bootstrap\Modal;
 <section class="ftco-section-2">
   <div class="container-fluid d-flex">
     <div class="section-2-blocks-wrapper row no-gutters">
-      <div class="img col-sm-12 col-lg-6" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $a->pics[1];?>');">
+      <div class="img col-sm-12 col-lg-6" style="background-image: url('<?= Yii::$app->request->baseUrl;?>/<?= $a->pics[0];?>');">
         <?= Html::a('<span class="ion-ios-play"></span>', Yii::$app->homeUrl.$a->video, ['class' => 'button popup-vimeo popup-player', 'type' => 'video/mp4'])?>
       </div>
       <div class="text col-lg-6 ftco-animate">

@@ -48,6 +48,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="<?= Yii::$app->homeUrl;?>"><?= Yii::t('app', 'Bosh sahifa');?></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['about/index']);?>"><?= Yii::t('app', 'Boshqarma haqida');?></a></li>
+        <?php if(Yii::$app->language != 'en'):?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><?= Yii::t('app', 'Qonunchilik');?>
           </a>
@@ -56,6 +57,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
             <?= Html::tag('li', Html::a(Yii::t('app', 'Davlat ramzlari'), Url::to(['laws/symbols'])));?>
           </ul>
         </li>
+      <?php endif;?>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['news/index']);?>"><?= Yii::t('app', 'Yangiliklar');?></a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><?= Yii::t('app', 'Sayyohlarga');?>

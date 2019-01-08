@@ -133,6 +133,7 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'Prophecy\\' => 9,
         ),
         'L' => 
         array (
@@ -473,6 +474,10 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'Prophecy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
         'Leafo\\ScssPhp\\' => 
         array (
             0 => __DIR__ . '/..' . '/leafo/scssphp/src',
@@ -529,13 +534,6 @@ class ComposerStaticInit6edb789d420d9695bb1ffed568da9fb8
     );
 
     public static $prefixesPsr0 = array (
-        'P' => 
-        array (
-            'Prophecy\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
-        ),
         'H' => 
         array (
             'HTMLPurifier' => 

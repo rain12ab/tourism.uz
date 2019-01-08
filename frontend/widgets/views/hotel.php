@@ -6,7 +6,7 @@ use yii\helpers\Url;
 
 
 
-<section class="ftco-section">
+<section style="background: url(<?= Yii::$app->homeUrl.'images/bg/1.jpg';?>) no-repeat -150px; background-size: 400px" class="ftco-section">
   <div style="margin-bottom: 40px;" class="text-center heading-section">
       <h2><?= Yii::t('app', 'Mehmonxonalar');?></h2>
   </div>
