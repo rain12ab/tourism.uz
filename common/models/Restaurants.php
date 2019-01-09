@@ -71,6 +71,8 @@ class Restaurants extends \yii\db\ActiveRecord
             'pic_main' => Yii::t('app', 'Asosiy rasm'),
             'pictures' => Yii::t('app', 'Galereya'),
             'district_id' => Yii::t('app', 'Joylashuvi'),
+            'res_name' => Yii::t('app', 'Ovqatlanish maskani nomi'),
+            'type_id' => Yii::t('app', 'Turi'),
         ];
     }
 

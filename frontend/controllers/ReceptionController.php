@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class ReceptionController extends Controller
 {
+    public $layout = 'content';
     /**
      * {@inheritdoc}
      */
