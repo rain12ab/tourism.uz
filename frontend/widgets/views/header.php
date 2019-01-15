@@ -39,7 +39,7 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
   <div style="margin: 10px 40px;" class="container-fluid">
-    <img class="site-logo" style="margin-right: 10px;" src="<?= Yii::$app->request->baseUrl;?>/images/logo/logo.png" /><a class="navbar-brand" href="<?= Yii::$app->homeUrl;?>"><h6><?= Yii::t('app', 'Navoiy viloyat turizmni<br>rivojlantirish hududiy<br>boshqarmasi');?></h6></a>
+    <img class="site-logo" style="margin-right: 10px; width: 9%" src="<?= Yii::$app->request->baseUrl;?>/images/logo/logo1.png" /><a class="navbar-brand" href="<?= Yii::$app->homeUrl;?>"><h6><?= Yii::t('app', 'Navoiy viloyat turizmni<br>rivojlantirish hududiy<br>boshqarmasi');?></h6></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="oi oi-menu"></span> Menu
     </button>

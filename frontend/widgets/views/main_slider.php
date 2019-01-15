@@ -31,4 +31,3 @@
   </div>
 <?php endforeach?>
 </section>
-<!-- END slider -->

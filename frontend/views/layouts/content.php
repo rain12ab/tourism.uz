@@ -10,6 +10,7 @@ use frontend\assets\AppAsset;
 use frontend\assets\AwesomeAsset;
 use frontend\widgets\HeaderWidget;
 use frontend\widgets\FooterWidget;
+use frontend\widgets\WeatherWidget;
 use frontend\models\BreadcrumbsMicrodata;
 
 // Yii::$app->name = Yii::t('app', 'Navoiy viloyat turizmni rivojlantirish hududiy boshqarmasi');
@@ -63,8 +64,7 @@ AwesomeAsset::register($this);
                 'encodeLabels' => false
             ]);
             ?>
-            <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span><a href="blog.html">Blog</a></span> <span>Single Blog</span></p> -->
-            <h1 style="font-size: 30px; padding-top: 30px;" class="mb-3"><?= $this->title;?></h1>
+            <?= WeatherWidget::widget();?>
           </div>
         </div>
       </div>

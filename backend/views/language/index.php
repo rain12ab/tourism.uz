@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name:ntext',
-            'language_code_id',
+            'langname:language_code_id',
             'iso_name',
             'position',
             //'status',

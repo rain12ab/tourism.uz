@@ -8,6 +8,10 @@ use backend\models\NewsSeach;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -66,30 +70,27 @@ class NewsController extends Controller
     public function actionCreate()
     {
         $model = new News();
-
+        $url = '../../frontend/web/images/news/';
         if ($model->load(Yii::$app->request->post())) {
-            // var_dump($model->pic);
-            // die;
-            $uni = uniqid();
-            $pic = $model->pic["300x300"];
-            $pic = str_replace('data:image/png;base64,', '', $pic);
-            $pic = str_replace(' ', '+', $pic);
-            $pic = base64_decode($pic);
-            $file = '../../frontend/web/images/team/' . $uni . '.png';
-            $url = 'images/team/' . $uni . '.png';
-            $success1 = file_put_contents($file, $pic);
-            $model->pic = $url;
-            $model->save();
-            return $this->redirect('index');
-        }
-
+            $model->pic = UploadedFile::getInstance($model, 'pic');
+            $pic_main_name = $model->pic->baseName.rand(333, 9999);
+            $pic_temp_name = $pic_main_name.'_temp';
+            $model->pic->saveAs($url.$pic_temp_name.'.'.$model->pic->extension);
+            Image::resize(Yii::getAlias('@frontend/web/').'/images/news/'.$pic_temp_name.'.'.$model->pic->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->pic->extension, ['quality' => 50]);
+            $oldFile = $model->pic ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->pic->extension : null;
+            if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+            $model->pic = 'images/news/'.$pic_main_name.'.'.$model->pic->extension; 
+        $model->save(false);
+        return $this->redirect(['view', 'id' => $model->id]);
+        }        
+            
         return $this->render('create', [
             'model' => $model,
         ]);
     }
 
     /**
-     * Updates an existing News model.
+     * Updates an existing news model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -98,8 +99,27 @@ class NewsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $url = '../../frontend/web/images/news/';
+        $prev_main = $model->pic;
+        if ($model->load(Yii::$app->request->post())) {
+            if(empty(UploadedFile::getInstances($model, 'pic')) == true)
+            {
+                $model->pic = $prev_main;
+            }
+            else
+            {
+                $model->pic = UploadedFile::getInstance($model, 'pic');
+                $pic_main_name = $model->pic->baseName.rand(333, 9999);
+                $pic_temp_name = $pic_main_name.'_temp';
+                $model->pic->saveAs($url.$pic_temp_name.'.'.$model->pic->extension);
+                Image::resize(Yii::getAlias('@frontend/web/').'/images/news/'.$pic_temp_name.'.'.$model->pic->extension, 1280, 720)->save($url.$pic_main_name.'.'.$model->pic->extension, ['quality' => 50]);
+                $oldFile = $prev_main ? Yii::getAlias('@frontend/web/') . $prev_main : null;
+                if ($oldFile && file_exists($oldFile)) unlink($oldFile);
+                $tempFile = $model->pic ? Yii::getAlias('@frontend/web/') . $url.$pic_temp_name.'.'.$model->pic->extension : null;
+                if ($tempFile && file_exists($tempFile)) unlink($tempFile);
+                $model->pic = 'images/news/'.$pic_main_name.'.'.$model->pic->extension;
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

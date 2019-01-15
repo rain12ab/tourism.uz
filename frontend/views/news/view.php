@@ -40,8 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-8">
             <h1 class="mb-3"><?= $title;?></h1>
             <div style="margin-bottom: 20px;">
-                <i style="padding: 0 10px;" class="fas fa-clock"></i><span style="font-size: 14px; margin-right: 10px;"><?= Yii::t('app', 'Vaqti');?>: <?= $model->date;?></span>
-                <i style="padding: 0 10px;" class="fas fa-user"></i><span style="font-size: 14px; margin-right: 10px;"><?= Yii::t('app', 'Muallif');?>: <?= $model->author;?></span>
+                <span style="padding: 1em; font-size: 1em;"><i class="fas fa-clock"></i> <?= Yii::t('app', 'Vaqti');?>: <?= $model->date;?></span>
+                <span style="padding: 1em; font-size: 1em;"><i class="fas fa-user"></i> <?= Yii::t('app', 'Muallif');?>: <?= $model->author;?></span>
             </div>
             
             <div class="col">

@@ -5,8 +5,7 @@ use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
 use kartik\datecontrol\DateControl;
-use dosamigos\croppie\CroppieWidget;
-use yii\bootstrap4\Modal;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\News */
@@ -185,23 +184,22 @@ use yii\bootstrap4\Modal;
                         ]); ?>
                     </div>
                 </div>
-                <?php Modal::begin([
-                    'toggleButton' => ['label' => 'Asosiy rasmini yuklash', 'class' => 'btn btn-primary'],
-                    'size' => 'modal-lg',
-                ]);?>
                 <div class="row">
                     <div class="col-md-12">
-                        <?= \alvinux\imagecropper\Cropper::widget([
-                            'model' => $model,
-                            'attribute' => 'pic',
-                            'autoCrop' => false,
+                        <?= $form->field($model, 'pic')->widget(FileInput::classname(), [
                             'options' => [
-                                ['width' => 300,'height' => 300],
+                                'accept' => 'image/*',
                             ],
-                        ]); ?>
+                            'pluginOptions' => [
+                                'initialPreviewAsData'=>true,
+                                'showPreview' => true,
+                                'showCaption' => false,
+                                'showRemove' => true,
+                                'showUpload' => false,
+                            ],
+                        ]);?>
                     </div>
                 </div>
-                <?php Modal::end();?>
                 <div class="row">
                     <div class="col-md-6">
                         <?= $form->field($model, 'date')->widget(DateControl::classname(), [

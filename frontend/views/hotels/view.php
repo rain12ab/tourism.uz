@@ -54,7 +54,7 @@ else
 
 $url = Yii::$app->homeUrl;
 $this->title = $name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Ovqatlanish maskanlari'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Mehmonxonalar'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
