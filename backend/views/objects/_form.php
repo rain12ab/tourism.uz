@@ -92,10 +92,10 @@ use kartik\file\FileInput;
                     </div>
                     <div class="row">
                         <div style="margin: 10px 0;" class="col-md-6">
-                            <?= $form->field($model, 'lat')->input('number') ?>
+                            <?= $form->field($model, 'lat')->textInput() ?>
                         </div>
                         <div style="margin: 10px 0;" class="col-md-6">
-                            <?= $form->field($model, 'lng')->input('number') ?>
+                            <?= $form->field($model, 'lng')->textInput() ?>
                         </div>
                     </div>
                     <div class="row">

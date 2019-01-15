@@ -29,10 +29,10 @@ else
 		$district = null;
 	}
 
-$result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
+$result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price_tourist]);
 ?>
 
-<div style="padding: 10px;" class="col-md-6 col-lg-6">
+<div style="padding: 1em;" class="col-md-6 col-lg-6">
 	<a href="<?= Url::to(['hotels/view', 'id' => $model->id]);?>" class="block-5" style="background-image: url(<?= Yii::$app->homeUrl.$model->pic_main;?>);">
 		<div class="text">
 			<h3 class="heading"><?= $name;?></h3>

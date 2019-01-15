@@ -43,6 +43,7 @@ class Objects extends \yii\db\ActiveRecord
             [['lat', 'lng'], 'number'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
             [['pic_main'], 'string', 'max' => 300],
+            [['popular', 'district_id'], 'integer'],
             [['img_file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }

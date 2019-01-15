@@ -44,8 +44,8 @@ class Hotels extends \yii\db\ActiveRecord
         return [
             [['name_uz', 'name_ru', 'name_en', 'content_uz', 'content_ru', 'content_en', 'stars', 'lat', 'lng', 'phone', 'email', 'adress_uz', 'adress_ru', 'adress_en'], 'required'],
             [['content_uz', 'content_ru', 'content_en', 'pictures'], 'string'],
-            [['stars', 'phone', 'district_id', 'hotel_type', 'price'], 'integer'],
-            [['lat', 'lng'], 'number'],
+            [['stars', 'phone', 'district_id', 'hotel_type', 'price', 'price_tourist'], 'integer'],
+            [['lat', 'lng'], 'double'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 500],
             [['email', 'adress_uz', 'adress_ru', 'adress_en', 'pic_main'], 'string', 'max' => 300],
             [['img_file'], 'file', 'extensions' => 'png, jpg'],

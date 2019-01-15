@@ -27,8 +27,8 @@ class Lawtype extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name_uz', 'name_ru'], 'required'],
-            [['id', 'name_uz', 'name_ru'], 'integer'],
+            [['name_uz', 'name_ru'], 'required'],
+            [['name_uz', 'name_ru'], 'string'],
         ];
     }
 

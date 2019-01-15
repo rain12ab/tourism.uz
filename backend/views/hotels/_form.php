@@ -46,8 +46,11 @@ use kartik\file\FileInput;
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <?= $form->field($model, 'price')->input('number') ?>
+                        </div>
+                        <div class="col-md-2">
+                            <?= $form->field($model, 'price_tourist')->input('number') ?>
                         </div>
                         <div class="col-md-4">
                             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>

@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Mehmonxonalar'), 'ur
 $this->params['breadcrumbs'][] = $this->title;
 
 
-$result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
+$result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price_tourist]);
 ?>
 
 <style type="text/css">
@@ -122,7 +122,7 @@ $result = Yii::$app->runAction('hotels/calculate', ['sum' => $model->price]);
                     </div>
                     <div class="col-md-6">
                         <h4></h4>
-                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= $model->price.' '.Yii::t('app', 'so\'m').' / '.Yii::t('app', 'bir kecha');?></a></div>
+                        <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= $model->price.' '.Yii::t('app', 'so\'m').' / '.Yii::t('app', 'bir kecha').' ('.Yii::t('app', 'O\'zbekiston fuqarosi').')';?></a></div>
                         <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= round($result[0], 2).'$ / '.Yii::t('app', 'bir kecha');?></a></div>
                         <div style="padding: 6px 0;color: #fff; font-size: 17px;"><?= round($result[1], 2).'€ / '.Yii::t('app', 'bir kecha');?></a></div>
                     </div>
