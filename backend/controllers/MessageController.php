@@ -3,17 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Language;
-use backend\models\LanguageSearch;
+use common\models\Message;
+use backend\models\MessageSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LanguageController implements the CRUD actions for Language model.
+ * MessageController implements the CRUD actions for Message model.
  */
-class LanguageController extends Controller
+class MessageController extends Controller
 {
     public function behaviors()
     {
@@ -26,7 +26,7 @@ class LanguageController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['selector', 'logout', 'index','view','create','update','delete'],
+                        'actions' => ['logout', 'index','view','create','update','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -41,26 +41,13 @@ class LanguageController extends Controller
         ];
     }
 
-    public static function getStatus1 ($id=null)
-    {
-        $data = [
-            '0'=>\Yii::t('yii','No Active'),
-            '1'=>\Yii::t('yii','Active'),
-        ];
-        if (is_numeric($id)) {
-            return $data[$id];
-        }else {
-            return $data;
-        }
-    }
-
     /**
-     * Lists all Language models.
+     * Lists all Message models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new LanguageSearch();
+        $searchModel = new MessageSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -70,34 +57,31 @@ class LanguageController extends Controller
     }
 
     /**
-     * Displays a single Language model.
+     * Displays a single Message model.
      * @param integer $id
+     * @param string $language
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($id, $language)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id, $language),
         ]);
     }
 
-    public function actionSelector()
-    {
-        return $this->render('selector');
-    }
-
     /**
-     * Creates a new Language model.
+     * Creates a new Message model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Language();
+        $model = new Message();
+        $model->scenario = 'create';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully saved.'));
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $model->id, 'language' => $model->language]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -106,18 +90,27 @@ class LanguageController extends Controller
     }
 
     /**
-     * Updates an existing Language model.
+     * Updates an existing Message model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
+     * @param string $language
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id, $language)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($id, $language);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully updated.'));
-            return $this->redirect(['index']);
+        if (Yii::$app->request->post()) {
+            $model->translation = $_POST['Message']['translation'];
+            if ($model->save()) {
+                \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully updated.'));
+                return $this->redirect(['view', 'id' => $model->id, 'language' => $model->language]);
+            }else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -126,34 +119,31 @@ class LanguageController extends Controller
     }
 
     /**
-     * Deletes an existing Language model.
+     * Deletes an existing Message model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
+     * @param string $language
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id, $language)
     {
-       $model =  $this->findModel($id);
-//        if ($model->languageCode->language_code=='en') {
-//            \Yii::$app->session->setFlash('success',\Yii::t('yii','You can not delete English language!!! Because Messages of this system are in English.'));
-//            return $this->redirect(['/ud-admin/language/index']);
-//        }
-
-        $model->delete();
+        $this->findModel($id, $language)->delete();
         \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully deleted.'));
+
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Language model based on its primary key value.
+     * Finds the Message model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Language the loaded model
+     * @param string $language
+     * @return Message the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($id, $language)
     {
-        if (($model = Language::findOne($id)) !== null) {
+        if (($model = Message::findOne(['id' => $id, 'language' => $language])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

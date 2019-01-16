@@ -4,17 +4,18 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Language */
+/* @var $model app\models\SourceMessage */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('yii', 'Languages'), 'url' => ['index']];
+$this->title = $model->message;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('yii', 'Source Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="language-view">
+<div class="source-message-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <br>
 
     <p>
+        <?= Html::a(Yii::t('yii', 'Create Source Message'), ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a(Yii::t('yii', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('yii', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -28,12 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'name:ntext',
-            'language_code_id',
-            'position',
-            'status',
-            'created_at',
+            'message:ntext',
         ],
     ]) ?>
 

@@ -49,80 +49,67 @@ AwesomeAsset::register($this);
         <ul style="margin-bottom: 15vh!important;" class="nav">
           <li>
             <a href="<?= Url::to(['site/index']);?>">
-              <i class="fas fa-chart-line"></i>
               <p>Bosh sahifa</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['about/selector']);?>">
-              <i class="fas fa-address-card"></i>
               <p>Boshqarma ma'lumotlari</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['laws/index']);?>">
-              <i class="fas fa-gavel"></i>
               <p>Qonunchilik</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['news/index']);?>">
-              <i class="fas fa-newspaper"></i>
               <p>Yangiliklar</p>
             </a>
           </li>
           <li>
           <li>
             <a href="<?= Url::to(['objects/index']);?>">
-              <i class="fas fa-globe"></i>
               <p>Turistik obyektlar</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['hotels/select']);?>">
-              <i class="fas fa-hotel"></i>
               <p>Mehmonxonalar</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['restaurants/select']);?>">
-              <i class="fas fa-utensils"></i>
               <p>Ovqatlanish maskanlari</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['guides/index']);?>">
-              <i class="fab fa-jenkins"></i>
               <p>Gidlar</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['reception/index']);?>">
-              <i class="fas fa-vote-yea"></i>
               <p>Qabulxona</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['gallery/index']);?>">
-              <i class="fas fa-images"></i>
               <p>Galereya</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['slider/index']);?>">
-              <i class="tim-icons icon-tv-2"></i>
               <p>Slider</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['language/selector']);?>">
-              <i class="fas fa-language"></i>
               <p>Tillar</p>
             </a>
           </li>
           <li>
             <a href="<?= Url::to(['links/index']);?>">
-              <i class="tim-icons icon-link-72"></i>
               <p>Davlat manbalari</p>
             </a>
           </li>

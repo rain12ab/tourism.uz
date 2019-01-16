@@ -3,17 +3,18 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Language;
-use backend\models\LanguageSearch;
+use common\models\SourceMessage;
+use backend\models\SourceMessageSearch;
+use common\models\Message;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LanguageController implements the CRUD actions for Language model.
+ * SourceMessageController implements the CRUD actions for SourceMessage model.
  */
-class LanguageController extends Controller
+class SourceMessageController extends Controller
 {
     public function behaviors()
     {
@@ -26,7 +27,7 @@ class LanguageController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['selector', 'logout', 'index','view','create','update','delete'],
+                        'actions' => ['logout', 'index','view','create','update','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -40,27 +41,13 @@ class LanguageController extends Controller
             ],
         ];
     }
-
-    public static function getStatus1 ($id=null)
-    {
-        $data = [
-            '0'=>\Yii::t('yii','No Active'),
-            '1'=>\Yii::t('yii','Active'),
-        ];
-        if (is_numeric($id)) {
-            return $data[$id];
-        }else {
-            return $data;
-        }
-    }
-
     /**
-     * Lists all Language models.
+     * Lists all SourceMessage models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new LanguageSearch();
+        $searchModel = new SourceMessageSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -70,7 +57,7 @@ class LanguageController extends Controller
     }
 
     /**
-     * Displays a single Language model.
+     * Displays a single SourceMessage model.
      * @param integer $id
      * @return mixed
      */
@@ -81,23 +68,18 @@ class LanguageController extends Controller
         ]);
     }
 
-    public function actionSelector()
-    {
-        return $this->render('selector');
-    }
-
     /**
-     * Creates a new Language model.
+     * Creates a new SourceMessage model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Language();
-
+        $model = new SourceMessage();
+        $model->category = 'app';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully saved.'));
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -106,7 +88,7 @@ class LanguageController extends Controller
     }
 
     /**
-     * Updates an existing Language model.
+     * Updates an existing SourceMessage model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -117,7 +99,7 @@ class LanguageController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully updated.'));
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -126,34 +108,30 @@ class LanguageController extends Controller
     }
 
     /**
-     * Deletes an existing Language model.
+     * Deletes an existing SourceMessage model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-       $model =  $this->findModel($id);
-//        if ($model->languageCode->language_code=='en') {
-//            \Yii::$app->session->setFlash('success',\Yii::t('yii','You can not delete English language!!! Because Messages of this system are in English.'));
-//            return $this->redirect(['/ud-admin/language/index']);
-//        }
-
+        $model  = $this->findModel($id);
+        Message::deleteAll(['id'=>$id]);
         $model->delete();
         \Yii::$app->session->setFlash('success',\Yii::t('yii','Successfully deleted.'));
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Language model based on its primary key value.
+     * Finds the SourceMessage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Language the loaded model
+     * @return SourceMessage the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Language::findOne($id)) !== null) {
+        if (($model = SourceMessage::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

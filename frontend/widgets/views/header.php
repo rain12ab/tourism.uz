@@ -70,8 +70,8 @@ $current_lang_code = common\models\Country::find()->where(['language_code' => Yi
             <?= Html::tag('li', Html::a(Yii::t('app', 'Galereya'), Url::to(['gallery/index'])));?>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['reception/index']);?>"><?= Yii::t('app', 'Virtual qabulxona');?></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to('https://invest.navoitourism.uz');?>"><?= Yii::t('app', 'Investorlarga');?></a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="<?= Url::to(['reception/index']);?>"><?= Yii::t('app', 'Virtual qabulxona');?></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to('https://invest.navoitourism.uz');?>"><?= Yii::t('app', 'Investorlarga');?></a></li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""><img style="width: 35px;height: auto;margin-right: 5px;" src="<?= Yii::$app->request->baseUrl;?>/images/flags/<?= $current_lang_code->language_code;?>.gif"><?= $current_lang->name;?>
           </a>

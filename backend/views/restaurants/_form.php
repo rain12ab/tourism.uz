@@ -39,7 +39,7 @@ use kartik\file\FileInput;
                             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
                         </div>
                         <div class="col-md-4">
-                            <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map(common\models\Hotels::getList(), 'id', 'name'), ['prompt' => 'Turini tanlang', 'style' => 'color: #e14eca;',]);?>
+                            <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map(common\models\Restaurants::getList(), 'id', 'name'), ['prompt' => 'Turini tanlang', 'style' => 'color: #e14eca;',]);?>
                         </div>
                         <div class="col-md-4">
                             <?= $form->field($model, 'district_id')->dropDownList(ArrayHelper::map(common\models\Hotels::getListdistrict(), 'id', 'name'), ['prompt' => 'Joylashuvini tanlang', 'style' => 'color: #e14eca;',]);?>
@@ -110,10 +110,10 @@ use kartik\file\FileInput;
                     </div>
                     <div class="row">
                         <div style="margin: 10px 0;" class="col-md-6">
-                            <?= $form->field($model, 'lat')->input('number') ?>
+                            <?= $form->field($model, 'lat')->textInput(); ?>
                         </div>
                         <div style="margin: 10px 0;" class="col-md-6">
-                            <?= $form->field($model, 'lng')->input('number') ?>
+                            <?= $form->field($model, 'lng')->textInput(); ?>
                         </div>
                     </div>
                     <div class="row">

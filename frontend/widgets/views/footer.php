@@ -20,10 +20,8 @@ use yii\helpers\Url;
               <ul class="list-unstyled">
                 <li><a href="<?= Yii::$app->homeUrl;?>"><?= Yii::t('app', 'Bosh sahifa');?></a></li>
                 <li><a href="<?= Url::to(['about/index']);?>"><?= Yii::t('app', 'Boshqarma haqida');?></a></li>
-                <li><a href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Qonunchilik');?></a></li>
+                <li><a href="<?= Url::to(['laws/index']);?>"><?= Yii::t('app', 'Qonunchilik');?></a></li>
                 <li><a href="<?= Url::to(['news/index']);?>"><?= Yii::t('app', 'Yangiliklar');?></a></li>
-                <li><a href="<?= Url::to(['contacts/index']);?>"><?= Yii::t('app', 'Kontaktlar');?></a></li>
-                <li><a href="<?= Url::to(['site/select']);?>"><?= Yii::t('app', 'Sayyohlarga');?></a></li>
               </ul>
             </div>
           </div>

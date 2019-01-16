@@ -15,6 +15,9 @@ return [
     'modules' => [
         'datecontrol' =>  [
             'class' => 'kartik\datecontrol\Module',
+        ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module',
         ]
     ],
     'components' => [
@@ -26,6 +29,9 @@ return [
                         'language' => 'en',
                         'version' => '3.20',
                     ]
+                ],
+                'kartik\form\ActiveFormAsset' => [
+                    'bsDependencyEnabled' => true // do not load bootstrap assets for a specific asset bundle
                 ],
             ]
         ],

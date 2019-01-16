@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		</a>
 	</div>
 	<div class="col-md-4">
-		<a href="<?= Url::to(['source_message/index']);?>">
+		<a href="<?= Url::to(['source-message/index']);?>">
 			<div id="obj" class="btn card">
 				<div class="card-body">
 					<h4 id="name">Asosiy frazalar</h4>

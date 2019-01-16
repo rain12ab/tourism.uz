@@ -84,7 +84,7 @@ class Restaurants extends \yii\db\ActiveRecord
         return $this->hasOne(Restype::className(), ['id' => 'type_id']);
     }
 
-        public function getList()
+    public function getList()
     {
         if(Yii::$app->language == 'uz')
           {
